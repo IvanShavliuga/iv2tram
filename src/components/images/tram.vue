@@ -332,6 +332,42 @@
           stroke="#ededed"
           stroke-width="0.15"/>
       </g>
+      <g
+        id="numtab"
+        @click="clmove"
+      >
+        <rect
+          id="lnnumber"
+          ref="lnnumber"
+          x="50"
+          y="15"
+          width="8"
+          height="5.20"
+          fill="rgba(34,34,34,0.9)"
+          stroke="#ededed"
+          stroke-width="0.15"
+        />
+        <text
+          x="51"
+          y="19.55"
+          fill="#EDeE36"
+          font-size="5"
+        >
+          {{ linenumber }}
+        </text>
+      </g>
+      <g>
+        <text
+          x="45"
+          y="28.55"
+          fill="#EDede6"
+          font-size="5"
+          font-family="'Leckerli One', cursive"
+          font-weight="bold"
+        >
+          {{ tramid }}
+        </text>
+      </g>
     </g>
   </svg>
 </template>
@@ -347,15 +383,9 @@ export default {
       type: Number,
       default: 0
     },
-    line: {
-      type: Object,
-      default: () => {
-        return {
-          id: 0,
-          start: 'stop 1',
-          end: 'stop N'
-        }
-      }
+    linenumber: {
+      type: Number,
+      default: 0
     },
     stop: {
       type: String,
@@ -367,12 +397,19 @@ export default {
       door: false
     }
   },
+  computed: {
+    tramid () {
+      if (this.id < 10) return '00' + this.id
+      else if (this.id >= 10 && this.id <= 99) return '0' + this.id
+      else return '' + this.id
+    }
+  },
   watch: {
     count () {
       console.log(this.count)
       console.log(this.id)
-      console.log(this.line)
       console.log(this.stop)
+      console.log(this.linenumber)
     }
   },
   methods: {
@@ -394,8 +431,11 @@ export default {
         ease: Back.easeOut
       })
       if (!this.door) this.$emit('enter')
-      else this.$emit('move')
       this.door = !this.door
+    },
+    clmove () {
+      console.log('move')
+      this.$emit('move')
     }
   }
 }
