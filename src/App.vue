@@ -2,15 +2,15 @@
   <div id="app">
     <!-- <img :src="'http://localhost:8080/img/tram.svg'"> -->
     <div>
-      <tram/>
+      <appline/>
     </div>
   </div>
 </template>
 <script>
-import tram from '@/components/images/tram.vue'
+import appline from '@/components/line.vue'
 export default {
   components: {
-    tram
+    appline
   }
 }
 </script>

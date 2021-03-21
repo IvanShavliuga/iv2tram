@@ -297,9 +297,13 @@
           stroke="#eeeeee"
           stroke-width="0.15"/>
       </g>
-      <g id="door">
+      <g
+        id="door"
+        @click="doorclick"
+      >
         <rect
           id="lastdoor"
+          ref="lastdoor"
           x="8.15"
           y="15.15"
           width="9"
@@ -309,6 +313,7 @@
           stroke-width="0.15"/>
         <rect
           id="middledoor"
+          ref="middledoor"
           x="33"
           y="15.15"
           width="9"
@@ -318,6 +323,7 @@
           stroke-width="0.15"/>
         <rect
           id="firstdoor"
+          ref="firstdoor"
           x="58"
           y="15.15"
           width="9"
@@ -326,31 +332,111 @@
           stroke="#ededed"
           stroke-width="0.15"/>
       </g>
-
+      <g
+        id="numtab"
+        @click="clmove"
+      >
+        <rect
+          id="lnnumber"
+          ref="lnnumber"
+          x="50"
+          y="15"
+          width="8"
+          height="5.20"
+          fill="rgba(34,34,34,0.9)"
+          stroke="#ededed"
+          stroke-width="0.15"
+        />
+        <text
+          x="51"
+          y="19.55"
+          fill="#EDeE36"
+          font-size="5"
+        >
+          {{ linenumber }}
+        </text>
+      </g>
+      <g>
+        <text
+          x="45"
+          y="28.55"
+          fill="#EDede6"
+          font-size="5"
+          font-family="'Leckerli One', cursive"
+          font-weight="bold"
+        >
+          {{ tramid }}
+        </text>
+      </g>
     </g>
-    <animate
-      xlink:href="#lastdoor"
-      attributeName="x"
-      from="8.15"
-      to="16.15"
-      dur="0.5s"
-      repeatCount="1"
-      begin="click"/>
-    <animate
-      xlink:href="#middledoor"
-      attributeName="x"
-      from="33"
-      to="41"
-      dur="0.5s"
-      repeatCount="1"
-      begin="click"/>
-    <animate
-      xlink:href="#firstdoor"
-      attributeName="x"
-      from="58"
-      to="50"
-      dur="1s"
-      repeatCount="1"
-      begin="click"/>
   </svg>
 </template>
+<script>
+import { TimelineMax, Back } from 'gsap'
+export default {
+  props: {
+    count: {
+      type: Number,
+      default: 0
+    },
+    id: {
+      type: Number,
+      default: 0
+    },
+    linenumber: {
+      type: Number,
+      default: 0
+    },
+    stop: {
+      type: String,
+      default: ''
+    }
+  },
+  data () {
+    return {
+      door: false
+    }
+  },
+  computed: {
+    tramid () {
+      if (this.id < 10) return '00' + this.id
+      else if (this.id >= 10 && this.id <= 99) return '0' + this.id
+      else return '' + this.id
+    }
+  },
+  watch: {
+    count () {
+      console.log(this.count)
+      console.log(this.id)
+      console.log(this.stop)
+      console.log(this.linenumber)
+    }
+  },
+  methods: {
+    doorclick () {
+      console.log('door')
+      const tl = new TimelineMax()
+      const posX = (this.door) ? (0) : (8.15)
+      tl.to(this.$refs.lastdoor, 0.01, {
+        x: posX,
+        delay: 0.7,
+        ease: Back.easeOut
+      }).to(this.$refs.middledoor, 0.01, {
+        x: posX,
+        delay: 0.7,
+        ease: Back.easeOut
+      }).to(this.$refs.firstdoor, 0.01, {
+        x: posX,
+        delay: 0.7,
+        ease: Back.easeOut
+      })
+      if (!this.door) this.$emit('enter')
+      this.door = !this.door
+    },
+    clmove () {
+      console.log('move')
+      this.$emit('move')
+    }
+  }
+}
+</script>
