@@ -338,9 +338,41 @@
 <script>
 import { TimelineMax, Back } from 'gsap'
 export default {
+  props: {
+    count: {
+      type: Number,
+      default: 0
+    },
+    id: {
+      type: Number,
+      default: 0
+    },
+    line: {
+      type: Object,
+      default: () => {
+        return {
+          id: 0,
+          start: 'stop 1',
+          end: 'stop N'
+        }
+      }
+    },
+    stop: {
+      type: String,
+      default: ''
+    }
+  },
   data () {
     return {
       door: false
+    }
+  },
+  watch: {
+    count () {
+      console.log(this.count)
+      console.log(this.id)
+      console.log(this.line)
+      console.log(this.stop)
     }
   },
   methods: {
@@ -361,6 +393,8 @@ export default {
         delay: 0.7,
         ease: Back.easeOut
       })
+      if (!this.door) this.$emit('enter')
+      else this.$emit('move')
       this.door = !this.door
     }
   }
