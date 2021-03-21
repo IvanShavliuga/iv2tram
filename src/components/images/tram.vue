@@ -2,9 +2,9 @@
   <svg
     xmlns="http://www.w3.org/2000/svg"
     class="tram"
-    viewBox="0 0 100 100"
+    viewBox="0 0 100 50"
     width="200"
-    height="200">
+    height="100">
     <g id="wheels">
       <circle
         cx="19.15"
@@ -367,6 +367,16 @@
         >
           {{ tramid }}
         </text>
+        <text
+          x="10"
+          y="5"
+          fill="#EDede6"
+          font-size="5"
+          font-family="'Leckerli One', cursive"
+          font-weight="bold"
+        >
+          {{ count }} {{ money }}$
+        </text>
       </g>
     </g>
   </svg>
@@ -375,10 +385,6 @@
 import { TimelineMax, Back } from 'gsap'
 export default {
   props: {
-    count: {
-      type: Number,
-      default: 0
-    },
     id: {
       type: Number,
       default: 0
@@ -387,9 +393,17 @@ export default {
       type: Number,
       default: 0
     },
-    stop: {
-      type: String,
-      default: ''
+    idstop: {
+      type: Number,
+      default: 0
+    },
+    count: {
+      type: Number,
+      default: 0
+    },
+    money: {
+      type: Number,
+      default: 0
     }
   },
   data () {
@@ -434,8 +448,10 @@ export default {
       this.door = !this.door
     },
     clmove () {
-      console.log('move')
-      this.$emit('move')
+      if (!this.door) {
+        console.log('move')
+        this.$emit('move')
+      }
     }
   }
 }
