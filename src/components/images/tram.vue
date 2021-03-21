@@ -297,9 +297,13 @@
           stroke="#eeeeee"
           stroke-width="0.15"/>
       </g>
-      <g id="door">
+      <g
+        id="door"
+        @click="doorclick"
+      >
         <rect
           id="lastdoor"
+          ref="lastdoor"
           x="8.15"
           y="15.15"
           width="9"
@@ -309,6 +313,7 @@
           stroke-width="0.15"/>
         <rect
           id="middledoor"
+          ref="middledoor"
           x="33"
           y="15.15"
           width="9"
@@ -318,6 +323,7 @@
           stroke-width="0.15"/>
         <rect
           id="firstdoor"
+          ref="firstdoor"
           x="58"
           y="15.15"
           width="9"
@@ -326,31 +332,37 @@
           stroke="#ededed"
           stroke-width="0.15"/>
       </g>
-
     </g>
-    <animate
-      xlink:href="#lastdoor"
-      attributeName="x"
-      from="8.15"
-      to="16.15"
-      dur="0.5s"
-      repeatCount="1"
-      begin="click"/>
-    <animate
-      xlink:href="#middledoor"
-      attributeName="x"
-      from="33"
-      to="41"
-      dur="0.5s"
-      repeatCount="1"
-      begin="click"/>
-    <animate
-      xlink:href="#firstdoor"
-      attributeName="x"
-      from="58"
-      to="50"
-      dur="1s"
-      repeatCount="1"
-      begin="click"/>
   </svg>
 </template>
+<script>
+import { TimelineMax, Back } from 'gsap'
+export default {
+  data () {
+    return {
+      door: false
+    }
+  },
+  methods: {
+    doorclick () {
+      console.log('door')
+      const tl = new TimelineMax()
+      const posX = (this.door) ? (0) : (8.15)
+      tl.to(this.$refs.lastdoor, 0.01, {
+        x: posX,
+        delay: 0.7,
+        ease: Back.easeOut
+      }).to(this.$refs.middledoor, 0.01, {
+        x: posX,
+        delay: 0.7,
+        ease: Back.easeOut
+      }).to(this.$refs.firstdoor, 0.01, {
+        x: posX,
+        delay: 0.7,
+        ease: Back.easeOut
+      })
+      this.door = !this.door
+    }
+  }
+}
+</script>
