@@ -2,6 +2,7 @@
   <div class="line">
     <div
       ref="tram"
+      :style="'left:' + (gettrampos * 120) + 'px'"
       class="line__tram"
     >
       <tram
@@ -17,9 +18,9 @@
       />
     </div>
     <div
-      v-for="(s,k) in line.way"
+      v-for="(s,k) in getcurrstop"
       :key="k"
-      :style="'left:' + s.left + 'px'"
+      :style="'left:' + (k * 120) + 'px'"
       class="line__stop"
     >
       <stop
@@ -34,7 +35,6 @@
 <script>
 import tram from './images/tram.vue'
 import stop from './images/stop.vue'
-import { TimelineMax, Back } from 'gsap'
 
 export default {
   components: {
@@ -254,6 +254,19 @@ export default {
     }
   },
   computed: {
+    gettrampos () {
+      const l = this.line.way.length - 1
+      const p = this.line.position
+      return (!p) ? (0) : ((p < l) ? 1 : 2)
+    },
+    getcurrstop () {
+      const l = this.line.way.length - 1
+      const p = this.line.position
+      const prev = this.line.way[(!p) ? 0 : (p - 1)]
+      const curr = this.line.way[(!p) ? 1 : (p)]
+      const next = this.line.way[(p < l) ? (p + 1) : l]
+      return [prev, curr, next]
+    },
     getmoney () {
       let countps = 0
       const pfl = this.pass.filter((el) => {
@@ -303,12 +316,6 @@ export default {
       if (this.line.position < this.line.way.length - 1) {
         this.line.position++
         this.stop = this.line.way[this.line.position].name
-        const tl = new TimelineMax()
-        tl.to(this.$refs.tram, 0.01, {
-          left: this.line.way[this.line.position].left,
-          delay: 0.3,
-          ease: Back.easeOut
-        })
       }
     },
     genstopspass () {
