@@ -34,14 +34,15 @@
       stroke="#343434"
       stroke-width="0.15"/>
     <text
-      x="25"
-      y="15"
-      fill="#323232"
-      font-size="5"
+      v-if="active"
+      x="10"
+      y="25"
+      fill="#9e9e25"
+      font-size="7"
       font-family="'Leckerli One', cursive"
       font-weight="bold"
     >
-      {{ count }}
+      {{ countIn }} | {{ countOut }}
     </text>
   </svg>
 </template>
@@ -56,7 +57,11 @@ export default {
       type: Boolean,
       default: false
     },
-    count: {
+    countIn: {
+      type: Number,
+      default: 0
+    },
+    countOut: {
       type: Number,
       default: 0
     }
