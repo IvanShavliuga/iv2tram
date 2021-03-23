@@ -3,7 +3,7 @@
     xmlns="http://www.w3.org/2000/svg"
     class="tram"
     viewBox="0 0 100 50"
-    width="200"
+    width="150"
     height="100">
     <g id="wheels">
       <circle
@@ -77,7 +77,8 @@
         height="20"
         fill="#eeeeee"
         stroke="#343434"
-        stroke-width="0.15"/>
+        stroke-width="0.15"
+        @click="clmove"/>
       <rect
         x="5.15"
         y="24"
@@ -85,7 +86,8 @@
         height="5"
         fill="#ee8956"
         stroke="#ee8956"
-        stroke-width="0.15"/>
+        stroke-width="0.15"
+        @click="clmove"/>
       <g id="armcharms">
         <rect
           x="17.15"
@@ -371,7 +373,7 @@
           x="10"
           y="5"
           fill="#EDede6"
-          font-size="5"
+          font-size="10"
           font-family="'Leckerli One', cursive"
           font-weight="bold"
         >
