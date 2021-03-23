@@ -3,8 +3,8 @@
     xmlns="http://www.w3.org/2000/svg"
     class="tram"
     viewBox="0 0 100 50"
-    width="150"
-    height="70">
+    width="250"
+    height="150">
     <rect
       v-for="ln in 10"
       :key="ln"
