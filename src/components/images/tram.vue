@@ -77,7 +77,8 @@
         height="20"
         fill="#eeeeee"
         stroke="#343434"
-        stroke-width="0.15"/>
+        stroke-width="0.15"
+        @click="clmove"/>
       <rect
         x="5.15"
         y="24"
@@ -85,7 +86,8 @@
         height="5"
         fill="#ee8956"
         stroke="#ee8956"
-        stroke-width="0.15"/>
+        stroke-width="0.15"
+        @click="clmove"/>
       <g id="armcharms">
         <rect
           x="17.15"

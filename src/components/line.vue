@@ -49,6 +49,7 @@ export default {
       idout: 0,
       idin: 0,
       currmoney: 0,
+      moved: true,
       line: {
         number: 1,
         position: 0,
@@ -264,7 +265,7 @@ export default {
       const p = this.line.position
       const prev = this.line.way[(!p) ? 0 : (p - 1)]
       const curr = this.line.way[(!p) ? 1 : (p)]
-      const next = this.line.way[(p < l) ? (p + 1) : l]
+      const next = this.line.way[(!p) ? (2) : ((p < l) ? (p + 1) : l)]
       return [prev, curr, next]
     },
     getmoney () {
@@ -313,9 +314,11 @@ export default {
       this.currmoney += this.getmoney
     },
     move () {
-      if (this.line.position < this.line.way.length - 1) {
+      if (this.moved && this.line.position < this.line.way.length - 1) {
         this.line.position++
         this.stop = this.line.way[this.line.position].name
+      } else {
+        this.moved = false
       }
     },
     genstopspass () {
