@@ -3,8 +3,8 @@
     xmlns="http://www.w3.org/2000/svg"
     class="tram"
     viewBox="0 0 100 50"
-    width="150"
-    height="100">
+    width="250"
+    height="150">
     <g id="wheels">
       <circle
         cx="19.15"
@@ -373,11 +373,21 @@
           x="10"
           y="5"
           fill="#EDede6"
-          font-size="10"
+          font-size="5"
           font-family="'Leckerli One', cursive"
           font-weight="bold"
         >
-          {{ count }} {{ money }}$
+          {{ count }}
+        </text>
+        <text
+          x="10"
+          y="10"
+          fill="#EDede6"
+          font-size="5"
+          font-family="'Leckerli One', cursive"
+          font-weight="bold"
+        >
+          {{ filterprice }}$
         </text>
       </g>
     </g>
@@ -414,6 +424,12 @@ export default {
     }
   },
   computed: {
+    filterprice () {
+      if (!this.money) return '0.0'
+      const el = ('' + this.money).split('.')
+      const dr = el[1].slice(0, 2)
+      return el[0] + '.' + dr
+    },
     tramid () {
       if (this.id < 10) return '00' + this.id
       else if (this.id >= 10 && this.id <= 99) return '0' + this.id

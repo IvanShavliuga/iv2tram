@@ -2,7 +2,7 @@
   <div class="line">
     <div
       ref="tram"
-      :style="'left:' + (gettrampos * 120) + 'px'"
+      :style="'left:' + (gettrampos * 220) + 'px'"
       class="line__tram"
     >
       <tram
@@ -20,7 +20,7 @@
     <div
       v-for="(s,k) in getcurrstop"
       :key="k"
-      :style="'left:' + (k * 120) + 'px'"
+      :style="'left:' + (k * 220) + 'px'"
       class="line__stop"
     >
       <stop
@@ -349,6 +349,8 @@ export default {
 <style scoped>
 .line {
   position: relative;
+  width: 500px;
+  margin: 45px auto;
 }
 .line__tram {
   position: absolute;
@@ -357,7 +359,7 @@ export default {
 }
 .line__stop {
   position: absolute;
-  top: 70px;
+  top: 100px;
   left: 0;
 }
 .list {
