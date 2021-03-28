@@ -88,49 +88,6 @@
         stroke="#ee8956"
         stroke-width="0.15"
         @click="clmove"/>
-      <g id="armcharms">
-        <rect
-          x="17.15"
-          y="22"
-          width="2"
-          height="2"
-          fill="#252525"
-          stroke="#ee8956"
-          stroke-width="0.15"/>
-        <rect
-          x="24.75"
-          y="22"
-          width="2"
-          height="2"
-          fill="#252525"
-          stroke="#ee8956"
-          stroke-width="0.15"/>
-        <rect
-          x="42.15"
-          y="22"
-          width="2"
-          height="2"
-          fill="#252525"
-          stroke="#ee8956"
-          stroke-width="0.15"/>
-        <rect
-          x="49.75"
-          y="22"
-          width="2"
-          height="2"
-          fill="#252525"
-          stroke="#ee8956"
-          stroke-width="0.15"/>
-        <rect
-          x="67.15"
-          y="22"
-          width="2"
-          height="2"
-          fill="#252525"
-          stroke="#ee8956"
-          stroke-width="0.15"/>
-      </g>
-
       <g id="windows">
         <rect
           x="5"
@@ -225,15 +182,188 @@
           stroke="#ededed"
           stroke-width="0.15"/>
       </g>
+      <g id="armcharms">
+        <g ref="lastarm">
+          <rect
+            x="8.15"
+            y="22"
+            width="2"
+            height="4"
+            fill="#252525"
+            stroke="#252525"
+            stroke-width="0.15"/>
+          <rect
+            x="8.15"
+            y="26"
+            width="6"
+            height="1"
+            fill="#252525"
+            stroke="#252525"
+            stroke-width="0.15"/>
+          <rect
+            x="10.15"
+            y="27"
+            width="2"
+            height="2"
+            fill="#252525"
+            stroke="#252525"
+            stroke-width="0.15"/>
+          <rect
+            x="17.15"
+            y="22"
+            width="2"
+            height="2"
+            fill="#252525"
+            stroke="#ee8956"
+            stroke-width="0.15"/>
+          <g ref="lastpass">
+            <circle
+              cx="11.15"
+              cy="20"
+              r="1.3"
+              fill="#404040"
+              stroke="#404040"
+              stroke-width="0.15"
+            />
+            <rect
+              x="9.55"
+              y="21.3"
+              width="1.88"
+              height="4.5"
+              fill="#404040"
+              stroke="#404040"
+              stroke-width="0.15"
+            />
+            <rect
+              x="11.05"
+              y="24.5"
+              width="3.28"
+              height="1.4"
+              fill="#404040"
+              stroke="#404040"
+              stroke-width="0.15"
+            />
+            <rect
+              x="14.55"
+              y="24.5"
+              width="1.88"
+              height="4.5"
+              fill="#404040"
+              stroke="#404040"
+              stroke-width="0.15"
+            />
+          </g>
+        </g>
+        <g ref="middlearm">
+          <rect
+            x="33"
+            y="22"
+            width="2"
+            height="4"
+            fill="#252525"
+            stroke="#252525"
+            stroke-width="0.15"/>
+          <rect
+            x="33"
+            y="26"
+            width="6"
+            height="1"
+            fill="#252525"
+            stroke="#252525"
+            stroke-width="0.15"/>
+          <rect
+            x="35"
+            y="27"
+            width="2"
+            height="2"
+            fill="#252525"
+            stroke="#252525"
+            stroke-width="0.15"/>
+          <rect
+            x="33"
+            y="22"
+            width="2"
+            height="2"
+            fill="#252525"
+            stroke="#ee8956"
+            stroke-width="0.15"/>
+        </g>
+        <g ref="firstarm">
+          <rect
+            x="58"
+            y="22"
+            width="2"
+            height="4"
+            fill="#252525"
+            stroke="#252525"
+            stroke-width="0.15"/>
+          <rect
+            x="58"
+            y="26"
+            width="6"
+            height="1"
+            fill="#252525"
+            stroke="#252525"
+            stroke-width="0.15"/>
+          <rect
+            x="60"
+            y="27"
+            width="2"
+            height="2"
+            fill="#252525"
+            stroke="#252525"
+            stroke-width="0.15"/>
+          <rect
+            x="58"
+            y="22"
+            width="2"
+            height="2"
+            fill="#252525"
+            stroke="#ee8956"
+            stroke-width="0.15"/>
+        </g>
+        <rect
+          x="24.75"
+          y="22"
+          width="2"
+          height="2"
+          fill="#252525"
+          stroke="#ee8956"
+          stroke-width="0.15"/>
+        <rect
+          x="42.15"
+          y="22"
+          width="2"
+          height="2"
+          fill="#252525"
+          stroke="#ee8956"
+          stroke-width="0.15"/>
+        <rect
+          x="49.75"
+          y="22"
+          width="2"
+          height="2"
+          fill="#252525"
+          stroke="#ee8956"
+          stroke-width="0.15"/>
+        <rect
+          x="67.15"
+          y="22"
+          width="2"
+          height="2"
+          fill="#252525"
+          stroke="#ee8956"
+          stroke-width="0.15"/>
+      </g>
       <g id="enter">
-        <rect
+        <!-- <rect
           x="8.15"
           y="24"
           width="9"
           height="5"
           fill="#aaaaaa"
           stroke="#999999"
-          stroke-width="0.15"/>
+          stroke-width="0.15"/> -->
         <rect
           x="8.15"
           y="29"
@@ -250,14 +380,14 @@
           fill="#222222"
           stroke="#eeeeee"
           stroke-width="0.15"/>
-        <rect
+        <!-- <rect
           x="33"
           y="24"
           width="9"
           height="5"
           fill="#aaaaaa"
           stroke="#999999"
-          stroke-width="0.15"/>
+          stroke-width="0.15"/> -->
         <rect
           x="33"
           y="29"
@@ -274,14 +404,14 @@
           fill="#222222"
           stroke="#eeeeee"
           stroke-width="0.15"/>
-        <rect
+        <!-- <rect
           x="58"
           y="24"
           width="9"
           height="5"
           fill="#aaaaaa"
           stroke="#999999"
-          stroke-width="0.15"/>
+          stroke-width="0.15"/> -->
         <rect
           x="58"
           y="29"
@@ -395,7 +525,11 @@
 </template>
 <script>
 import { TimelineMax, Back } from 'gsap'
+import passunit from './passunit.vue'
 export default {
+  components: {
+    passunit
+  },
   props: {
     id: {
       type: Number,
