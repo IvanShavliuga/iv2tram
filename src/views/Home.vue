@@ -2,14 +2,17 @@
 <template>
   <div class="board">
     <appline/>
+    <appway/>
   </div>
 </template>
 
 <script>
 import appline from '../components/line.vue'
+import appway from '../components/way.vue'
 export default {
   components: {
-    appline
+    appline,
+    appway
   }
 }
 </script>
