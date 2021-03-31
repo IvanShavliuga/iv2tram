@@ -221,8 +221,8 @@
               cx="11.15"
               cy="20"
               r="1.3"
-              fill="#404040"
-              stroke="#404040"
+              fill="#303030"
+              stroke="#303030"
               stroke-width="0.15"
             />
             <rect
@@ -230,8 +230,8 @@
               y="21.3"
               width="1.88"
               height="4.5"
-              fill="#404040"
-              stroke="#404040"
+              fill="#303030"
+              stroke="#303030"
               stroke-width="0.15"
             />
             <rect
@@ -239,8 +239,8 @@
               y="24.5"
               width="3.28"
               height="1.4"
-              fill="#404040"
-              stroke="#404040"
+              fill="#303030"
+              stroke="#303030"
               stroke-width="0.15"
             />
             <rect
@@ -248,8 +248,8 @@
               y="24.5"
               width="1.88"
               height="4.5"
-              fill="#404040"
-              stroke="#404040"
+              fill="#303030"
+              stroke="#303030"
               stroke-width="0.15"
             />
           </g>
@@ -292,8 +292,8 @@
               cx="36"
               cy="20"
               r="1.3"
-              fill="#404040"
-              stroke="#404040"
+              fill="#303030"
+              stroke="#303030"
               stroke-width="0.15"
             />
             <rect
@@ -301,8 +301,8 @@
               y="21.3"
               width="1.88"
               height="4.5"
-              fill="#404040"
-              stroke="#404040"
+              fill="#303030"
+              stroke="#303030"
               stroke-width="0.15"
             />
             <rect
@@ -310,8 +310,8 @@
               y="24.5"
               width="3.28"
               height="1.4"
-              fill="#404040"
-              stroke="#404040"
+              fill="#303030"
+              stroke="#303030"
               stroke-width="0.15"
             />
             <rect
@@ -319,8 +319,8 @@
               y="24.5"
               width="1.88"
               height="4.5"
-              fill="#404040"
-              stroke="#404040"
+              fill="#303030"
+              stroke="#303030"
               stroke-width="0.15"
             />
           </g>
@@ -363,8 +363,8 @@
               cx="61.15"
               cy="20"
               r="1.3"
-              fill="#404040"
-              stroke="#404040"
+              fill="#303030"
+              stroke="#303030"
               stroke-width="0.15"
             />
             <rect
@@ -372,8 +372,8 @@
               y="21.3"
               width="1.88"
               height="4.5"
-              fill="#404040"
-              stroke="#404040"
+              fill="#303030"
+              stroke="#303030"
               stroke-width="0.15"
             />
             <rect
@@ -381,8 +381,8 @@
               y="24.5"
               width="3.28"
               height="1.4"
-              fill="#404040"
-              stroke="#404040"
+              fill="#303030"
+              stroke="#303030"
               stroke-width="0.15"
             />
             <rect
@@ -390,8 +390,8 @@
               y="24.5"
               width="1.88"
               height="4.5"
-              fill="#404040"
-              stroke="#404040"
+              fill="#303030"
+              stroke="#303030"
               stroke-width="0.15"
             />
           </g>

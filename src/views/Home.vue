@@ -1,8 +1,12 @@
 <!-- Use preprocessors via the lang attribute! e.g. <template lang="pug"> -->
 <template>
-  <div class="board">
-    <appline/>
-    <appway/>
+  <div>
+    <div class="tramline">
+      <appline/>
+    </div>
+    <div class="map">
+      <appway/>
+    </div>
   </div>
 </template>
 
@@ -19,12 +23,19 @@ export default {
 
 <!-- Use preprocessors via the lang attribute! e.g. <style lang="scss"> -->
 <style>
-.board {
+.tramline {
   position: relative;
-  width: 80%;
-  height: 100vh;
-  margin: 25px auto;
-  border: 1px dashed #a759b9;
+  width: 100vw;
+  height: 70vh;
+  margin: 0;
   background: #999999;
+}
+.map {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 50px 25px;
+  background: #f0f0f0;
+  border: 1px dotted blackk
 }
 </style>

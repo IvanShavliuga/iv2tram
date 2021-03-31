@@ -1,8 +1,12 @@
 <template>
-  <div class="line">
+  <div
+    ref="lineref"
+    class="line"
+    @resize="rsize"
+  >
     <div
       ref="tram"
-      :style="'left:' + (gettrampos * 220) + 'px'"
+      :style="'left:' + (gettrampos * 220 + 50) + 'px'"
       class="line__tram"
     >
       <tram
@@ -20,7 +24,8 @@
     <div
       v-for="(s,k) in getcurrstop"
       :key="k"
-      :style="'left:' + (k * 220) + 'px'"
+      :id="'stop_'+(k+1)"
+      :style="'left:' + (k * 220 + 50) + 'px'"
       class="line__stop"
     >
       <stop
@@ -47,16 +52,16 @@ export default {
   data () {
     return {
       passCount: 0,
-      stop: 'Олимпийская',
       id: 1,
       idout: 0,
       idin: 0,
       currmoney: 0,
-      moved: true
+      moved: true,
+      cwidth: 800
     }
   },
   computed: {
-    ...mapGetters(['line']),
+    ...mapGetters(['line', 'stop']),
     gettrampos () {
       const l = this.line.way.length - 1
       const p = this.line.position
@@ -110,18 +115,16 @@ export default {
     }
   },
   methods: {
+    rsize () {
+      this.cwidth = window.clientWidth
+    },
     getpass () {
       this.passCount -= this.getoutpass
       this.passCount += this.getinpass
       this.currmoney += this.getmoney
     },
     move () {
-      if (this.moved && this.line.position < this.line.way.length - 1) {
-        this.line.position++
-        this.stop = this.line.way[this.line.position].name
-      } else {
-        this.moved = false
-      }
+      this.$store.dispatch('moveTram')
     },
     genstopspass () {
       this.pass = []
@@ -151,17 +154,17 @@ export default {
 <style scoped>
 .line {
   position: relative;
-  width: 500px;
-  margin: 45px auto;
+  width: 90vw;
+  margin: 0;
 }
 .line__tram {
   position: absolute;
-  top: 0;
+  top: 37px;
   left: 0;
 }
 .line__stop {
   position: absolute;
-  top: 100px;
+  top: 125px;
   left: 0;
 }
 .list {
@@ -179,12 +182,21 @@ ul {
   margin: 0;
   padding: 15px;
 }
-.map {
-  position: absolute;
-  top: 120px;
-  left: 0;
-  width: 800px;
-  height: 800px;
-  border: 1px dotted #de2020;
+@media (max-width: 720px) {
+  .line {
+    transform: scale(0.8);
+    margin-left: -50px;
+  }
+}
+@media (max-width: 560px) {
+  .line {
+    transform: scale(0.6);
+    margin-left: -50px;
+  }
+}
+@media (max-width: 470px) {
+  .line {
+    margin-left: -100px;
+  }
 }
 </style>

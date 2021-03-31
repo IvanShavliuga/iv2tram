@@ -5,30 +5,38 @@
     width="800"
     height="800"
     fill="#999999">
-    <g ref="way">
+    <g
+      v-for="(p, k) in line.way"
+      :key="k"
+    >
+      <line
+        v-for="(v, k1) in p.vectors"
+        :key="k1"
+        :x1="(p.x + v.x)*3+20"
+        :y1="(p.y + v.y)*3+20"
+        :x2="p.x*3+20"
+        :y2="p.y*3+20"
+        r="2.5"
+        stroke="#222222"
+        fill="#222222"
+        stroke-width="0.5"
+      />
       <circle
-        v-for="(p, k) in lineWay"
-        :key="k"
-        :сx="p.left / 5 + 500"
-        :cy="p.top / 5"
-        r="5"
-        stroke="#df42df"
-        fill="#df42df"
+        :cx="p.x*3+20"
+        :cy="p.y*3+20"
+        :stroke="(line.position === p.id)?'#df42df':'#222222'"
+        :fill="(line.position === p.id)?'#df42df':'#222222'"
+        r="2.5"
         stroke-width="0.5"
       />
     </g>
   </svg>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  props: {
-    lineWay: {
-      type: Array,
-      default: () => []
-    }
-  },
-  created () {
-    console.log(this.lineWay)
+  computed: {
+    ...mapGetters(['line'])
   }
 }
 </script>
