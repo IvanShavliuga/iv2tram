@@ -221,8 +221,8 @@
               cx="11.15"
               cy="20"
               r="1.3"
-              fill="#404040"
-              stroke="#404040"
+              fill="#303030"
+              stroke="#303030"
               stroke-width="0.15"
             />
             <rect
@@ -230,8 +230,8 @@
               y="21.3"
               width="1.88"
               height="4.5"
-              fill="#404040"
-              stroke="#404040"
+              fill="#303030"
+              stroke="#303030"
               stroke-width="0.15"
             />
             <rect
@@ -239,8 +239,8 @@
               y="24.5"
               width="3.28"
               height="1.4"
-              fill="#404040"
-              stroke="#404040"
+              fill="#303030"
+              stroke="#303030"
               stroke-width="0.15"
             />
             <rect
@@ -248,8 +248,8 @@
               y="24.5"
               width="1.88"
               height="4.5"
-              fill="#404040"
-              stroke="#404040"
+              fill="#303030"
+              stroke="#303030"
               stroke-width="0.15"
             />
           </g>
@@ -287,6 +287,43 @@
             fill="#252525"
             stroke="#ee8956"
             stroke-width="0.15"/>
+          <g ref="middlepass">
+            <circle
+              cx="36"
+              cy="20"
+              r="1.3"
+              fill="#303030"
+              stroke="#303030"
+              stroke-width="0.15"
+            />
+            <rect
+              x="34.55"
+              y="21.3"
+              width="1.88"
+              height="4.5"
+              fill="#303030"
+              stroke="#303030"
+              stroke-width="0.15"
+            />
+            <rect
+              x="36.05"
+              y="24.5"
+              width="3.28"
+              height="1.4"
+              fill="#303030"
+              stroke="#303030"
+              stroke-width="0.15"
+            />
+            <rect
+              x="39.55"
+              y="24.5"
+              width="1.88"
+              height="4.5"
+              fill="#303030"
+              stroke="#303030"
+              stroke-width="0.15"
+            />
+          </g>
         </g>
         <g ref="firstarm">
           <rect
@@ -321,6 +358,43 @@
             fill="#252525"
             stroke="#ee8956"
             stroke-width="0.15"/>
+          <g ref="firstpass">
+            <circle
+              cx="61.15"
+              cy="20"
+              r="1.3"
+              fill="#303030"
+              stroke="#303030"
+              stroke-width="0.15"
+            />
+            <rect
+              x="59.55"
+              y="21.3"
+              width="1.88"
+              height="4.5"
+              fill="#303030"
+              stroke="#303030"
+              stroke-width="0.15"
+            />
+            <rect
+              x="61.05"
+              y="24.5"
+              width="3.28"
+              height="1.4"
+              fill="#303030"
+              stroke="#303030"
+              stroke-width="0.15"
+            />
+            <rect
+              x="64.55"
+              y="24.5"
+              width="1.88"
+              height="4.5"
+              fill="#303030"
+              stroke="#303030"
+              stroke-width="0.15"
+            />
+          </g>
         </g>
         <rect
           x="24.75"
@@ -568,14 +642,6 @@ export default {
       if (this.id < 10) return '00' + this.id
       else if (this.id >= 10 && this.id <= 99) return '0' + this.id
       else return '' + this.id
-    }
-  },
-  watch: {
-    count () {
-      console.log(this.count)
-      console.log(this.id)
-      console.log(this.stop)
-      console.log(this.linenumber)
     }
   },
   methods: {

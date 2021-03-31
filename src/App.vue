@@ -11,13 +11,19 @@
 <style>
 body,
 html {
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 body{
-  background: #212121;
+  background: #999999;
 }
 #app {
-  height: 100%;
-  color: #0c0c0c;
+  height: 100vh;
+  width: 100vw;
+  color: #999999;
 }
+
 </style>

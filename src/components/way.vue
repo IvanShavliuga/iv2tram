@@ -1,0 +1,49 @@
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 800 800"
+    width="800"
+    height="800"
+    fill="#999999">
+    <g
+      v-for="(p, k) in line.way"
+      :key="k"
+    >
+      <line
+        v-for="(v, k1) in p.vectors"
+        :key="k1"
+        :x1="(p.x + v.x)*3+20"
+        :y1="(p.y + v.y)*3+20"
+        :x2="p.x*3+20"
+        :y2="p.y*3+20"
+        r="2.5"
+        stroke="#222222"
+        fill="#222222"
+        stroke-width="0.5"
+      />
+      <circle
+        :cx="p.x*3+20"
+        :cy="p.y*3+20"
+        :stroke="(findactive(p.id)>=0)?'#df42df':'#222222'"
+        :fill="(findactive(p.id)>=0)?'#df42df':'#222222'"
+        r="2.5"
+        stroke-width="0.5"
+      />
+    </g>
+  </svg>
+</template>
+<script>
+import { mapGetters } from 'vuex'
+export default {
+  computed: {
+    ...mapGetters(['line'])
+  },
+  methods: {
+    findactive (id) {
+      return this.line.position.findIndex((el) => {
+        return el.idstop === id
+      })
+    }
+  }
+}
+</script>
