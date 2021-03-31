@@ -24,8 +24,8 @@
       <circle
         :cx="p.x*3+20"
         :cy="p.y*3+20"
-        :stroke="(line.position === p.id)?'#df42df':'#222222'"
-        :fill="(line.position === p.id)?'#df42df':'#222222'"
+        :stroke="(findactive(p.id)>=0)?'#df42df':'#222222'"
+        :fill="(findactive(p.id)>=0)?'#df42df':'#222222'"
         r="2.5"
         stroke-width="0.5"
       />
@@ -37,6 +37,13 @@ import { mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters(['line'])
+  },
+  methods: {
+    findactive (id) {
+      return this.line.position.findIndex((el) => {
+        return el.idstop === id
+      })
+    }
   }
 }
 </script>

@@ -315,6 +315,27 @@ export default new Vuex.Store({
       state.trams[trmid].count += inps
       if (state.trams[trmid].count >= state.trams[trmid].max) state.trams[trmid].count = state.trams[trmid].max
       state.trams[trmid].money += outps * 0.2
+      if (!state.line.position.length) {
+        state.line.position.push({
+          idtram: state.trams[trmid].id,
+          idstop: state.trams[trmid].idstop,
+          count: state.trams[trmid].count
+        })
+      } else {
+        const id = state.line.position.findIndex((el) => {
+          return el.idtram === state.trams[trmid].id
+        })
+        if (id >= 0) {
+          state.line.position[id].idstop = state.trams[trmid].idstop
+          state.line.position[id].count = state.trams[trmid].count
+        } else {
+          state.line.position.push({
+            idtram: state.trams[trmid].id,
+            idstop: state.trams[trmid].idstop,
+            count: state.trams[trmid].count
+          })
+        }
+      }
     }
   },
   actions: {
