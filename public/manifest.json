@@ -3,12 +3,12 @@
   "short_name": "vuemp3player",
   "icons": [
     {
-      "src": "./img/icons/iv2-128x128.png",
+      "src": "./img/icons/iv2tram-128x128.png",
       "sizes": "128x128",
       "type": "image/png"
     },
     {
-      "src": "./img/icons/iv2-512x512.png",
+      "src": "./img/icons/iv2tram-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
