@@ -268,8 +268,8 @@ export default new Vuex.Store({
   },
   mutations: {
     MOVE_TRAM (state) {
-      console.log('move tram')
       if (state.line.moved && state.line.position < state.line.way.length - 1) {
+        console.log('move tram')
         state.line.position++
         state.currstop = state.line.way[state.line.position].name
       } else {

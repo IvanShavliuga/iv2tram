@@ -71,8 +71,8 @@ export default {
       const l = this.line.way.length - 1
       const p = this.line.position
       const prev = this.line.way[(!p) ? 0 : (p - 1)]
-      const curr = this.line.way[(!p) ? 1 : (p)]
-      const next = this.line.way[(!p) ? (2) : ((p < l) ? (p + 1) : l)]
+      const curr = this.line.way[(!p) ? 1 : ((p <= l - 1) ? (p) : l - 1)]
+      const next = this.line.way[(!p) ? (2) : ((p < l - 1) ? (p + 1) : l)]
       return [prev, curr, next]
     },
     getmoney () {
