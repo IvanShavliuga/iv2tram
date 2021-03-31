@@ -10,13 +10,12 @@
       class="line__tram"
     >
       <tram
-        :id="id"
-        :linenumber="line.number"
-        :idstop="id"
-        :idin="getinpass"
-        :idout="getoutpass"
-        :count="passCount"
-        :money="currmoney"
+        :id="currtram.id"
+        :linenumber="currtram.idline"
+        :idstop="currtram.idstop"
+        :count="currtram.count"
+        :money="currtram.money"
+        :max="currtram.max"
         @enter="getpass"
         @move="move"
       />
@@ -57,19 +56,35 @@ export default {
       idin: 0,
       currmoney: 0,
       moved: true,
-      cwidth: 800
+      cwidth: 800,
+      lnnumber: 1,
+      tramid: 1
     }
   },
   computed: {
-    ...mapGetters(['line', 'stop']),
+    ...mapGetters(['line', 'stop', 'tramsline']),
+    trams () {
+      return this.tramsline(this.lnnumber)
+    },
+    currtram () {
+      const trm = this.tramsline(this.lnnumber)
+      const ind = trm.findIndex((el) => {
+        return this.tramid === el.id
+      })
+      return trm[ind]
+    },
     gettrampos () {
       const l = this.line.way.length - 1
-      const p = this.line.position
+      const p = this.currtram.idstop
+      console.log('GTP')
+      console.log(l, p)
       return (!p) ? (0) : ((p < l) ? 1 : 2)
     },
     getcurrstop () {
       const l = this.line.way.length - 1
-      const p = this.line.position
+      const p = this.currtram.idstop
+      console.log('GCS')
+      console.log(l, p)
       const prev = this.line.way[(!p) ? 0 : (p - 1)]
       const curr = this.line.way[(!p) ? 1 : ((p <= l - 1) ? (p) : l - 1)]
       const next = this.line.way[(!p) ? (2) : ((p < l - 1) ? (p + 1) : l)]
@@ -88,13 +103,13 @@ export default {
     },
     getpassstop () {
       return this.line.pass.filter((el) => {
-        return el.instop === this.line.position
+        return el.instop === this.currtram.idstop
       })
     },
     getinpass () {
       let countps = 0
       const pfl = this.line.pass.filter((el) => {
-        return el.instop === this.line.position
+        return el.instop === this.currtram.idstop
       })
       for (let el of pfl) {
         countps += el.count
@@ -105,7 +120,7 @@ export default {
     getoutpass () {
       let countps = 0
       const pfl = this.line.pass.filter((el) => {
-        return el.outstop === this.line.position
+        return el.outstop === this.currtram.idstop
       })
       for (let el of pfl) {
         countps += el.count
@@ -119,12 +134,16 @@ export default {
       this.cwidth = window.clientWidth
     },
     getpass () {
-      this.passCount -= this.getoutpass
-      this.passCount += this.getinpass
-      this.currmoney += this.getmoney
+      this.$store.dispatch('enterTram', {
+        lineid: this.lnnumber,
+        id: this.currtram.id
+      })
     },
     move () {
-      this.$store.dispatch('moveTram')
+      this.$store.dispatch('moveTram', {
+        lineid: this.lnnumber,
+        id: this.currtram.id
+      })
     },
     genstopspass () {
       this.pass = []

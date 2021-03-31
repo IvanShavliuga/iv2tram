@@ -644,14 +644,6 @@ export default {
       else return '' + this.id
     }
   },
-  watch: {
-    count () {
-      console.log(this.count)
-      console.log(this.id)
-      console.log(this.stop)
-      console.log(this.linenumber)
-    }
-  },
   methods: {
     doorclick () {
       console.log('door')

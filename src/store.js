@@ -6,10 +6,21 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     currstop: null,
+    trams: [{
+      id: 1,
+      model: 'KTM5',
+      max: 120,
+      sections: 1,
+      idline: 1,
+      count: 0,
+      money: 0,
+      idstop: 0,
+      moved: true
+    }],
     line: {
       moved: true,
       number: 1,
-      position: 0,
+      position: [],
       way: [{
         y: 60,
         x: 50,
@@ -267,23 +278,60 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    MOVE_TRAM (state) {
-      if (state.line.moved && state.line.position < state.line.way.length - 1) {
+    MOVE_TRAM (state, obj) {
+      console.log('MVT')
+      console.log(obj)
+      const trmid = state.trams.findIndex((el) => {
+        return el.id === obj.id
+      })
+      console.log(trmid)
+      if (state.trams[trmid].moved && state.trams[trmid].idstop < state.line.way.length - 1) {
         console.log('move tram')
-        state.line.position++
-        state.currstop = state.line.way[state.line.position].name
+        state.trams[trmid].idstop++
+        state.currstop = state.line.way[state.trams[trmid].idstop].name
       } else {
-        state.line.moved = false
+        state.trams[trmid].moved = false
       }
+    },
+    ENTER_TRAM (state, obj) {
+      let inps = 0
+      const trmid = state.trams.findIndex((el) => {
+        return el.id === obj.id
+      })
+      const inpfl = state.line.pass.filter((el) => {
+        return el.instop === state.trams[trmid].idstop
+      })
+      for (let el of inpfl) {
+        inps += el.count
+      }
+      let outps = 0
+      const outpfl = state.line.pass.filter((el) => {
+        return el.outstop === state.trams[trmid].idstop
+      })
+      for (let el of outpfl) {
+        outps += el.count
+      }
+      state.trams[trmid].count -= outps
+      state.trams[trmid].count += inps
+      if (state.trams[trmid].count >= state.trams[trmid].max) state.trams[trmid].count = state.trams[trmid].max
+      state.trams[trmid].money += outps * 0.2
     }
   },
   actions: {
-    moveTram ({ commit }) {
-      commit('MOVE_TRAM')
+    moveTram ({ commit }, obj) {
+      commit('MOVE_TRAM', obj)
+    },
+    enterTram ({ commit }, obj) {
+      commit('ENTER_TRAM', obj)
     }
   },
   getters: {
     line: state => state.line,
-    stop: state => state.currstop
+    stop: state => state.currstop,
+    tramsline: state => (idline) => {
+      return state.trams.filter((t) => {
+        return t.idline === idline
+      })
+    }
   }
 })
