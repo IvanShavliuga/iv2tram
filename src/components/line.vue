@@ -203,18 +203,25 @@ ul {
 }
 @media (max-width: 720px) {
   .line {
-    transform: scale(0.8);
-    margin-left: -50px;
+    transform: scaleX(0.9);
+    margin-left: -70px;
   }
 }
 @media (max-width: 560px) {
   .line {
-    transform: scale(0.6);
-    margin-left: -50px;
+    transform: scaleX(0.7);
+    margin-left: -70px;
   }
 }
-@media (max-width: 470px) {
+@media (max-width: 410px) {
   .line {
+    transform: scaleX(0.6);
+    margin-left: -100px;
+  }
+}
+@media (max-width: 310px) {
+  .line {
+    transform: scaleX(0.5);
     margin-left: -100px;
   }
 }
