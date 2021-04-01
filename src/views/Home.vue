@@ -28,6 +28,7 @@ export default {
   width: 100vw;
   height: 250px;
   margin: 0;
+  margin-top: -30px;
 }
 .map {
   position: relative;
@@ -40,6 +41,7 @@ export default {
 @media (max-width: 365px) {
   .map {
     transform: scaleX(0.8);
+    margin-left: -10px;
   }
 }
 @media (max-width: 330px) {

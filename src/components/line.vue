@@ -6,8 +6,7 @@
   >
     <div
       ref="tram"
-      :style="'left:' + (gettrampos * 220 + 50) + 'px'"
-      class="line__tram"
+      :class="'line__tram tram__'+ gettrampos"
     >
       <tram
         :id="currtram.id"
@@ -20,19 +19,21 @@
         @move="move"
       />
     </div>
-    <div
-      v-for="(s,k) in getcurrstop"
-      :key="k"
-      :id="'stop_'+(k+1)"
-      :style="'left:' + (k * 220 + 50) + 'px'"
-      class="line__stop"
-    >
-      <stop
-        :name="s.name"
-        :active="s.name === stop"
-        :count-in="getinpass"
-        :count-out="getoutpass"
-      />
+    <div class="line__stops">
+      <div
+        v-for="(s,k) in getcurrstop"
+        :key="k"
+        :id="'stop_'+(k+1)"
+        :style="'left:' + (k * 220) + 'px'"
+        class="line__stop"
+      >
+        <stop
+          :name="s.name"
+          :active="s.name === stop"
+          :count-in="getinpass"
+          :count-out="getoutpass"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -175,11 +176,11 @@ export default {
   position: relative;
   width: 90vw;
   margin: 0;
+  margin-left: 20px;
 }
 .line__tram {
   position: absolute;
   top: 37px;
-  left: 0;
 }
 .line__stop {
   position: absolute;
@@ -201,28 +202,49 @@ ul {
   margin: 0;
   padding: 15px;
 }
+.tram__0 {
+  left: 0;
+}
+.tram__1 {
+  left: 220px;
+}
+.tram__2 {
+  left: 440px;
+}
 @media (max-width: 720px) {
-  .line {
+  .line__stops {
     transform: scaleX(0.9);
-    margin-left: -70px;
+    margin-left: 10px;
+  }
+  .line__tram {
+    position: absolute;
+    top: 37px;
   }
 }
 @media (max-width: 560px) {
-  .line {
+  .line__stops {
     transform: scaleX(0.7);
     margin-left: -70px;
   }
-}
-@media (max-width: 410px) {
-  .line {
-    transform: scaleX(0.6);
-    margin-left: -100px;
+  .tram__0 {
+    left: -20px;
+  }
+  .tram__1 {
+    left: 120px;
+  }
+  .tram__2 {
+    left: 300px;
   }
 }
-@media (max-width: 310px) {
-  .line {
-    transform: scaleX(0.5);
-    margin-left: -100px;
+@media (max-width: 410px) {
+  .line__stops {
+    transform: scaleX(0.6);
+    margin-left: -50px;
+  }
+}
+@media (max-width: 380px) {
+  .line__stops {
+    margin-left: -60px;
   }
 }
 </style>
