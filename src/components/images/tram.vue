@@ -5,25 +5,100 @@
     viewBox="0 0 100 50"
     width="250"
     height="150">
-    <g id="wheels">
-      <circle
-        cx="19.15"
-        cy="35"
-        r="2"/>
-      <circle
-        cx="24.15"
-        cy="35"
-        r="2"/>
-      <circle
-        cx="51.15"
-        cy="35"
-        r="2"/>
-      <circle
-        cx="56.15"
-        cy="35"
-        r="2"/>
-
-    </g>
+    <linearGradient id="bodycolor2">
+      <stop
+        stop-color="red"
+        stop-opacity="0.3"
+        offset="0%"/>
+      <stop
+        stop-color="#ed2450"
+        stop-opacity="0.8"
+        offset="50%"/>
+      <stop
+        stop-color="red"
+        stop-opacity="0.3"
+        offset="100%"/>
+    </linearGradient>
+    <linearGradient
+      id="windowcolor"
+      x1="0"
+      x2="0"
+      y1="0"
+      y2="1"
+    >
+      <stop
+        stop-color="blue"
+        stop-opacity="0.9"
+        offset="0%"/>
+      <stop
+        stop-color="#1243a0"
+        stop-opacity="0.7"
+        offset="40%"/>
+      <stop
+        stop-color="#1243a0"
+        stop-opacity="0.9"
+        offset="60%"/>
+    </linearGradient>
+    <linearGradient
+      id="doorcolor"
+      x1="0"
+      x2="0"
+      y1="0"
+      y2="1"
+    >
+      <stop
+        stop-color="#2294e0"
+        stop-opacity="0.5"
+        offset="0%"/>
+      <stop
+        stop-color="#5de4e0"
+        stop-opacity="0.3"
+        offset="20%"/>
+      <stop
+        stop-color="blue"
+        stop-opacity="0.6"
+        offset="40%"/>
+      <stop
+        stop-color="#ed2450"
+        stop-opacity="1"
+        offset="45%"/>
+      <stop
+        stop-color="#ed9490"
+        stop-opacity="1"
+        offset="100%"/>
+    </linearGradient>
+    <linearGradient
+      id="bodycolor"
+      x1="0"
+      x2="0"
+      y1="0"
+      y2="1"
+    >
+      <stop
+        stop-color="#ed2450"
+        stop-opacity="0.5"
+        offset="0%"/>
+      <stop
+        stop-color="red"
+        stop-opacity="0.7"
+        offset="20%"/>
+      <stop
+        stop-color="#ed2450"
+        stop-opacity="0.5"
+        offset="40%"/>
+      <stop
+        stop-color="red"
+        stop-opacity="0.7"
+        offset="60%"/>
+      <stop
+        stop-color="#ed2450"
+        stop-opacity="0.5"
+        offset="80%"/>
+      <stop
+        stop-color="red"
+        stop-opacity="0.7"
+        offset="100%"/>
+    </linearGradient>
     <g id="mustache">
       <line
         x1="52.5"
@@ -80,12 +155,13 @@
         stroke-width="0.15"
         @click="clmove"/>
       <rect
+        id="bodycolor"
         x="5.15"
         y="24"
         width="67.70"
-        height="5"
-        fill="#ee8956"
-        stroke="#ee8956"
+        height="7"
+        fill="url(#bodycolor)"
+        stroke="#ee59e6"
         stroke-width="0.15"
         @click="clmove"/>
       <g id="windows">
@@ -94,7 +170,7 @@
           y="15.15"
           width="3"
           height="8.5"
-          fill="rgba(34,34,120,0.5)"
+          fill="url(#windowcolor)"
           stroke="#999999"
           stroke-width="0.15"/>
         <rect
@@ -102,7 +178,7 @@
           y="15.15"
           width="9"
           height="8.5"
-          fill="rgba(34,34,120,0.5)"
+          fill="url(#windowcolor)"
           stroke="#999999"
           stroke-width="0.15"/>
         <rect
@@ -118,7 +194,7 @@
           y="15.15"
           width="9"
           height="8.5"
-          fill="rgba(34,34,120,0.5)"
+          fill="url(#windowcolor)"
           stroke="#999999"
           stroke-width="0.15"/>
         <rect
@@ -126,7 +202,7 @@
           y="15.15"
           width="9"
           height="8.5"
-          fill="rgba(34,34,120,0.5)"
+          fill="url(#windowcolor)"
           stroke="#999999"
           stroke-width="0.15"/>
         <rect
@@ -134,7 +210,7 @@
           y="15.15"
           width="16"
           height="8.70"
-          fill="rgba(34,34,120,0.5)"
+          fill="url(#windowcolor)"
           stroke="#ededed"
           stroke-width="0.15"/>
         <rect
@@ -142,7 +218,7 @@
           y="15.15"
           width="16"
           height="8.70"
-          fill="rgba(34,34,120,0.5)"
+          fill="url(#windowcolor)"
           stroke="#ededed"
           stroke-width="0.15"/>
         <rect
@@ -150,7 +226,7 @@
           y="15.15"
           width="6"
           height="8.70"
-          fill="rgba(34,34,120,0.5)"
+          fill="url(#windowcolor)"
           stroke="#ededed"
           stroke-width="0.15"/>
         <line
@@ -514,7 +590,7 @@
           y="15.15"
           width="9"
           height="20"
-          fill="rgba(34,34,120,0.5)"
+          fill="url(#doorcolor)"
           stroke="#ededed"
           stroke-width="0.15"/>
         <rect
@@ -524,7 +600,7 @@
           y="15.15"
           width="9"
           height="20"
-          fill="rgba(34,34,120,0.5)"
+          fill="url(#doorcolor)"
           stroke="#ededed"
           stroke-width="0.15"/>
         <rect
@@ -534,7 +610,7 @@
           y="15.15"
           width="9"
           height="20"
-          fill="rgba(34,34,120,0.5)"
+          fill="url(#doorcolor)"
           stroke="#ededed"
           stroke-width="0.15"/>
       </g>
@@ -594,6 +670,39 @@
           {{ filterprice }}$
         </text>
       </g>
+    </g>
+    <g id="wheels">
+      <rect
+        x="18"
+        y="32.5"
+        width="12"
+        height="2.5"
+        fill="#444"
+      />
+      <rect
+        x="43.5"
+        y="32.5"
+        width="12"
+        height="2.5"
+        fill="#444"
+      />
+      <circle
+        cx="21.65"
+        cy="35"
+        r="2"/>
+      <circle
+        cx="26.65"
+        cy="35"
+        r="2"/>
+      <circle
+        cx="47.15"
+        cy="35"
+        r="2"/>
+      <circle
+        cx="52.15"
+        cy="35"
+        r="2"/>
+
     </g>
   </svg>
 </template>
