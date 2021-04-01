@@ -22,11 +22,11 @@ export default new Vuex.Store({
       number: 1,
       position: [],
       way: [{
-        y: 60,
-        x: 50,
+        x: 60,
+        y: 10,
         vectors: [{
-          y: -10,
-          x: 0
+          x: -10,
+          y: 0
         }],
         name: 'Олимпийская',
         start: true,
@@ -35,11 +35,11 @@ export default new Vuex.Store({
         instop: 0,
         outstop: 0
       }, {
-        y: 50,
         x: 50,
+        y: 10,
         vectors: [{
-          y: -10,
-          x: 0
+          x: -10,
+          y: 0
         }],
         name: '7-я школа',
         start: false,
@@ -48,11 +48,11 @@ export default new Vuex.Store({
         instop: 0,
         outstop: 0
       }, {
-        y: 40,
-        x: 50,
+        x: 40,
+        y: 10,
         vectors: [{
-          y: -10,
-          x: 0
+          x: -10,
+          y: 0
         }],
         name: 'Комсомольская',
         start: false,
@@ -61,11 +61,11 @@ export default new Vuex.Store({
         instop: 0,
         outstop: 0
       }, {
-        y: 30,
-        x: 50,
+        x: 30,
+        y: 10,
         vectors: [{
-          y: -10,
-          x: 0
+          x: -10,
+          y: 0
         }],
         name: 'Университет',
         start: false,
@@ -74,11 +74,11 @@ export default new Vuex.Store({
         instop: 0,
         outstop: 0
       }, {
-        y: 20,
-        x: 50,
+        x: 20,
+        y: 10,
         vectors: [{
-          y: -10,
-          x: 0
+          x: -10,
+          y: 0
         }],
         name: 'Автовокзал',
         start: false,
@@ -87,11 +87,11 @@ export default new Vuex.Store({
         instop: 0,
         outstop: 0
       }, {
+        x: 10,
         y: 10,
-        x: 50,
         vectors: [{
-          y: 0,
-          x: -10
+          x: 0,
+          y: 10
         }],
         name: 'Техникум',
         start: false,
@@ -100,11 +100,11 @@ export default new Vuex.Store({
         instop: 0,
         outstop: 0
       }, {
-        y: 10,
-        x: 40,
+        x: 10,
+        y: 20,
         vectors: [{
-          y: 0,
-          x: -10
+          x: 0,
+          y: 10
         }],
         name: 'Депо',
         start: false,
@@ -113,11 +113,11 @@ export default new Vuex.Store({
         instop: 0,
         outstop: 0
       }, {
-        y: 10,
-        x: 30,
+        x: 10,
+        y: 30,
         vectors: [{
-          y: 0,
-          x: -10
+          x: 0,
+          y: 10
         }],
         name: 'Подстанция',
         start: false,
@@ -126,11 +126,11 @@ export default new Vuex.Store({
         instop: 0,
         outstop: 0
       }, {
-        y: 10,
-        x: 20,
+        x: 10,
+        y: 40,
         vectors: [{
-          y: 10,
-          x: 0
+          x: 10,
+          y: 0
         }],
         name: 'Автопарк',
         start: false,
@@ -139,11 +139,11 @@ export default new Vuex.Store({
         instop: 0,
         outstop: 0
       }, {
-        y: 20,
         x: 20,
+        y: 40,
         vectors: [{
-          y: 0,
-          x: -10
+          x: 0,
+          y: 10
         }],
         name: 'ЖБИ',
         start: false,
@@ -152,24 +152,24 @@ export default new Vuex.Store({
         instop: 0,
         outstop: 0
       }, {
-        y: 20,
-        x: 10,
+        x: 20,
+        y: 50,
         vectors: [{
-          y: 0,
-          x: -10
+          x: 0,
+          y: 0
         }],
         name: 'КПД',
         start: false,
         end: false,
-        id: 10,
+        id: 50,
         instop: 0,
         outstop: 0
       }, {
-        y: 20,
-        x: 0,
+        x: 20,
+        y: 50,
         vectors: [{
-          y: 10,
-          x: 0
+          x: 10,
+          y: 0
         }],
         name: 'Заводуправление',
         start: false,
@@ -178,11 +178,11 @@ export default new Vuex.Store({
         instop: 0,
         outstop: 0
       }, {
-        y: 30,
-        x: 0,
+        x: 30,
+        y: 50,
         vectors: [{
-          y: 10,
-          x: 0
+          x: 10,
+          y: 0
         }],
         name: 'Полимир',
         start: false,
@@ -191,11 +191,11 @@ export default new Vuex.Store({
         instop: 0,
         outstop: 0
       }, {
-        y: 40,
-        x: 0,
+        x: 40,
+        y: 50,
         vectors: [{
-          y: 0,
-          x: 0
+          x: 0,
+          y: 0
         }],
         name: 'Нейтрон',
         start: false,
@@ -207,22 +207,22 @@ export default new Vuex.Store({
       pass: [{
         instop: 0,
         outstop: 3,
-        count: 40,
+        count: 20,
         price: 0.2
       }, {
         instop: 0,
         outstop: 4,
-        count: 15,
+        count: 8,
         price: 0.2
       }, {
         instop: 1,
         outstop: 3,
-        count: 15,
+        count: 8,
         price: 0.4
       }, {
         instop: 1,
         outstop: 4,
-        count: 25,
+        count: 12,
         price: 0.2
       }, {
         instop: 2,
@@ -232,17 +232,17 @@ export default new Vuex.Store({
       }, {
         instop: 3,
         outstop: 6,
-        count: 20,
+        count: 10,
         price: 0.8
       }, {
         instop: 4,
         outstop: 6,
-        count: 7,
+        count: 4,
         price: 0.5
       }, {
         instop: 5,
         outstop: 6,
-        count: 18,
+        count: 10,
         price: 0.7
       }, {
         instop: 0,
@@ -252,27 +252,27 @@ export default new Vuex.Store({
       }, {
         instop: 1,
         outstop: 13,
-        count: 23,
+        count: 13,
         price: 0.7
       }, {
         instop: 5,
         outstop: 12,
-        count: 18,
+        count: 10,
         price: 0.4
       }, {
         instop: 3,
         outstop: 10,
-        count: 29,
+        count: 9,
         price: 0.5
       }, {
         instop: 2,
         outstop: 7,
-        count: 32,
+        count: 10,
         price: 0.4
       }, {
         instop: 3,
         outstop: 13,
-        count: 18,
+        count: 10,
         price: 0.3
       }]
     }
@@ -284,7 +284,6 @@ export default new Vuex.Store({
       const trmid = state.trams.findIndex((el) => {
         return el.id === obj.id
       })
-      console.log(trmid)
       if (state.trams[trmid].moved && state.trams[trmid].idstop < state.line.way.length - 1) {
         console.log('move tram')
         state.trams[trmid].idstop++
@@ -314,7 +313,7 @@ export default new Vuex.Store({
       state.trams[trmid].count -= outps
       state.trams[trmid].count += inps
       if (state.trams[trmid].count >= state.trams[trmid].max) state.trams[trmid].count = state.trams[trmid].max
-      state.trams[trmid].money += outps * 0.2
+      state.trams[trmid].money += inps * 0.2
       if (!state.line.position.length) {
         state.line.position.push({
           idtram: state.trams[trmid].id,

@@ -1,7 +1,7 @@
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    class="tram"
+    class="stop"
     viewBox="0 0 100 50"
     width="250"
     height="150">
