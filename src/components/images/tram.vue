@@ -105,43 +105,43 @@
         y1="15"
         x2="60"
         y2="8.5"
-        stroke="#de4378"
-        stroke-width="0.55"/>
+        stroke="#de4328"
+        stroke-width="0.75"/>
       <line
         x1="52.5"
         y1="1.5"
         x2="60"
         y2="8.5"
-        stroke="#de4378"
-        stroke-width="0.55"/>
+        stroke="#de4328"
+        stroke-width="0.75"/>
       <line
         x1="52.5"
         y1="15"
         x2="45"
         y2="8.5"
-        stroke="#de4378"
-        stroke-width="0.55"/>
+        stroke="#de4328"
+        stroke-width="0.75"/>
       <line
         x1="52.5"
         y1="1.5"
         x2="45"
         y2="8.5"
-        stroke="#de4378"
-        stroke-width="0.55"/>
+        stroke="#de4328"
+        stroke-width="0.75"/>
       <line
         x1="50"
         y1="0.7"
         x2="55"
         y2="0.7"
-        stroke="#de4378"
-        stroke-width="0.55"/>
+        stroke="#de4328"
+        stroke-width="0.75"/>
       <line
         x1="52.5"
         y1="0.7"
         x2="52.5"
         y2="1.5"
-        stroke="#de4378"
-        stroke-width="0.55"/>
+        stroke="#de4328"
+        stroke-width="0.75"/>
     </g>
 
     <g id="body">
