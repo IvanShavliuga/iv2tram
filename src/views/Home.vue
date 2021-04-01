@@ -26,16 +26,25 @@ export default {
 .tramline {
   position: relative;
   width: 100vw;
-  height: 70vh;
+  height: 250px;
   margin: 0;
-  background: #999999;
 }
 .map {
   position: relative;
   width: 300px;
   height: 300px;
-  margin: 50px 25px;
-  background: #f0f0f0;
-  border: 1px dotted blackk
+  margin: 0 50px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.5);
+}
+@media (max-width: 365px) {
+  .map {
+    transform: scaleX(0.8);
+  }
+}
+@media (max-width: 330px) {
+  .map {
+    margin-left: -10px;
+  }
 }
 </style>
