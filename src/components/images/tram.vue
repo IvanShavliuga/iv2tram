@@ -555,9 +555,9 @@
         />
         <text
           x="51"
-          y="19.55"
+          y="19.85"
           fill="#EDeE36"
-          font-size="5"
+          font-size="6.5"
         >
           {{ linenumber }}
         </text>
@@ -588,7 +588,7 @@
           y="10"
           fill="#EDede6"
           font-size="5"
-          font-family="'Leckerli One', cursive"
+          font-family="digital"
           font-weight="bold"
         >
           {{ filterprice }}$
