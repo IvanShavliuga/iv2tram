@@ -45,47 +45,47 @@
       y2="0"
     >
       <stop
-        stop-color="#777"
+        stop-color="#aaa"
         stop-opacity="0.9"
         offset="0%"/>
       <stop
-        stop-color="#222"
+        stop-color="#111"
         stop-opacity="0.9"
         offset="10%"/>
       <stop
-        stop-color="#777"
+        stop-color="#aaa"
         stop-opacity="0.9"
         offset="20%"/>
       <stop
-        stop-color="#222"
+        stop-color="#111"
         stop-opacity="0.9"
         offset="30%"/>
       <stop
-        stop-color="#777"
+        stop-color="#aaa"
         stop-opacity="0.9"
         offset="40%"/>
       <stop
-        stop-color="#222"
+        stop-color="#111"
         stop-opacity="0.9"
         offset="50%"/>
       <stop
-        stop-color="#777"
+        stop-color="#aaa"
         stop-opacity="0.9"
         offset="60%"/>
       <stop
-        stop-color="#222"
+        stop-color="#111"
         stop-opacity="0.9"
         offset="70%"/>
       <stop
-        stop-color="#777"
+        stop-color="#aaa"
         stop-opacity="0.9"
         offset="80%"/>
       <stop
-        stop-color="#121212"
+        stop-color="#111"
         stop-opacity="0.9"
         offset="90%"/>
       <stop
-        stop-color="#979797"
+        stop-color="#aaa"
         stop-opacity="0.9"
         offset="100%"/>
     </linearGradient>
