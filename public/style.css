@@ -6,6 +6,6 @@
 .digital {
  font-family: digital, 'Comic Sans MS', cursive;
 }
-svg text:last-child {
+svg g text {
   font-family: digital, 'Comic Sans MS', cursive;
 }

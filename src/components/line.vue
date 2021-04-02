@@ -32,6 +32,7 @@
           :active="s.name === stop"
           :count-in="getinpass"
           :count-out="getoutpass"
+          :line-number="lnnumber"
         />
       </div>
     </div>

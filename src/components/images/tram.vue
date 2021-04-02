@@ -40,6 +40,48 @@
         offset="60%"/>
     </linearGradient>
     <linearGradient
+      id="bodybottom"
+      x1="0"
+      x2="0"
+      y1="0"
+      y2="1"
+    >
+      <stop
+        stop-color="white"
+        stop-opacity="0.9"
+        offset="0%"/>
+      <stop
+        stop-color="white"
+        stop-opacity="0.7"
+        offset="40%"/>
+      <stop
+        stop-color="white"
+        stop-opacity="0.8"
+        offset="60%"/>
+      <stop
+        stop-color="#dedede"
+        stop-opacity="0.5"
+        offset="80%"/>
+    </linearGradient>
+    <radialGradient id="ring">
+      <stop
+        stop-color="#636363"
+        stop-opacity="1"
+        offset="0%"/>
+      <stop
+        stop-color="black"
+        stop-opacity="1"
+        offset="60%"/>
+      <stop
+        stop-color="#232323"
+        stop-opacity="1"
+        offset="70%"/>
+      <stop
+        stop-color="#333333"
+        stop-opacity="1"
+        offset="90%"/>
+    </radialGradient>
+    <linearGradient
       id="doorcolor"
       x1="0"
       x2="0"
@@ -59,11 +101,11 @@
         stop-opacity="0.6"
         offset="40%"/>
       <stop
-        stop-color="#ed2450"
+        stop-color="#ed5450"
         stop-opacity="1"
         offset="45%"/>
       <stop
-        stop-color="#ed9490"
+        stop-color="#ed1410"
         stop-opacity="1"
         offset="100%"/>
     </linearGradient>
@@ -75,28 +117,28 @@
       y2="1"
     >
       <stop
-        stop-color="#ed2450"
-        stop-opacity="0.5"
+        stop-color="#ed2420"
+        stop-opacity="0.6"
         offset="0%"/>
       <stop
         stop-color="red"
-        stop-opacity="0.7"
+        stop-opacity="0.8"
         offset="20%"/>
       <stop
-        stop-color="#ed2450"
-        stop-opacity="0.5"
+        stop-color="#ed2420"
+        stop-opacity="0.6"
         offset="40%"/>
       <stop
         stop-color="red"
-        stop-opacity="0.7"
+        stop-opacity="0.8"
         offset="60%"/>
       <stop
-        stop-color="#ed2450"
-        stop-opacity="0.5"
+        stop-color="#ed2420"
+        stop-opacity="0.6"
         offset="80%"/>
       <stop
         stop-color="red"
-        stop-opacity="0.7"
+        stop-opacity="0.8"
         offset="100%"/>
     </linearGradient>
     <g id="mustache">
@@ -105,43 +147,43 @@
         y1="15"
         x2="60"
         y2="8.5"
-        stroke="#de4378"
-        stroke-width="0.55"/>
+        stroke="#de4328"
+        stroke-width="0.75"/>
       <line
         x1="52.5"
         y1="1.5"
         x2="60"
         y2="8.5"
-        stroke="#de4378"
-        stroke-width="0.55"/>
+        stroke="#de4328"
+        stroke-width="0.75"/>
       <line
         x1="52.5"
         y1="15"
         x2="45"
         y2="8.5"
-        stroke="#de4378"
-        stroke-width="0.55"/>
+        stroke="#de4328"
+        stroke-width="0.75"/>
       <line
         x1="52.5"
         y1="1.5"
         x2="45"
         y2="8.5"
-        stroke="#de4378"
-        stroke-width="0.55"/>
+        stroke="#de4328"
+        stroke-width="0.75"/>
       <line
         x1="50"
         y1="0.7"
         x2="55"
         y2="0.7"
-        stroke="#de4378"
-        stroke-width="0.55"/>
+        stroke="#de4328"
+        stroke-width="0.75"/>
       <line
         x1="52.5"
         y1="0.7"
         x2="52.5"
         y2="1.5"
-        stroke="#de4378"
-        stroke-width="0.55"/>
+        stroke="#de4328"
+        stroke-width="0.75"/>
     </g>
 
     <g id="body">
@@ -150,7 +192,7 @@
         y="15"
         width="68"
         height="20"
-        fill="#eeeeee"
+        fill="url(#bodybottom)"
         stroke="#343434"
         stroke-width="0.15"
         @click="clmove"/>
@@ -164,6 +206,57 @@
         stroke="#ee59e6"
         stroke-width="0.15"
         @click="clmove"/>
+      <text
+        x="45"
+        y="28.55"
+        fill="#EDede6"
+        font-size="5"
+        font-family="'Leckerli One', cursive"
+        font-weight="bold"
+      >
+        {{ tramid }}
+      </text>
+      <g id="wheels">
+        <rect
+          x="18"
+          y="32.5"
+          width="12"
+          height="2.5"
+          fill="#444"
+        />
+        <rect
+          x="43.5"
+          y="32.5"
+          width="12"
+          height="2.5"
+          fill="#444"
+        />
+        <circle
+          cx="21.65"
+          cy="35"
+          r="2"
+          fill="url(#ring)"
+        />
+        <circle
+          cx="26.65"
+          cy="35"
+          r="2"
+          fill="url(#ring)"
+        />
+        <circle
+          cx="47.15"
+          cy="35"
+          r="2"
+          fill="url(#ring)"
+        />
+        <circle
+          cx="52.15"
+          cy="35"
+          r="2"
+          fill="url(#ring)"
+        />
+
+      </g>
       <g id="windows">
         <rect
           x="5"
@@ -640,16 +733,6 @@
       </g>
       <g>
         <text
-          x="45"
-          y="28.55"
-          fill="#EDede6"
-          font-size="5"
-          font-family="'Leckerli One', cursive"
-          font-weight="bold"
-        >
-          {{ tramid }}
-        </text>
-        <text
           x="10"
           y="5"
           fill="#EDede6"
@@ -670,39 +753,6 @@
           {{ filterprice }}$
         </text>
       </g>
-    </g>
-    <g id="wheels">
-      <rect
-        x="18"
-        y="32.5"
-        width="12"
-        height="2.5"
-        fill="#444"
-      />
-      <rect
-        x="43.5"
-        y="32.5"
-        width="12"
-        height="2.5"
-        fill="#444"
-      />
-      <circle
-        cx="21.65"
-        cy="35"
-        r="2"/>
-      <circle
-        cx="26.65"
-        cy="35"
-        r="2"/>
-      <circle
-        cx="47.15"
-        cy="35"
-        r="2"/>
-      <circle
-        cx="52.15"
-        cy="35"
-        r="2"/>
-
     </g>
   </svg>
 </template>
