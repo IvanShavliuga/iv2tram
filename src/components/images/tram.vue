@@ -59,27 +59,27 @@
         stop-opacity="0.8"
         offset="60%"/>
       <stop
-        stop-color="gray"
-        stop-opacity="0.3"
+        stop-color="#dedede"
+        stop-opacity="0.5"
         offset="80%"/>
     </linearGradient>
     <radialGradient id="ring">
       <stop
-        stop-color="black"
-        stop-opacity="0.9"
+        stop-color="#636363"
+        stop-opacity="1"
         offset="0%"/>
       <stop
         stop-color="black"
-        stop-opacity="0.7"
-        offset="40%"/>
-      <stop
-        stop-color="black"
-        stop-opacity="0.6"
+        stop-opacity="1"
         offset="60%"/>
       <stop
-        stop-color="black"
-        stop-opacity="0.8"
-        offset="80%"/>
+        stop-color="#232323"
+        stop-opacity="1"
+        offset="70%"/>
+      <stop
+        stop-color="#333333"
+        stop-opacity="1"
+        offset="90%"/>
     </radialGradient>
     <linearGradient
       id="doorcolor"

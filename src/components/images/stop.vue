@@ -180,7 +180,7 @@
       font-family="'Leckerli One', cursive"
       font-weight="bold"
     >
-      {{ linenumber }}
+      {{ lineNumber }}
     </text>
   </svg>
 </template>
@@ -203,7 +203,7 @@ export default {
       type: Number,
       default: 0
     },
-    linenumber: {
+    lineNumber: {
       type: Number,
       default: 1
     }
