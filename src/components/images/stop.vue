@@ -121,21 +121,66 @@
     <rect
       :fill="(active) ? '#fefefe' : ('#bbbbbb')"
       x="5"
-      y="7"
+      y="5"
       width="40"
       height="15"
       stroke="#343434"
       stroke-width="0.15"/>
     <text
       v-if="active"
-      x="8"
+      x="25"
       y="17"
       fill="#2e2e95"
-      font-size="9"
+      font-size="5"
       font-family="'Leckerli One', cursive"
       font-weight="bold"
     >
-      {{ countIn }} | {{ countOut }}
+      {{ countIn }} {{ countOut }}
+    </text>
+    <rect
+      x="10"
+      y="12"
+      width="10"
+      height="2"
+      fill="gray"
+    />
+    <rect
+      x="10"
+      y="14"
+      width="2"
+      height="3"
+      fill="gray"
+    />
+    <rect
+      x="18"
+      y="14"
+      width="2"
+      height="3"
+      fill="gray"
+    />
+    <rect
+      x="43"
+      y="8"
+      width="0.5"
+      height="10"
+      fill="black"
+    />
+    <rect
+      x="38"
+      y="0"
+      width="10"
+      height="8"
+      fill="blue"
+    />
+    <text
+      x="38.7"
+      y="4"
+      fill="#EDede6"
+      font-size="4"
+      font-family="'Leckerli One', cursive"
+      font-weight="bold"
+    >
+      {{ linenumber }}
     </text>
   </svg>
 </template>
@@ -157,6 +202,10 @@ export default {
     countOut: {
       type: Number,
       default: 0
+    },
+    linenumber: {
+      type: Number,
+      default: 1
     }
   }
 }
