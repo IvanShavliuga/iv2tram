@@ -7,7 +7,7 @@
     <div
       v-for="(s,k) in getcurrstop"
       :key="'cntnet' + k"
-      :style="'left:' + (k * 220) + 'px'"
+      :style="'left:' + (k * 246) + 'px'"
       class="contactnet"
     >
       <contactnetwork/>
@@ -32,7 +32,7 @@
         v-for="(s,k) in getcurrstop"
         :key="k"
         :id="'stop_'+(k+1)"
-        :style="'left:' + (k * 220) + 'px'"
+        :style="'left:' + (k * 250) + 'px'"
         class="line__stop"
       >
         <stop
@@ -187,12 +187,20 @@ export default {
   position: relative;
   width: 90vw;
   margin: 0;
-  margin-left: 20px;
+  margin-left: 40px;
+  margin-top: 20px;
 }
 .contactnet {
   position: absolute;
-  top: 17px;
+  top: 15px;
 }
+.contactnet svg {
+  width: 260px;
+}
+.contactnet svg:last-child {
+  width: 293px;
+}
+
 .line__tram {
   position: absolute;
   top: 37px;
@@ -227,7 +235,7 @@ ul {
   left: 440px;
 }
 @media (max-width: 720px) {
-  .line__stops {
+  .line {
     transform: scaleX(0.9);
     margin-left: 10px;
   }
@@ -235,13 +243,19 @@ ul {
     position: absolute;
     top: 37px;
   }
+  .contactnet svg {
+    width: 250px;
+  }
+  .contactnet svg:last-child {
+    width: 270px;
+  }
 }
 @media (max-width: 560px) {
-  .line__stops {
+  .line {
     transform: scaleX(0.7);
     margin-left: -70px;
   }
-  .tram__0 {
+  /* .tram__0 {
     left: -20px;
   }
   .tram__1 {
@@ -249,16 +263,16 @@ ul {
   }
   .tram__2 {
     left: 300px;
-  }
+  } */
 }
 @media (max-width: 410px) {
-  .line__stops {
+  .line {
     transform: scaleX(0.6);
     margin-left: -50px;
   }
 }
 @media (max-width: 380px) {
-  .line__stops {
+  .line {
     margin-left: -60px;
   }
 }

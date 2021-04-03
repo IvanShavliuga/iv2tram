@@ -91,50 +91,6 @@
       fill="#aaa"
     />
     <rect
-      x="65"
-      y="12"
-      height="1.5"
-      width="2"
-      fill="#eee"
-    />
-    <rect
-      x="65.2"
-      y="13.5"
-      height="1.5"
-      width="1.2"
-      fill="#555"
-    />
-    <line
-      x1="65.2"
-      y1="15"
-      x2="69"
-      y2="13.5"
-      stroke="#232323"
-      stroke-width="0.56"
-    />
-    <rect
-      x="31"
-      y="12"
-      height="1.5"
-      width="2"
-      fill="#eee"
-    />
-    <rect
-      x="31.2"
-      y="13.5"
-      height="1.5"
-      width="1.2"
-      fill="#555"
-    />
-    <line
-      x1="31.2"
-      y1="15"
-      x2="35"
-      y2="13.5"
-      stroke="#232323"
-      stroke-width="0.56"
-    />
-    <rect
       x="35"
       y="0"
       height="50"
@@ -161,25 +117,17 @@
     />
     <line
       x1="0"
-      y1="6"
-      x2="100"
-      y2="6"
-      stroke="black"
-      stroke-width="0.45"
-    />
-    <line
-      x1="0"
       y1="8"
-      x2="100"
+      x2="87"
       y2="8"
       stroke="black"
       stroke-width="0.45"
     />
     <line
       x1="0"
-      y1="11.6"
-      x2="100"
-      y2="11.6"
+      y1="10.9"
+      x2="87"
+      y2="10.9"
       stroke="black"
       stroke-width="0.45"
     />
@@ -187,7 +135,7 @@
       x1="27"
       y1="6"
       x2="27"
-      y2="8"
+      y2="10.9"
       stroke="black"
       stroke-width="0.85"
     />
@@ -195,7 +143,7 @@
       x1="62"
       y1="6"
       x2="62"
-      y2="8"
+      y2="10.9"
       stroke="black"
       stroke-width="0.85"
     />
