@@ -17,12 +17,36 @@
         stop-opacity="0.6"
         offset="0%"/>
       <stop
-        stop-color="#3c5"
+        stop-color="#5a6"
         stop-opacity="0.7"
-        offset="50%"/>
+        offset="10%"/>
       <stop
-        stop-color="#9a7"
-        stop-opacity="0.4"
+        stop-color="#434349"
+        stop-opacity="0.5"
+        offset="40%"/>
+      <stop
+        stop-color="#eee"
+        stop-opacity="0.5"
+        offset="41%"/>
+      <stop
+        stop-color="#224"
+        stop-opacity="0.6"
+        offset="42%"/>
+      <stop
+        stop-color="#224"
+        stop-opacity="0.6"
+        offset="69%"/>
+      <stop
+        stop-color="#eee"
+        stop-opacity="0.5"
+        offset="70%"/>
+      <stop
+        stop-color="#232359"
+        stop-opacity="0.5"
+        offset="71%"/>
+      <stop
+        stop-color="#23e329"
+        stop-opacity="0.5"
         offset="100%"/>
     </linearGradient>
     <linearGradient
@@ -33,7 +57,7 @@
       y2="1"
     >
       <stop
-        stop-color="#8c8"
+        stop-color="#898"
         stop-opacity="0.6"
         offset="0%"/>
       <stop
@@ -180,9 +204,16 @@
     />
     <rect
       x="0"
-      y="15"
+      y="5"
+      width="5"
+      height="15"
+      fill="url(#fieldbottom)"
+    />
+    <rect
+      x="0"
+      y="20"
       width="100"
-      height="35"
+      height="22"
       fill="url(#greenfield)"
     />
     <rect

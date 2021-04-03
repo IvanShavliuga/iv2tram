@@ -162,7 +162,7 @@
     <line
       x1="0"
       y1="6"
-      x2="100"
+      x2="87"
       y2="6"
       stroke="black"
       stroke-width="0.45"
@@ -170,7 +170,7 @@
     <line
       x1="0"
       y1="8"
-      x2="100"
+      x2="87"
       y2="8"
       stroke="black"
       stroke-width="0.45"
@@ -178,7 +178,7 @@
     <line
       x1="0"
       y1="11.6"
-      x2="100"
+      x2="87"
       y2="11.6"
       stroke="black"
       stroke-width="0.45"
