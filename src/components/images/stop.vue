@@ -6,6 +6,46 @@
     width="250"
     height="150">
     <linearGradient
+      id="fieldbottom"
+      x1="0"
+      x2="0"
+      y1="0"
+      y2="1"
+    >
+      <stop
+        stop-color="#245"
+        stop-opacity="0.6"
+        offset="0%"/>
+      <stop
+        stop-color="#3c5"
+        stop-opacity="0.7"
+        offset="50%"/>
+      <stop
+        stop-color="#9a7"
+        stop-opacity="0.4"
+        offset="100%"/>
+    </linearGradient>
+    <linearGradient
+      id="greenfield"
+      x1="0"
+      x2="0"
+      y1="0"
+      y2="1"
+    >
+      <stop
+        stop-color="#8c8"
+        stop-opacity="0.6"
+        offset="0%"/>
+      <stop
+        stop-color="#2a5"
+        stop-opacity="0.7"
+        offset="50%"/>
+      <stop
+        stop-color="green"
+        stop-opacity="0.9"
+        offset="100%"/>
+    </linearGradient>
+    <linearGradient
       id="rails"
       x1="0"
       x2="0"
@@ -131,7 +171,20 @@
         stop-opacity="0.9"
         offset="100%"/>
     </linearGradient>
-
+    <rect
+      x="45"
+      y="5"
+      width="100"
+      height="15"
+      fill="url(#fieldbottom)"
+    />
+    <rect
+      x="0"
+      y="15"
+      width="100"
+      height="35"
+      fill="url(#greenfield)"
+    />
     <rect
       v-for="r in 15"
       :key="r + name"
