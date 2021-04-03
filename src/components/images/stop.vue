@@ -219,7 +219,7 @@
     <rect
       v-for="r in 15"
       :key="r + name"
-      :x="r*15 - 150"
+      :x="r*16 - 150"
       y="2"
       width="17"
       height="2"
@@ -229,7 +229,7 @@
     <rect
       v-for="r in 15"
       :key="r"
-      :x="r*15 - 150"
+      :x="r*16 - 150"
       y="4"
       width="17"
       height="1"
@@ -246,7 +246,7 @@
       {{ name }}
     </text>
     <rect
-      :opacity="(active) ? 0.9 : 0.5"
+      :opacity="(active) ? 0.9 : 0.2"
       fill="url(#stopbrus)"
       x="5"
       y="5"

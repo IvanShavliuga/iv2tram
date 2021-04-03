@@ -7,7 +7,7 @@
     <div
       v-for="(s,k) in getcurrstop"
       :key="'cntnet' + k"
-      :style="'left:' + (k * 220) + 'px'"
+      :style="'left:' + (k * 246) + 'px'"
       class="contactnet"
     >
       <contactnetwork/>
@@ -32,7 +32,7 @@
         v-for="(s,k) in getcurrstop"
         :key="k"
         :id="'stop_'+(k+1)"
-        :style="'left:' + (k * 220) + 'px'"
+        :style="'left:' + (k * 250) + 'px'"
         class="line__stop"
       >
         <stop
@@ -187,17 +187,18 @@ export default {
   position: relative;
   width: 90vw;
   margin: 0;
-  margin-left: 20px;
+  margin-left: 40px;
+  margin-top: 20px;
 }
 .contactnet {
   position: absolute;
-  top: 17px;
+  top: 15px;
 }
 .contactnet svg {
   width: 260px;
 }
 .contactnet svg:last-child {
-  width: 280px;
+  width: 293px;
 }
 
 .line__tram {
