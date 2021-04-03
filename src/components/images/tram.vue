@@ -612,17 +612,17 @@
           y="29"
           width="9"
           height="3"
-          fill="#333333"
-          stroke="#eeeeee"
-          stroke-width="0.15"/>
+          fill="rgba(88,88,88, 0.8)"
+          stroke="rgba(18,18,18, 0.7)"
+          stroke-width="0.1"/>
         <rect
           x="8.15"
-          y="32"
+          y="31.5"
           width="9"
           height="3"
-          fill="#222222"
-          stroke="#eeeeee"
-          stroke-width="0.15"/>
+          fill="rgba(68,68,68, 0.8)"
+          stroke="rgba(18,18,18, 0.7)"
+          stroke-width="0.1"/>
         <!-- <rect
           x="33"
           y="24"
@@ -636,17 +636,17 @@
           y="29"
           width="9"
           height="3"
-          fill="#333333"
-          stroke="#eeeeee"
-          stroke-width="0.15"/>
+          fill="rgba(88,88,88, 0.8)"
+          stroke="rgba(18,18,18, 0.7)"
+          stroke-width="0.1"/>
         <rect
           x="33"
-          y="32"
+          y="31.5"
           width="9"
           height="3"
-          fill="#222222"
-          stroke="#eeeeee"
-          stroke-width="0.15"/>
+          fill="rgba(68,68,68, 0.8)"
+          stroke="rgba(18,18,18, 0.7)"
+          stroke-width="0.1"/>
         <!-- <rect
           x="58"
           y="24"
@@ -660,17 +660,17 @@
           y="29"
           width="9"
           height="3"
-          fill="#333333"
-          stroke="#eeeeee"
-          stroke-width="0.15"/>
+          fill="rgba(88,88,88, 0.8)"
+          stroke="rgba(18,18,18, 0.7)"
+          stroke-width="0.1"/>
         <rect
           x="58"
-          y="32"
+          y="31.5"
           width="9"
           height="3"
-          fill="#222222"
-          stroke="#eeeeee"
-          stroke-width="0.15"/>
+          fill="rgba(68,68,68, 0.8)"
+          stroke="rgba(18,18,18, 0.7)"
+          stroke-width="0.1"/>
       </g>
       <g
         id="door"
