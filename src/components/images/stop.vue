@@ -38,6 +38,48 @@
         offset="100%"/>
     </linearGradient>
     <linearGradient
+      id="stopbrus"
+      x1="0"
+      x2="2"
+      y1="0"
+      y2="0"
+      spreadMethod="repeat"
+    >
+      <stop
+        stop-color="#aaa"
+        offset="0%"/>
+      <stop
+        stop-color="#eee"
+        offset="10%"/>
+      <stop
+        stop-color="#aaa"
+        offset="20%"/>
+      <stop
+        stop-color="#eee"
+        offset="30%"/>
+      <stop
+        stop-color="#aaa"
+        offset="40%"/>
+      <stop
+        stop-color="#eee"
+        offset="50%"/>
+      <stop
+        stop-color="#aaa"
+        offset="60%"/>
+      <stop
+        stop-color="#eee"
+        offset="70%"/>
+      <stop
+        stop-color="#aaa"
+        offset="80%"/>
+      <stop
+        stop-color="#eee"
+        offset="90%"/>
+      <stop
+        stop-color="#aaa"
+        offset="100%"/>
+    </linearGradient>
+    <linearGradient
       id="brus"
       x1="0"
       x2="2"
@@ -89,6 +131,7 @@
         stop-opacity="0.9"
         offset="100%"/>
     </linearGradient>
+
     <rect
       v-for="r in 15"
       :key="r + name"
@@ -119,7 +162,8 @@
       {{ name }}
     </text>
     <rect
-      :fill="(active) ? '#fefefe' : ('#bbbbbb')"
+      :opacity="(active) ? 0.9 : 0.5"
+      fill="url(#stopbrus)"
       x="5"
       y="5"
       width="40"
@@ -142,21 +186,21 @@
       y="12"
       width="10"
       height="2"
-      fill="gray"
+      fill="#457634"
     />
     <rect
       x="10"
       y="14"
       width="2"
       height="3"
-      fill="gray"
+      fill="#343434"
     />
     <rect
       x="18"
       y="14"
       width="2"
       height="3"
-      fill="gray"
+      fill="#343434"
     />
     <rect
       x="43"

@@ -5,6 +5,14 @@
     @resize="rsize"
   >
     <div
+      v-for="(s,k) in getcurrstop"
+      :key="'cntnet' + k"
+      :style="'left:' + (k * 220) + 'px'"
+      class="contactnet"
+    >
+      <contactnetwork/>
+    </div>
+    <div
       ref="tram"
       :class="'line__tram tram__'+ gettrampos"
     >
@@ -41,6 +49,7 @@
 <script>
 import tram from './images/tram.vue'
 import stop from './images/stop.vue'
+import contactnetwork from './images/contactnetwork.vue'
 import way from './way.vue'
 import { mapGetters } from 'vuex'
 
@@ -48,7 +57,8 @@ export default {
   components: {
     tram,
     stop,
-    way
+    way,
+    contactnetwork
   },
   data () {
     return {
@@ -178,6 +188,10 @@ export default {
   width: 90vw;
   margin: 0;
   margin-left: 20px;
+}
+.contactnet {
+  position: absolute;
+  top: 17px;
 }
 .line__tram {
   position: absolute;
