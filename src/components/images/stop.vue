@@ -246,7 +246,7 @@
       {{ name }}
     </text>
     <rect
-      :opacity="(active) ? 0.9 : 0.2"
+      :opacity="(active) ? 0.5 : 0.2"
       fill="url(#stopbrus)"
       x="5"
       y="5"
@@ -257,7 +257,7 @@
     <text
       v-if="active"
       x="25"
-      y="17"
+      y="18"
       fill="#2e2e95"
       font-size="5"
       font-family="'Leckerli One', cursive"
@@ -265,6 +265,13 @@
     >
       {{ countIn }} {{ countOut }}
     </text>
+    <passunit
+      v-for="p in 5"
+      :key="name+p"
+      :pass-x="7+p*8-8"
+      :pass-y="-2"
+      :pass-color="'rgb(190, 190, 190)'"
+    />
     <rect
       x="10"
       y="12"
@@ -313,7 +320,11 @@
   </svg>
 </template>
 <script>
+import passunit from './passunit.vue'
 export default {
+  components: {
+    passunit
+  },
   props: {
     name: {
       type: String,

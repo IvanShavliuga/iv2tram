@@ -2,10 +2,25 @@
   <div id="app">
     <!-- <img :src="'http://localhost:8080/img/tram.svg'"> -->
     <router-view/>
+    <div
+      id="test_varss_senv"
+      style="color: white"
+    >
+      {{ test }}
+    </div>
   </div>
 </template>
 <script>
-
+export default {
+  data () {
+    return {
+      test: './not/test__faild/'
+    }
+  },
+  mounted () {
+    this.test = process.env.VUE_APP_BASE_URL
+  }
+}
 </script>
 
 <style>
@@ -18,12 +33,12 @@ html {
   overflow-x: hidden;
 }
 body{
-  background: #999999;
+  background: black;
 }
 #app {
   height: 100vh;
   width: 100vw;
-  color: #999999;
+  color: black;
 }
 
 </style>
