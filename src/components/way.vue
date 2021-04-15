@@ -5,6 +5,13 @@
     width="800"
     height="800"
     fill="#999999">
+    <text
+      x="5"
+      y="15"
+      fill="#dede70"
+    >
+      {{ money }} $
+    </text>
     <g
       v-for="(p, k) in line.way"
       :key="k"
@@ -12,20 +19,20 @@
       <line
         v-for="(v, k1) in p.vectors"
         :key="k1"
-        :x1="(p.x + v.x)*3+20"
-        :y1="(p.y + v.y)*3+20"
-        :x2="p.x*3+20"
-        :y2="p.y*3+20"
+        :x1="(p.x + v.x)*1.5+20"
+        :y1="(p.y + v.y)*1.5+20"
+        :x2="p.x*1.5+20"
+        :y2="p.y*1.5+20"
         r="2.5"
         stroke="#222222"
         fill="#222222"
         stroke-width="0.5"
       />
       <circle
-        :cx="p.x*3+20"
-        :cy="p.y*3+20"
-        :stroke="(findactive(p.id)>=0)?'#df42df':'#222222'"
-        :fill="(findactive(p.id)>=0)?'#df42df':'#222222'"
+        :cx="p.x*1.5+20"
+        :cy="p.y*1.5+20"
+        :stroke="(findactive(p.id))?'#df42df':'#222222'"
+        :fill="(findactive(p.id))?'#df42df':'#222222'"
         r="2.5"
         stroke-width="0.5"
       />
@@ -36,13 +43,11 @@
 import { mapGetters } from 'vuex'
 export default {
   computed: {
-    ...mapGetters(['line'])
+    ...mapGetters(['line', 'currtram', 'money'])
   },
   methods: {
     findactive (id) {
-      return this.line.position.findIndex((el) => {
-        return el.idstop === id
-      })
+      return id === this.currtram.idstop
     }
   }
 }
