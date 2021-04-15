@@ -23,6 +23,7 @@
         :count="currtram.count"
         :money="currtram.money"
         :max="currtram.max"
+        :mode="currtram.mode"
         @enter="getpass"
         @move="move"
       />
@@ -74,16 +75,9 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['line', 'stop', 'tramsline']),
+    ...mapGetters(['line', 'stop', 'tramsline', 'currtram']),
     trams () {
-      return this.tramsline(this.lnnumber)
-    },
-    currtram () {
-      const trm = this.tramsline(this.lnnumber)
-      const ind = trm.findIndex((el) => {
-        return this.tramid === el.id
-      })
-      return trm[ind]
+      return this.tramsline
     },
     gettrampos () {
       const l = this.line.way.length - 1
@@ -97,7 +91,7 @@ export default {
       const p = this.currtram.idstop
       console.log('GCS')
       console.log(l, p)
-      const prev = this.line.way[(!p) ? 0 : (p - 1)]
+      const prev = this.line.way[(!p) ? 0 : ((p <= l - 1) ? (p - 1) : l - 2)]
       const curr = this.line.way[(!p) ? 1 : ((p <= l - 1) ? (p) : l - 1)]
       const next = this.line.way[(!p) ? (2) : ((p < l - 1) ? (p + 1) : l)]
       return [prev, curr, next]
@@ -157,6 +151,9 @@ export default {
         id: this.currtram.id
       })
     },
+    nexttram () {
+      this.tramid = 2
+    },
     genstopspass () {
       this.pass = []
       const len = this.line.way.length
@@ -209,6 +206,24 @@ export default {
   position: absolute;
   top: 125px;
   left: 0;
+}
+.line__control {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 250px;
+  height: 20px;
+}
+.line__control-button {
+  background-color: rgba(123,250,23, 0.5);
+  border-radius: 15%;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 5px 7px;
+  border: none;
+  width: 90px;
+  height: 35px;
 }
 .list {
   position: absolute;

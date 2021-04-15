@@ -2,23 +2,14 @@
   <div id="app">
     <!-- <img :src="'http://localhost:8080/img/tram.svg'"> -->
     <router-view/>
-    <div
-      id="test_varss_senv"
-      style="color: white"
-    >
-      {{ test }}
-    </div>
   </div>
 </template>
 <script>
 export default {
-  data () {
-    return {
-      test: './not/test__faild/'
-    }
-  },
-  mounted () {
-    this.test = process.env.VUE_APP_BASE_URL
+  created () {
+    this.$store.dispatch('addTram', {
+      idline: 1
+    })
   }
 }
 </script>

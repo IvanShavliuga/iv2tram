@@ -143,44 +143,44 @@
     </linearGradient>
     <g id="mustache">
       <line
-        x1="52.5"
+        :x1="directtram"
+        :x2="directtram + 7.5"
         y1="15"
-        x2="60"
         y2="8.5"
         stroke="#de4328"
         stroke-width="0.75"/>
       <line
-        x1="52.5"
+        :x1="directtram"
+        :x2="directtram + 7.5"
         y1="1.5"
-        x2="60"
         y2="8.5"
         stroke="#de4328"
         stroke-width="0.75"/>
       <line
-        x1="52.5"
+        :x1="directtram"
+        :x2="directtram - 7.5"
         y1="15"
-        x2="45"
         y2="8.5"
         stroke="#de4328"
         stroke-width="0.75"/>
       <line
-        x1="52.5"
+        :x1="directtram"
+        :x2="directtram - 7.5"
         y1="1.5"
-        x2="45"
         y2="8.5"
         stroke="#de4328"
         stroke-width="0.75"/>
       <line
-        x1="50"
+        :x1="directtram - 2.5"
+        :x2="directtram + 2.5"
         y1="0.7"
-        x2="55"
         y2="0.7"
         stroke="#de4328"
         stroke-width="0.75"/>
       <line
-        x1="52.5"
+        :x1="directtram"
+        :x2="directtram"
         y1="0.7"
-        x2="52.5"
         y2="1.5"
         stroke="#de4328"
         stroke-width="0.75"/>
@@ -783,6 +783,10 @@ export default {
     money: {
       type: Number,
       default: 0
+    },
+    mode: {
+      type: String,
+      default: 'to'
     }
   },
   data () {
@@ -791,10 +795,18 @@ export default {
     }
   },
   computed: {
+    directtram () {
+      console.log('mode')
+      if (this.mode === 'to') {
+        return 52.5
+      } else if (this.mode === 'from') {
+        return 20.5
+      }
+    },
     filterprice () {
       if (!this.money) return '0.0'
       const el = ('' + this.money).split('.')
-      const dr = el[1].slice(0, 2)
+      const dr = (el[1] !== undefined) ? (el[1].slice(0, 2)) : (this.money)
       return el[0] + '.' + dr
     },
     tramid () {
