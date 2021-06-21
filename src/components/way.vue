@@ -10,7 +10,7 @@
       y="15"
       fill="#dede70"
     >
-      {{ money }} $
+      {{ filterprice }} $
     </text>
     <g
       v-for="(p, k) in line.way"
@@ -43,7 +43,13 @@
 import { mapGetters } from 'vuex'
 export default {
   computed: {
-    ...mapGetters(['line', 'currtram', 'money'])
+    ...mapGetters(['line', 'currtram', 'money']),
+    filterprice () {
+      if (!this.money) return '0.0'
+      const el = ('' + this.money).split('.')
+      const dr = (el[1] !== undefined) ? (el[1].slice(0, 2)) : (this.money)
+      return el[0] + '.' + dr
+    }
   },
   methods: {
     findactive (id) {
