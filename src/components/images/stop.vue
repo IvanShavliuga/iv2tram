@@ -270,7 +270,7 @@
       :key="name+p"
       :pass-x="7+p*8-8"
       :pass-y="-2"
-      :pass-color="'rgb(190, 190, 190)'"
+      :pass-color="'rgba(250, 250, 250, 0.6)'"
     />
     <rect
       x="10"

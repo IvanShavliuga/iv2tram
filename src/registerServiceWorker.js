@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 
 import { register } from 'register-service-worker'
-const staticAssets = [
+/* const staticAssets = [
   './',
   './index.html',
   './img/icons/iv2tram-512x512.png',
@@ -21,17 +21,17 @@ const staticAssets = [
   './digital.ttf'
 ]
 const staticCacheName = 'static-iv2tram-v0'
-const dynamicCacheName = 'dynamic-iv2tram-v0'
+const dynamicCacheName = 'dynamic-iv2tram-v0' */
 
 if (process.env.NODE_ENV === 'production') {
-  register(`${process.env.BASE_URL}service-worker.js`, {
+  register('https://ivanshavliuga.github.io/iv2tram/service-worker.js', {
     ready () {
       console.log(
         'App is being served from cache by a service worker.\n' +
         'For more details, visit https://goo.gl/AFskqB'
       )
-      const cache = caches.open(staticCacheName)
-      cache.addAll(staticAssets)
+      // const cache = caches.open(staticCacheName)
+      // cache.addAll(staticAssets)
     },
     cached () {
       console.log('Content has been cached for offline use.')
@@ -40,13 +40,13 @@ if (process.env.NODE_ENV === 'production') {
       console.log('New content is available; please refresh.')
     },
     offline () {
-      const cachesKeys = caches.keys()
+      /* const cachesKeys = caches.keys()
       const checkKeys = cachesKeys.map(async key => {
         if (![staticCacheName, dynamicCacheName].includes(key)) {
           caches.delete(key)
         }
       })
-      Promise.all(checkKeys)
+      Promise.all(checkKeys) */
       console.log('No internet connection found. App is running in offline mode.')
     },
     error (error) {
