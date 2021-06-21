@@ -2,12 +2,11 @@
   <div
     ref="lineref"
     class="line"
-    @resize="rsize"
   >
     <div
       v-for="(s,k) in getcurrstop"
       :key="'cntnet' + k"
-      :style="'left:' + (k * 246) + 'px'"
+      :style="'left:' + (k * posContact) + 'px'"
       class="contactnet"
     >
       <contactnetwork/>
@@ -33,7 +32,7 @@
         v-for="(s,k) in getcurrstop"
         :key="k"
         :id="'stop_'+(k+1)"
-        :style="'left:' + (k * 250) + 'px'"
+        :style="'left:' + (k * posStop) + 'px'"
         class="line__stop"
       >
         <stop
@@ -42,6 +41,7 @@
           :count-in="getinpass"
           :count-out="getoutpass"
           :line-number="lnnumber"
+          :width-stop="cwidth"
         />
       </div>
     </div>
@@ -69,28 +69,24 @@ export default {
       idin: 0,
       currmoney: 0,
       moved: true,
-      cwidth: 800,
       lnnumber: 1,
-      tramid: 1
+      tramid: 1,
+      widthStop: 250
     }
   },
   computed: {
-    ...mapGetters(['line', 'stop', 'tramsline', 'currtram']),
+    ...mapGetters(['line', 'clientWidth', 'stop', 'tramsline', 'currtram']),
     trams () {
       return this.tramsline
     },
     gettrampos () {
       const l = this.line.way.length - 1
       const p = this.currtram.idstop
-      console.log('GTP')
-      console.log(l, p)
       return (!p) ? (0) : ((p < l) ? 1 : 2)
     },
     getcurrstop () {
       const l = this.line.way.length - 1
       const p = this.currtram.idstop
-      console.log('GCS')
-      console.log(l, p)
       const prev = this.line.way[(!p) ? 0 : ((p <= l - 1) ? (p - 1) : l - 2)]
       const curr = this.line.way[(!p) ? 1 : ((p <= l - 1) ? (p) : l - 1)]
       const next = this.line.way[(!p) ? (2) : ((p < l - 1) ? (p + 1) : l)]
@@ -103,7 +99,6 @@ export default {
       })
       for (let el of pfl) {
         countps += el.count * el.price
-        console.log(el)
       }
       return countps
     },
@@ -119,7 +114,6 @@ export default {
       })
       for (let el of pfl) {
         countps += el.count
-        console.log(el)
       }
       return countps
     },
@@ -130,15 +124,31 @@ export default {
       })
       for (let el of pfl) {
         countps += el.count
-        console.log(el)
       }
       return countps
+    },
+    posContact () {
+      /* const wiw = window.innerWidth
+      console.log(window.innerWidth)
+      if (wiw <= 708) {
+        return 230
+      } */
+      return 246
+    },
+    posStop () {
+      /* const wiw = window.innerWidth
+      console.log(window.innerWidth)
+      if (wiw <= 708) {
+        return 220
+      } */
+      return 250
+    },
+    cwidth () {
+      if (this.clientWidth <= 708) return 200
+      return 250
     }
   },
   methods: {
-    rsize () {
-      this.cwidth = window.clientWidth
-    },
     getpass () {
       this.$store.dispatch('enterTram', {
         lineid: this.lnnumber,

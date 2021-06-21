@@ -1,9 +1,9 @@
 <template>
   <svg
+    :width="widthStop"
     xmlns="http://www.w3.org/2000/svg"
     class="stop"
     viewBox="0 0 100 50"
-    width="250"
     height="150">
     <linearGradient
       id="fieldbottom"
@@ -345,7 +345,21 @@ export default {
     lineNumber: {
       type: Number,
       default: 1
+    },
+    widthStop: {
+      type: Number,
+      default: 250
     }
-  }
+  } /* ,
+  computed: {
+    widthStop () {
+      const wiw = window.innerWidth
+      console.log(wiw)
+      if (wiw < 708) {
+        return 200
+      }
+      return 250
+    }
+  } */
 }
 </script>
