@@ -1,11 +1,15 @@
 <template>
   <div id="app">
     <!-- <img :src="'http://localhost:8080/img/tram.svg'"> -->
-    <router-view/>
+    <app-home/>
   </div>
 </template>
 <script>
+import appHome from '@/views/Home.vue'
 export default {
+  components: {
+    appHome
+  },
   created () {
     this.$store.dispatch('addTram', {
       idline: 1
