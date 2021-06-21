@@ -673,41 +673,6 @@
           stroke-width="0.1"/>
       </g>
       <g
-        id="door"
-        @click="doorclick"
-      >
-        <rect
-          id="lastdoor"
-          ref="lastdoor"
-          x="8.15"
-          y="15.15"
-          width="9"
-          height="20"
-          fill="url(#doorcolor)"
-          stroke="#ededed"
-          stroke-width="0.15"/>
-        <rect
-          id="middledoor"
-          ref="middledoor"
-          x="33"
-          y="15.15"
-          width="9"
-          height="20"
-          fill="url(#doorcolor)"
-          stroke="#ededed"
-          stroke-width="0.15"/>
-        <rect
-          id="firstdoor"
-          ref="firstdoor"
-          x="58"
-          y="15.15"
-          width="9"
-          height="20"
-          fill="url(#doorcolor)"
-          stroke="#ededed"
-          stroke-width="0.15"/>
-      </g>
-      <g
         id="numtab"
         @click="clmove"
       >
@@ -753,11 +718,46 @@
           {{ filterprice }}$
         </text>
       </g>
+      <g
+        id="door"
+        @click="doorclick"
+      >
+        <rect
+          id="lastdoor"
+          ref="lastdoor"
+          :x="8.15+posDoor"
+          y="15.15"
+          width="9"
+          height="20"
+          fill="url(#doorcolor)"
+          stroke="#ededed"
+          stroke-width="0.15"/>
+        <rect
+          id="middledoor"
+          ref="middledoor"
+          :x="33+posDoor"
+          y="15.15"
+          width="9"
+          height="20"
+          fill="url(#doorcolor)"
+          stroke="#ededed"
+          stroke-width="0.15"/>
+        <rect
+          id="firstdoor"
+          ref="firstdoor"
+          :x="58-posDoor"
+          y="15.15"
+          width="9"
+          height="20"
+          fill="url(#doorcolor)"
+          stroke="#ededed"
+          stroke-width="0.15"/>
+      </g>
     </g>
   </svg>
 </template>
 <script>
-import { TimelineMax, Back } from 'gsap'
+// import { TimelineMax, Back } from 'gsap'
 import passunit from './passunit.vue'
 export default {
   components: {
@@ -813,12 +813,15 @@ export default {
       if (this.id < 10) return '00' + this.id
       else if (this.id >= 10 && this.id <= 99) return '0' + this.id
       else return '' + this.id
+    },
+    posDoor () {
+      return (!this.door) ? (0) : (8.15)
     }
   },
   methods: {
     doorclick () {
       console.log('door')
-      const tl = new TimelineMax()
+      /* const tl = new TimelineMax()
       const posX = (this.door) ? (0) : (8.15)
       tl.to(this.$refs.lastdoor, 0.01, {
         x: posX,
@@ -832,7 +835,7 @@ export default {
         x: posX,
         delay: 0.7,
         ease: Back.easeOut
-      })
+      }) */
       if (!this.door) this.$emit('enter')
       this.door = !this.door
     },
