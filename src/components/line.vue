@@ -2,12 +2,11 @@
   <div
     ref="lineref"
     class="line"
-    @resize="rsize"
   >
     <div
       v-for="(s,k) in getcurrstop"
       :key="'cntnet' + k"
-      :style="'left:' + (k * 246) + 'px'"
+      :style="'left:' + (k * posContact) + 'px'"
       class="contactnet"
     >
       <contactnetwork/>
@@ -33,7 +32,7 @@
         v-for="(s,k) in getcurrstop"
         :key="k"
         :id="'stop_'+(k+1)"
-        :style="'left:' + (k * 250) + 'px'"
+        :style="'left:' + (k * posStop) + 'px'"
         class="line__stop"
       >
         <stop
@@ -69,48 +68,28 @@ export default {
       idin: 0,
       currmoney: 0,
       moved: true,
-      cwidth: 800,
       lnnumber: 1,
-      tramid: 1
+      tramid: 1,
+      widthStop: 250
     }
   },
   computed: {
-    ...mapGetters(['line', 'stop', 'tramsline', 'currtram']),
+    ...mapGetters(['line', 'clientWidth', 'stop', 'tramsline', 'currtram']),
     trams () {
       return this.tramsline
     },
     gettrampos () {
       const l = this.line.way.length - 1
       const p = this.currtram.idstop
-      console.log('GTP')
-      console.log(l, p)
       return (!p) ? (0) : ((p < l) ? 1 : 2)
     },
     getcurrstop () {
       const l = this.line.way.length - 1
       const p = this.currtram.idstop
-      console.log('GCS')
-      console.log(l, p)
       const prev = this.line.way[(!p) ? 0 : ((p <= l - 1) ? (p - 1) : l - 2)]
       const curr = this.line.way[(!p) ? 1 : ((p <= l - 1) ? (p) : l - 1)]
       const next = this.line.way[(!p) ? (2) : ((p < l - 1) ? (p + 1) : l)]
       return [prev, curr, next]
-    },
-    getmoney () {
-      let countps = 0
-      const pfl = this.line.pass.filter((el) => {
-        return el.instop === this.line.position
-      })
-      for (let el of pfl) {
-        countps += el.count * el.price
-        console.log(el)
-      }
-      return countps
-    },
-    getpassstop () {
-      return this.line.pass.filter((el) => {
-        return el.instop === this.currtram.idstop
-      })
     },
     getinpass () {
       let countps = 0
@@ -119,7 +98,6 @@ export default {
       })
       for (let el of pfl) {
         countps += el.count
-        console.log(el)
       }
       return countps
     },
@@ -130,15 +108,42 @@ export default {
       })
       for (let el of pfl) {
         countps += el.count
-        console.log(el)
       }
       return countps
+    },
+    getmoney () {
+      let countps = 0
+      const pfl = this.line.pass.filter((el) => {
+        return el.instop === this.line.position
+      })
+      for (let el of pfl) {
+        countps += el.count * el.price
+      }
+      return countps
+    },
+    getpassstop () {
+      return this.line.pass.filter((el) => {
+        return el.instop === this.currtram.idstop
+      })
+    },
+    posContact () {
+      return 250
+    },
+    posStop () {
+      /* const wiw = window.innerWidth
+      console.log(window.innerWidth)
+      if (wiw <= 708) {
+        return 220
+      } */
+      return 250
+    },
+    cwidth () {
+      console.log('RSZ: ' + this.clientWidth)
+      if (this.clientWidth <= 708) return 200
+      return 250
     }
   },
   methods: {
-    rsize () {
-      this.cwidth = window.clientWidth
-    },
     getpass () {
       this.$store.dispatch('enterTram', {
         lineid: this.lnnumber,
@@ -183,20 +188,19 @@ export default {
 .line {
   position: relative;
   width: 90vw;
-  margin: 0;
-  margin-left: 40px;
-  margin-top: 20px;
+  height: 100vh;
+  margin: auto;
 }
 .contactnet {
   position: absolute;
   top: 15px;
 }
-.contactnet svg {
-  width: 260px;
+/*.contactnet svg {
+  width: 250px;
 }
-.contactnet svg:last-child {
+ .contactnet svg:last-child {
   width: 293px;
-}
+} */
 
 .line__tram {
   position: absolute;
@@ -249,21 +253,20 @@ ul {
 .tram__2 {
   left: 440px;
 }
-@media (max-width: 720px) {
+@media (max-width: 800px) {
   .line {
-    transform: scaleX(0.9);
-    margin-left: 10px;
+    margin: 0 10px;
   }
   .line__tram {
     position: absolute;
     top: 37px;
   }
-  .contactnet svg {
+  /* .contactnet svg {
     width: 250px;
   }
   .contactnet svg:last-child {
     width: 270px;
-  }
+  } */
 }
 @media (max-width: 560px) {
   .line {

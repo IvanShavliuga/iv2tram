@@ -1,7 +1,6 @@
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    class="stop"
     viewBox="0 0 100 50"
     width="250"
     height="150">
@@ -254,44 +253,35 @@
       height="15"
       stroke="#343434"
       stroke-width="0.15"/>
-    <text
-      v-if="active"
-      x="25"
-      y="18"
-      fill="#2e2e95"
-      font-size="5"
-      font-family="'Leckerli One', cursive"
-      font-weight="bold"
-    >
-      {{ countIn }} {{ countOut }}
-    </text>
-    <passunit
-      v-for="p in 5"
-      :key="name+p"
-      :pass-x="7+p*8-8"
-      :pass-y="-2"
-      :pass-color="'rgba(250, 250, 250, 0.6)'"
-    />
+    <g v-if="active">
+      <passunit
+        v-for="p in passCount"
+        :key="name+p"
+        :pass-x="7+p*8-8"
+        :pass-y="2"
+        :pass-color="'rgba(250, 250, 250, 0.6)'"
+      />
+    </g>
     <rect
       x="10"
-      y="12"
+      y="17"
       width="10"
       height="2"
-      fill="#457634"
+      fill="#c5c595"
     />
     <rect
       x="10"
-      y="14"
+      y="19"
       width="2"
       height="3"
-      fill="#343434"
+      fill="#959595"
     />
     <rect
       x="18"
-      y="14"
+      y="19"
       width="2"
       height="3"
-      fill="#343434"
+      fill="#959595"
     />
     <rect
       x="43"
@@ -345,6 +335,23 @@ export default {
     lineNumber: {
       type: Number,
       default: 1
+    },
+    widthStop: {
+      type: Number,
+      default: 250
+    }
+  },
+  computed: {
+    /* widthStop () {
+      const wiw = window.innerWidth
+      console.log(wiw)
+      if (wiw < 708) {
+        return 200
+      }
+      return 250
+    } */
+    passCount () {
+      return ~~((this.countIn + this.countOut) / 25) + 1
     }
   }
 }

@@ -8,6 +8,7 @@ export default new Vuex.Store({
     currstop: null,
     counttrams: 0,
     money: 0,
+    clientWidth: 1200,
     models: [{
       id: 1,
       model: 'KTM5',
@@ -322,6 +323,7 @@ export default new Vuex.Store({
         })
         state.counttrams++
         state.line.currtram++
+        state.currstop = state.line.way[0].name
       }
     },
     MOVE_TRAM (state, obj) {
@@ -404,6 +406,9 @@ export default new Vuex.Store({
           }
         }
       }
+    },
+    'APP_RESIZE' (state, obj) {
+      state.clientWidth = obj.width
     }
   },
   actions: {
@@ -418,11 +423,15 @@ export default new Vuex.Store({
     },
     selTram ({ commit }, obj) {
       commit('SEL_TRAM', obj)
+    },
+    appResize ({ commit }, obj) {
+      commit('APP_RESIZE', obj)
     }
   },
   getters: {
     line: state => state.line,
     money: state => state.money,
+    clientWidth: state => state.clientWidth,
     stop: state => state.currstop,
     currtram: state => {
       return state.line.trams.filter((el) => {

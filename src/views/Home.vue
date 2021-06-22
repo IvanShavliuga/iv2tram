@@ -91,7 +91,7 @@ export default {
 }
 .list {
   width: 300px;
-  height: 600px;
+  height: 300px;
   background: rgba(255, 255, 255, 0.5);
   box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.5);
 }
