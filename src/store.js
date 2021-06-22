@@ -323,6 +323,7 @@ export default new Vuex.Store({
         })
         state.counttrams++
         state.line.currtram++
+        state.currstop = state.line.way[0].name
       }
     },
     MOVE_TRAM (state, obj) {

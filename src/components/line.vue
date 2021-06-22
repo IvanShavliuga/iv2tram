@@ -91,21 +91,6 @@ export default {
       const next = this.line.way[(!p) ? (2) : ((p < l - 1) ? (p + 1) : l)]
       return [prev, curr, next]
     },
-    getmoney () {
-      let countps = 0
-      const pfl = this.line.pass.filter((el) => {
-        return el.instop === this.line.position
-      })
-      for (let el of pfl) {
-        countps += el.count * el.price
-      }
-      return countps
-    },
-    getpassstop () {
-      return this.line.pass.filter((el) => {
-        return el.instop === this.currtram.idstop
-      })
-    },
     getinpass () {
       let countps = 0
       const pfl = this.line.pass.filter((el) => {
@@ -125,6 +110,21 @@ export default {
         countps += el.count
       }
       return countps
+    },
+    getmoney () {
+      let countps = 0
+      const pfl = this.line.pass.filter((el) => {
+        return el.instop === this.line.position
+      })
+      for (let el of pfl) {
+        countps += el.count * el.price
+      }
+      return countps
+    },
+    getpassstop () {
+      return this.line.pass.filter((el) => {
+        return el.instop === this.currtram.idstop
+      })
     },
     posContact () {
       return 250
@@ -188,9 +188,8 @@ export default {
 .line {
   position: relative;
   width: 90vw;
-  margin: 0;
-  margin-left: 40px;
-  margin-top: 20px;
+  height: 100vh;
+  margin: auto;
 }
 .contactnet {
   position: absolute;
@@ -256,7 +255,7 @@ ul {
 }
 @media (max-width: 800px) {
   .line {
-    margin-left: 10px;
+    margin: 0 10px;
   }
   .line__tram {
     position: absolute;
