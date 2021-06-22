@@ -66,25 +66,25 @@
         offset="100%"/>
     </linearGradient>
     <rect
-      x="-10.95"
+      x="0"
       y="0"
-      width="98.85"
+      width="100"
       height="35"
       fill="url(#air)"
       stroke="blue"
-      stroke-width="0.36"
+      stroke-width="0.01"
     />
     <rect
-      x="-11"
+      x="0"
       y="35"
-      width="98.85"
+      width="100"
       height="10"
       fill="url(#field)"
       stroke="green"
-      stroke-width="0.36"
+      stroke-width="0.01"
     />
     <rect
-      x="69"
+      x="82"
       y="0"
       height="50"
       width="2"
@@ -118,7 +118,7 @@
     <line
       x1="0"
       y1="8"
-      x2="87"
+      x2="100"
       y2="8"
       stroke="black"
       stroke-width="0.45"
@@ -126,7 +126,7 @@
     <line
       x1="0"
       y1="10.9"
-      x2="87"
+      x2="100"
       y2="10.9"
       stroke="black"
       stroke-width="0.45"
@@ -140,9 +140,9 @@
       stroke-width="0.85"
     />
     <line
-      x1="62"
+      x1="75"
       y1="6"
-      x2="62"
+      x2="75"
       y2="10.9"
       stroke="black"
       stroke-width="0.85"
@@ -156,9 +156,9 @@
       stroke-width="0.95"
     />
     <line
-      x1="69"
+      x1="82"
       y1="2"
-      x2="55"
+      x2="69"
       y2="10"
       stroke="#414141"
       stroke-width="0.95"

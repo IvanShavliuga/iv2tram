@@ -41,7 +41,6 @@
           :count-in="getinpass"
           :count-out="getoutpass"
           :line-number="lnnumber"
-          :width-stop="cwidth"
         />
       </div>
     </div>
@@ -128,12 +127,7 @@ export default {
       return countps
     },
     posContact () {
-      /* const wiw = window.innerWidth
-      console.log(window.innerWidth)
-      if (wiw <= 708) {
-        return 230
-      } */
-      return 246
+      return 250
     },
     posStop () {
       /* const wiw = window.innerWidth
@@ -144,6 +138,7 @@ export default {
       return 250
     },
     cwidth () {
+      console.log('RSZ: ' + this.clientWidth)
       if (this.clientWidth <= 708) return 200
       return 250
     }
@@ -201,12 +196,12 @@ export default {
   position: absolute;
   top: 15px;
 }
-.contactnet svg {
-  width: 260px;
+/*.contactnet svg {
+  width: 250px;
 }
-.contactnet svg:last-child {
+ .contactnet svg:last-child {
   width: 293px;
-}
+} */
 
 .line__tram {
   position: absolute;
@@ -259,21 +254,20 @@ ul {
 .tram__2 {
   left: 440px;
 }
-@media (max-width: 720px) {
+@media (max-width: 800px) {
   .line {
-    transform: scaleX(0.9);
     margin-left: 10px;
   }
   .line__tram {
     position: absolute;
     top: 37px;
   }
-  .contactnet svg {
+  /* .contactnet svg {
     width: 250px;
   }
   .contactnet svg:last-child {
     width: 270px;
-  }
+  } */
 }
 @media (max-width: 560px) {
   .line {
