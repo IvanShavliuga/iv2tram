@@ -1,8 +1,5 @@
 <template>
-  <div
-    id="app"
-    @resize="rzwindow"
-  >
+  <div id="app">
     <!-- <img :src="'http://localhost:8080/img/tram.svg'"> -->
     <app-home/>
   </div>
@@ -17,11 +14,6 @@ export default {
     this.$store.dispatch('addTram', {
       idline: 1
     })
-  },
-  methods: {
-    rzwindow () {
-      this.$store.dispatch('appResize', { width: window.clientWidth })
-    }
   }
 }
 </script>

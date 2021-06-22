@@ -8,5 +8,11 @@ Vue.config.productionTip = true
 new Vue({
   router,
   store,
+  mounted () {
+    window.addEventListener('resize', () => {
+      console.log('win resize')
+      this.$store.dispatch('appResize', { width: window.innerWidth })
+    })
+  },
   render: h => h(App)
 }).$mount('#app')
