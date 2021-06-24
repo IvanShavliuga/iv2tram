@@ -32,8 +32,12 @@ body{
 }
 #app {
   height: 100vh;
-  width: 100vw;
-  color: black;
+  width: 90%;
+  margin: 5px auto;
 }
-
+@media (max-width: 800px) {
+  #app {
+    margin: 0;
+  }
+}
 </style>

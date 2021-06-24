@@ -63,16 +63,33 @@ export default {
 
 <!-- Use preprocessors via the lang attribute! e.g. <style lang="scss"> -->
 <style>
+.page {
+  width: 90vw;
+  margin: auto;
+}
 .tramline {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 250px;
   margin: 0;
   margin-top: -30px;
+  border: 1px dotted yellow;
+}
+@media (max-width: 640px) {
+  .tramline {
+    width: 100%;
+    padding: 0 50px;
+  }
+}
+@media (max-width: 640px) {
+  .tramline {
+    width: 100%;
+    padding: 0 30px;
+  }
 }
 .map {
   position: relative;
-  width: 300px;
+  width: 400px;
   height: 300px;
   margin: 0 50px;
   background: rgba(255, 255, 255, 0.5);
@@ -90,7 +107,7 @@ export default {
   margin: 15px auto 15px auto;
 }
 .list {
-  width: 300px;
+  width: 200px;
   height: 300px;
   background: rgba(255, 255, 255, 0.5);
   box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.5);
