@@ -1,6 +1,6 @@
 <!-- Use preprocessors via the lang attribute! e.g. <template lang="pug"> -->
 <template>
-  <div>
+  <div class="page">
     <div class="tramline">
       <appline/>
     </div>

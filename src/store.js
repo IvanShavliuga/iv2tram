@@ -164,17 +164,17 @@ export default new Vuex.Store({
         y: 50,
         vectors: [{
           x: 0,
-          y: 0
+          y: 10
         }],
         name: 'КПД',
         start: false,
         end: false,
-        id: 50,
+        id: 10,
         instop: 0,
         outstop: 0
       }, {
         x: 20,
-        y: 50,
+        y: 60,
         vectors: [{
           x: 10,
           y: 0
@@ -187,7 +187,7 @@ export default new Vuex.Store({
         outstop: 0
       }, {
         x: 30,
-        y: 50,
+        y: 60,
         vectors: [{
           x: 10,
           y: 0
@@ -200,7 +200,7 @@ export default new Vuex.Store({
         outstop: 0
       }, {
         x: 40,
-        y: 50,
+        y: 60,
         vectors: [{
           x: 0,
           y: 0
