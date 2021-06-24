@@ -1,9 +1,9 @@
 <template>
   <svg
+    :width="svgWidth"
+    :height="svgWidth"
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 800 800"
-    width="800"
-    height="800"
+    viewBox="0 0 600 600"
     fill="#999999">
     <text
       x="5"
@@ -43,12 +43,18 @@
 import { mapGetters } from 'vuex'
 export default {
   computed: {
-    ...mapGetters(['line', 'currtram', 'money']),
+    ...mapGetters(['line', 'currtram', 'money', 'clientWidth']),
     filterprice () {
       if (!this.money) return '0.0'
       const el = ('' + this.money).split('.')
       const dr = (el[1] !== undefined) ? (el[1].slice(0, 2)) : (this.money)
       return el[0] + '.' + dr
+    },
+    svgWidth () {
+      if (this.clientWidth < 800) {
+        return this.clientWidth / 2
+      }
+      return 600
     }
   },
   methods: {
