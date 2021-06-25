@@ -81,7 +81,7 @@ export default {
     gettrampos () {
       const l = this.line.way.length - 1
       const p = this.currtram.idstop
-      if (this.clientWidth <= 400) {
+      if (this.clientWidth <= 432) {
         return 0
       }
       if (this.clientWidth <= 645) {
@@ -97,7 +97,7 @@ export default {
       const prev = this.line.way[(!p) ? 0 : ((p <= l - 1) ? (p - 1) : l - 2)]
       const curr = this.line.way[(!p) ? 1 : ((p <= l - 1) ? (p) : l - 1)]
       const next = this.line.way[(!p) ? (2) : ((p < l - 1) ? (p + 1) : l)]
-      if (this.clientWidth <= 400) {
+      if (this.clientWidth <= 432) {
         return [this.line.way[p]]
       }
       if (this.clientWidth <= 645) {
