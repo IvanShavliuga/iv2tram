@@ -9,6 +9,7 @@ new Vue({
   router,
   store,
   mounted () {
+    this.$store.dispatch('appResize', { width: window.innerWidth })
     window.addEventListener('resize', () => {
       console.log('win resize')
       this.$store.dispatch('appResize', { width: window.innerWidth })
