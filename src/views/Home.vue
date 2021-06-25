@@ -69,23 +69,11 @@ export default {
 }
 .tramline {
   position: relative;
-  width: 100%;
+  max-width: 100%;
   height: 250px;
   margin: 0;
   margin-top: -30px;
   border: 1px dotted yellow;
-}
-@media (max-width: 640px) {
-  .tramline {
-    width: 100%;
-    padding: 0 50px;
-  }
-}
-@media (max-width: 640px) {
-  .tramline {
-    width: 100%;
-    padding: 0 30px;
-  }
 }
 .map {
   position: relative;
@@ -98,13 +86,13 @@ export default {
 .box {
   display: flex;
 }
-.control {
-  width: 800px;
-  height: 60px;
-}
 .control__panel {
   width: 250px;
-  margin: 15px auto 15px auto;
+  margin: 15px;
+}
+.control {
+  width: 250px;
+  height: 60px;
 }
 .list {
   width: 200px;
@@ -112,28 +100,17 @@ export default {
   background: rgba(255, 255, 255, 0.5);
   box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.5);
 }
-/* @media (max-width: 865px) {
-  .map {
-    transform: scaleX(0.8);
-    margin-left: -40px;
+@media (max-width: 640px) {
+  .tramline {
+    padding: 0 30px;
   }
 }
-@media (max-width: 690px) {
-  .map {
-    transform: scaleX(0.7);
-    margin-left: -80px;
+@media (max-width: 400px) {
+  .tramline {
+    max-width: 200px;
+    padding: 0;
+    margin: 0 auto;
+    margin-top: -30px;
   }
 }
-@media (max-width: 600px) {
-  .map {
-    transform: scaleX(0.6);
-    margin-left: -120px;
-  }
-}
-@media (max-width: 570px) {
-  .map {
-    transform: scaleX(0.5);
-    margin-left: -200px;
-  }
-} */
 </style>
