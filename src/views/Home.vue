@@ -73,7 +73,6 @@ export default {
   height: 250px;
   margin: 0;
   margin-top: -30px;
-  border: 1px dotted yellow;
 }
 .map {
   position: relative;
@@ -105,12 +104,43 @@ export default {
     padding: 0 30px;
   }
 }
+@media (max-width: 535px) {
+  .page {
+    max-width: 80vw;
+    margin: 0;
+  }
+  .tramline {
+    max-width: 400px;
+    padding: 0;
+    margin: 0 auto;
+    margin-top: -30px;
+  }
+}
 @media (max-width: 400px) {
   .tramline {
     max-width: 200px;
     padding: 0;
     margin: 0 auto;
     margin-top: -30px;
+    transform: scaleX(1.3);
+  }
+}
+@media (max-width: 322px) {
+  .tramline {
+    max-width: 200px;
+    padding: 0;
+    margin: 0 auto;
+    margin-top: -30px;
+    transform: scaleX(1.1);
+  }
+}
+@media (max-width: 265px) {
+  .tramline {
+    max-width: 200px;
+    padding: 0;
+    margin: 0 auto;
+    margin-top: -30px;
+    transform: scaleX(0.9);
   }
 }
 </style>
