@@ -162,10 +162,6 @@ export default {
       return 250
     }
   },
-  created () {
-    this.getcurrstop()
-    this.gettrampos()
-  },
   methods: {
     getpass () {
       this.$store.dispatch('enterTram', {
