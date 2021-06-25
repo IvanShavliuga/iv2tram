@@ -26,5 +26,6 @@
   "start_url": "https://ivanshavliuga.github.io/iv2tram/index.html",
   "display": "fullscreen",
   "background_color": "#7e22a1",
+  "orientation": "landscape",
   "theme_color": "#7e22a1"
 }

@@ -1,12 +1,10 @@
 <template>
   <svg
-    :width="svgWidth"
-    :height="svgWidth"
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 600 600"
+    viewBox="0 0 300 300"
     fill="#999999">
     <text
-      x="5"
+      x="0"
       y="15"
       fill="#dede70"
     >
@@ -39,6 +37,12 @@
     </g>
   </svg>
 </template>
+<style scoped>
+svg {
+  width: inherit;
+  height: inherit;
+}
+</style>
 <script>
 import { mapGetters } from 'vuex'
 export default {
@@ -49,13 +53,11 @@ export default {
       const el = ('' + this.money).split('.')
       const dr = (el[1] !== undefined) ? (el[1].slice(0, 2)) : (this.money)
       return el[0] + '.' + dr
-    },
+    } /* ,
     svgWidth () {
-      if (this.clientWidth < 800) {
-        return this.clientWidth / 2
-      }
-      return 600
-    }
+      if (this.clientWidth > 800) return this.clientWidth / 2
+      return this.clientWidth / 1.1
+    } */
   },
   methods: {
     findactive (id) {

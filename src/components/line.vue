@@ -81,6 +81,14 @@ export default {
     gettrampos () {
       const l = this.line.way.length - 1
       const p = this.currtram.idstop
+      if (this.clientWidth <= 432) {
+        return 0
+      }
+      if (this.clientWidth <= 645) {
+        if (!p) return 0
+        else if (p < l) return 0
+        else return 1
+      }
       return (!p) ? (0) : ((p < l) ? 1 : 2)
     },
     getcurrstop () {
@@ -89,6 +97,13 @@ export default {
       const prev = this.line.way[(!p) ? 0 : ((p <= l - 1) ? (p - 1) : l - 2)]
       const curr = this.line.way[(!p) ? 1 : ((p <= l - 1) ? (p) : l - 1)]
       const next = this.line.way[(!p) ? (2) : ((p < l - 1) ? (p + 1) : l)]
+      if (this.clientWidth <= 432) {
+        return [this.line.way[p]]
+      }
+      if (this.clientWidth <= 645) {
+        if (!p) return [prev, curr]
+        else return [curr, next]
+      }
       return [prev, curr, next]
     },
     getinpass () {
@@ -130,16 +145,20 @@ export default {
       return 250
     },
     posStop () {
-      /* const wiw = window.innerWidth
-      console.log(window.innerWidth)
-      if (wiw <= 708) {
+      if (this.clientWidth <= 750) {
+        return 250
+      }
+      return 250
+    },
+    posStart () {
+      if (this.clientWidth <= 800) {
         return 220
-      } */
+      }
       return 250
     },
     cwidth () {
       console.log('RSZ: ' + this.clientWidth)
-      if (this.clientWidth <= 708) return 200
+      if (this.clientWidth <= 750) return this.clientWidth - 50
       return 250
     }
   },
@@ -187,21 +206,38 @@ export default {
 <style scoped>
 .line {
   position: relative;
-  width: 90vw;
-  height: 100vh;
+  width: 750px;
+  height: 300px;
   margin: auto;
 }
 .contactnet {
   position: absolute;
   top: 15px;
 }
-/*.contactnet svg {
-  width: 250px;
+@media (max-width: 400px) {
+  .line {
+    width: 350px;
+    margin: 0;
+  }
+  .line__stop {
+    max-width: 100%;
+  }
 }
- .contactnet svg:last-child {
-  width: 293px;
-} */
-
+@media (max-width: 800px) {
+  .line {
+    width: 700px;
+    margin: 0;
+  }
+  .line__tram {
+    position: relative;
+    top: 37px;
+  }
+  .line__stop {
+    position: relative;
+    top: 125px;
+    left: 0;
+  }
+}
 .line__tram {
   position: absolute;
   top: 37px;
@@ -253,7 +289,7 @@ ul {
 .tram__2 {
   left: 440px;
 }
-@media (max-width: 800px) {
+/* @media (max-width: 800px) {
   .line {
     margin: 0 10px;
   }
@@ -261,19 +297,13 @@ ul {
     position: absolute;
     top: 37px;
   }
-  /* .contactnet svg {
-    width: 250px;
-  }
-  .contactnet svg:last-child {
-    width: 270px;
-  } */
-}
-@media (max-width: 560px) {
+} */
+/* @media (max-width: 560px) {
   .line {
     transform: scaleX(0.7);
     margin-left: -70px;
   }
-  /* .tram__0 {
+ .tram__0 {
     left: -20px;
   }
   .tram__1 {
@@ -281,9 +311,9 @@ ul {
   }
   .tram__2 {
     left: 300px;
-  } */
-}
-@media (max-width: 410px) {
+  }
+} */
+/* @media (max-width: 410px) {
   .line {
     transform: scaleX(0.6);
     margin-left: -50px;
@@ -293,5 +323,5 @@ ul {
   .line {
     margin-left: -60px;
   }
-}
+} */
 </style>

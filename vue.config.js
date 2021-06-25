@@ -1,5 +1,5 @@
 module.exports = {
-  baseUrl: process.env.NODE_ENV === 'production' ? 'https://ivanshavliuga.github.io/iv2tram/' : '/',
+  baseUrl: process.env.NODE_ENV === 'production' ? '' : '/',
   pwa: {
     themeColor: '#ffffff',
     msTileColor: '#ffffff',

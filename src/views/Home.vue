@@ -1,33 +1,52 @@
 <!-- Use preprocessors via the lang attribute! e.g. <template lang="pug"> -->
 <template>
   <div class="page">
-    <div class="tramline">
+    <div
+      v-if="lineflag"
+      class="tramline"
+    >
       <appline/>
     </div>
-    <div class="control">
+    <div
+      v-if="wayflag"
+      class="map"
+    >
+      <appway/>
+    </div>
+    <div
+      v-if="depotflag"
+      class="list"
+    >
+      <applistlinetram/>
+    </div>
+    <!-- <div class="control">
       <div class="control__panel">
-        <button @click="newtramcl">
-          new
-        </button>
-        <!-- <button @click="deltramcl">
-          delete
-        </button> -->
-        <button @click="prevtramcl">
-          prev
-        </button>
-        <button @click="nexttramcl">
-          next
-        </button>
+        <div class="control__panel-group">
+          trams:
+          <button @click="newtramcl">
+            new
+          </button>
+          <button @click="prevtramcl">
+            prev
+          </button>
+          <button @click="nexttramcl">
+            next
+          </button>
+        </div>
+        <div class="control__panel-group">
+          window:
+          <button @click="wayview">
+            map
+          </button>
+          <button @click="depotview">
+            depot
+          </button>
+          <button @click="lineview">
+            line
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="box">
-      <div class="map">
-        <appway/>
-      </div>
-      <div class="list">
-        <applistlinetram/>
-      </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -40,6 +59,13 @@ export default {
     appline,
     appway,
     applistlinetram
+  },
+  data () {
+    return {
+      lineflag: true,
+      wayflag: false,
+      depotflag: false
+    }
   },
   methods: {
     newtramcl () {
@@ -56,6 +82,24 @@ export default {
       this.$store.dispatch('selTram', {
         mode: 'next'
       })
+    },
+    lineview () {
+      console.log('line')
+      this.lineflag = true
+      this.wayflag = false
+      this.depotflag = false
+    },
+    wayview () {
+      console.log('way')
+      this.lineflag = false
+      this.wayflag = true
+      this.depotflag = false
+    },
+    depotview () {
+      console.log('depot')
+      this.lineflag = false
+      this.wayflag = false
+      this.depotflag = true
     }
   }
 }
@@ -63,60 +107,120 @@ export default {
 
 <!-- Use preprocessors via the lang attribute! e.g. <style lang="scss"> -->
 <style>
+button {
+  border: 1px solid #238923;
+  background-color: rgba(50, 120, 90, 0.7);
+  color: white;
+  padding: 5px;
+  margin: 5px;
+}
+
 .tramline {
   position: relative;
-  width: 100vw;
+  max-width: 100%;
   height: 250px;
   margin: 0;
   margin-top: -30px;
 }
 .map {
   position: relative;
-  width: 300px;
+  width: 100%;
   height: 300px;
-  margin: 0 50px;
+  margin: 0;
   background: rgba(255, 255, 255, 0.5);
   box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.5);
 }
 .box {
-  display: flex;
-}
-.control {
-  width: 800px;
-  height: 60px;
+  display: none;
 }
 .control__panel {
-  width: 250px;
-  margin: 15px auto 15px auto;
+  display: flex;
+  width: 100%;
+  margin: 15px;
+  padding: 0 15px;
+  background: rgba(60, 255, 255, 0.2);
+}
+.control__panel-group {
+  color: white;
+}
+.control {
+  display: block;
+  width: 100%;
+  height: 60px;
 }
 .list {
-  width: 300px;
+  width: 100%;
   height: 300px;
+  margin: 0;
   background: rgba(255, 255, 255, 0.5);
   box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.5);
 }
-/* @media (max-width: 865px) {
-  .map {
-    transform: scaleX(0.8);
-    margin-left: -40px;
+@media (max-width: 640px) {
+  .tramline {
+    padding: 0 30px;
   }
 }
-@media (max-width: 690px) {
-  .map {
-    transform: scaleX(0.7);
-    margin-left: -80px;
+@media (max-width: 635px) {
+  .control {
+    width: 500px;
+    margin: 15px 0;
+    height: auto;
   }
-}
-@media (max-width: 600px) {
-  .map {
-    transform: scaleX(0.6);
-    margin-left: -120px;
+  .page {
+    width: 520px;
+    padding: 0 15px;
+    margin: 0 auto;
   }
 }
 @media (max-width: 570px) {
-  .map {
-    transform: scaleX(0.5);
-    margin-left: -200px;
+  .tramline {
+    max-width: 400px;
+    padding: 0;
+    margin: 0 15px;
+    margin-top: -30px;
   }
-} */
+  .page {
+    width: 500px;
+    padding: 0 5px;
+    margin: 0 auto;
+  }
+  .control__panel {
+    flex-direction: column;
+  }
+  .control__panel {
+    width: 250px;
+    margin: 10px auto;
+  }
+}
+@media (max-width: 510px) {
+  .tramline {
+    max-width: 200px;
+    padding: 0;
+    margin: 0;
+    margin-top: -30px;
+    transform: scaleX(1.1);
+  }
+}
+@media (max-width: 432px) {
+  .tramline {
+    max-width: 200px;
+    padding: 0;
+    margin: 0 auto;
+    margin-top: -30px;
+    transform: scaleX(1.5) translateX(-60px);
+  }
+  .control__panel {
+    width: 250px;
+    margin: 10px;
+  }
+}
+@media (max-width: 265px) {
+  .tramline {
+    max-width: 200px;
+    padding: 0;
+    margin: 0 auto;
+    margin-top: -30px;
+    transform: scaleX(1.2) translateX(-100px);
+  }
+}
 </style>
