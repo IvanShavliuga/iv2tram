@@ -81,9 +81,9 @@ export default {
     gettrampos () {
       const l = this.line.way.length - 1
       const p = this.currtram.idstop
-      /* if (this.clientWidth <= 400) {
+      if (this.clientWidth <= 400) {
         return 0
-      } */
+      }
       if (this.clientWidth <= 645) {
         if (!p) return 0
         else if (p < l) return 0
@@ -97,9 +97,9 @@ export default {
       const prev = this.line.way[(!p) ? 0 : ((p <= l - 1) ? (p - 1) : l - 2)]
       const curr = this.line.way[(!p) ? 1 : ((p <= l - 1) ? (p) : l - 1)]
       const next = this.line.way[(!p) ? (2) : ((p < l - 1) ? (p + 1) : l)]
-      /* if (this.clientWidth <= 400) {
+      if (this.clientWidth <= 400) {
         return [this.line.way[p]]
-      } */
+      }
       if (this.clientWidth <= 645) {
         if (!p) return [prev, curr]
         else return [curr, next]
@@ -162,6 +162,10 @@ export default {
       return 250
     }
   },
+  created () {
+    this.getcurrstop()
+    this.gettrampos()
+  },
   methods: {
     getpass () {
       this.$store.dispatch('enterTram', {
@@ -213,6 +217,15 @@ export default {
 .contactnet {
   position: absolute;
   top: 15px;
+}
+@media (max-width: 400px) {
+  .line {
+    width: 350px;
+    margin: 0;
+  }
+  .line__stop {
+    max-width: 100%;
+  }
 }
 @media (max-width: 800px) {
   .line {
