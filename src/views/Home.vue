@@ -83,13 +83,14 @@ export default {
   box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.5);
 }
 .box {
-  display: flex;
+  display: none;
 }
 .control__panel {
   width: 250px;
   margin: 15px;
 }
 .control {
+  display: none;
   width: 250px;
   height: 60px;
 }
@@ -103,6 +104,16 @@ export default {
   .tramline {
     padding: 0 30px;
   }
+  .map {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    margin: 0 10px;
+  }
+  /* .box {
+    display: flex;
+    flex-direction: column;
+  } */
 }
 @media (max-width: 535px) {
   .page {
