@@ -186,7 +186,10 @@
         stroke-width="0.75"/>
     </g>
 
-    <g id="body">
+    <g
+      id="body"
+      @click="tramclick"
+    >
       <rect
         x="5"
         y="15"
@@ -195,7 +198,7 @@
         fill="url(#bodybottom)"
         stroke="#343434"
         stroke-width="0.15"
-        @click="clmove"/>
+      />
       <rect
         id="bodycolor"
         x="5.15"
@@ -205,7 +208,7 @@
         fill="url(#bodycolor)"
         stroke="#ee59e6"
         stroke-width="0.15"
-        @click="clmove"/>
+      />
       <text
         x="45"
         y="28.55"
@@ -255,7 +258,6 @@
           r="2"
           fill="url(#ring)"
         />
-
       </g>
       <g id="windows">
         <rect
@@ -672,10 +674,7 @@
           stroke="rgba(18,18,18, 0.7)"
           stroke-width="0.1"/>
       </g>
-      <g
-        id="numtab"
-        @click="clmove"
-      >
+      <g id="numtab">
         <rect
           id="lnnumber"
           ref="lnnumber"
@@ -718,10 +717,7 @@
           {{ filterprice }}$
         </text>
       </g>
-      <g
-        id="door"
-        @click="doorclick"
-      >
+      <g id="door">
         <rect
           id="lastdoor"
           ref="lastdoor"
@@ -819,31 +815,14 @@ export default {
     }
   },
   methods: {
-    doorclick () {
-      console.log('door')
-      /* const tl = new TimelineMax()
-      const posX = (this.door) ? (0) : (8.15)
-      tl.to(this.$refs.lastdoor, 0.01, {
-        x: posX,
-        delay: 0.7,
-        ease: Back.easeOut
-      }).to(this.$refs.middledoor, 0.01, {
-        x: posX,
-        delay: 0.7,
-        ease: Back.easeOut
-      }).to(this.$refs.firstdoor, 0.01, {
-        x: posX,
-        delay: 0.7,
-        ease: Back.easeOut
-      }) */
-      if (!this.door) this.$emit('enter')
-      this.door = !this.door
-    },
-    clmove () {
+    tramclick () {
+      console.log('tram click')
       if (!this.door) {
-        console.log('move')
+        this.$emit('enter')
+      } else {
         this.$emit('move')
       }
+      this.door = !this.door
     }
   }
 }
