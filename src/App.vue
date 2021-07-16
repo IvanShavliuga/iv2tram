@@ -28,7 +28,7 @@ html {
   overflow-x: hidden;
 }
 body{
-  background: rgba(9, 10, 9, 0.8);
+  background: #000;
 }
 #app {
   height: 100vh;

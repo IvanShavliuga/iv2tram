@@ -409,6 +409,9 @@ export default new Vuex.Store({
     },
     'APP_RESIZE' (state, obj) {
       state.clientWidth = obj.width
+      state.clientHeight = obj.height
+      console.log('resize')
+      console.log(obj)
     }
   },
   actions: {

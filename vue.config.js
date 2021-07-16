@@ -1,7 +1,7 @@
 module.exports = {
   baseUrl: process.env.NODE_ENV === 'production' ? '' : '/',
   pwa: {
-    themeColor: '#ffffff',
+    themeColor: '#7e22a1',
     msTileColor: '#ffffff',
     workboxOptions: {
       skipWaiting: true,
