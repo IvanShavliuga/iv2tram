@@ -5,7 +5,7 @@
     viewBox="0 0 100 50"
     width="250"
     height="150">
-    <linearGradient id="bodycolor2">
+    <!-- <linearGradient id="bodycolor2">
       <stop
         stop-color="red"
         stop-opacity="0.3"
@@ -18,7 +18,7 @@
         stop-color="red"
         stop-opacity="0.3"
         offset="100%"/>
-    </linearGradient>
+    </linearGradient> -->
     <linearGradient
       id="windowcolor"
       x1="0"
@@ -146,42 +146,42 @@
         :x1="directtram"
         :x2="directtram + 7.5"
         y1="15"
-        y2="8.5"
+        y2="9.5"
         stroke="#de4328"
         stroke-width="0.75"/>
       <line
         :x1="directtram"
         :x2="directtram + 7.5"
-        y1="1.5"
-        y2="8.5"
+        y1="3.5"
+        y2="9.5"
         stroke="#de4328"
         stroke-width="0.75"/>
       <line
         :x1="directtram"
         :x2="directtram - 7.5"
         y1="15"
-        y2="8.5"
+        y2="9.5"
         stroke="#de4328"
         stroke-width="0.75"/>
       <line
         :x1="directtram"
         :x2="directtram - 7.5"
-        y1="1.5"
-        y2="8.5"
+        y1="3.5"
+        y2="9.5"
         stroke="#de4328"
         stroke-width="0.75"/>
       <line
         :x1="directtram - 2.5"
         :x2="directtram + 2.5"
-        y1="0.7"
-        y2="0.7"
+        y1="3.4"
+        y2="3.4"
         stroke="#de4328"
         stroke-width="0.75"/>
       <line
         :x1="directtram"
         :x2="directtram"
-        y1="0.7"
-        y2="1.5"
+        y1="3.4"
+        y2="3.5"
         stroke="#de4328"
         stroke-width="0.75"/>
     </g>
@@ -750,6 +750,30 @@
           stroke-width="0.15"/>
       </g>
     </g>
+    <!-- <animate
+      xlink:href="#lastdoor"
+      attributeName="x"
+      from="8.15"
+      to="16.15"
+      dur="0.5s"
+      repeatCount="1"
+      begin="click"/>
+    <animate
+      xlink:href="#middledoor"
+      attributeName="x"
+      from="33"
+      to="41"
+      dur="0.5s"
+      repeatCount="1"
+      begin="click"/>
+    <animate
+      xlink:href="#firstdoor"
+      attributeName="x"
+      from="58"
+      to="50"
+      dur="1s"
+      repeatCount="1"
+      begin="click"/> -->
   </svg>
 </template>
 <script>
