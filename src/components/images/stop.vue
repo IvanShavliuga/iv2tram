@@ -240,7 +240,8 @@
       y="30"
       fill="#EDede6"
       font-size="7"
-      font-family="'Leckerli One', cursive"
+      font-weight="bold"
+      font-family="Courier new"
     >
       {{ name }}
     </text>
