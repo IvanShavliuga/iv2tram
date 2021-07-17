@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <!-- <img :src="'http://localhost:8080/img/tram.svg'"> -->
     <app-home/>
   </div>
 </template>
@@ -17,7 +16,6 @@ export default {
   }
 }
 </script>
-
 <style>
 body,
 html {

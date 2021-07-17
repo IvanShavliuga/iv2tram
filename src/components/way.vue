@@ -53,11 +53,7 @@ export default {
       const el = ('' + this.money).split('.')
       const dr = (el[1] !== undefined) ? (el[1].slice(0, 2)) : (this.money)
       return el[0] + '.' + dr
-    } /* ,
-    svgWidth () {
-      if (this.clientWidth > 800) return this.clientWidth / 2
-      return this.clientWidth / 1.1
-    } */
+    }
   },
   methods: {
     findactive (id) {

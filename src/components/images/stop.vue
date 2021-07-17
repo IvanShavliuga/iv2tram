@@ -342,14 +342,6 @@ export default {
     }
   },
   computed: {
-    /* widthStop () {
-      const wiw = window.innerWidth
-      console.log(wiw)
-      if (wiw < 708) {
-        return 200
-      }
-      return 250
-    } */
     passCount () {
       return ~~((this.countIn + this.countOut) / 25) + 1
     }
