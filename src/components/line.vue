@@ -289,39 +289,4 @@ ul {
 .tram__2 {
   left: 440px;
 }
-/* @media (max-width: 800px) {
-  .line {
-    margin: 0 10px;
-  }
-  .line__tram {
-    position: absolute;
-    top: 37px;
-  }
-} */
-/* @media (max-width: 560px) {
-  .line {
-    transform: scaleX(0.7);
-    margin-left: -70px;
-  }
- .tram__0 {
-    left: -20px;
-  }
-  .tram__1 {
-    left: 120px;
-  }
-  .tram__2 {
-    left: 300px;
-  }
-} */
-/* @media (max-width: 410px) {
-  .line {
-    transform: scaleX(0.6);
-    margin-left: -50px;
-  }
-}
-@media (max-width: 380px) {
-  .line {
-    margin-left: -60px;
-  }
-} */
 </style>

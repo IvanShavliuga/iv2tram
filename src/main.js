@@ -29,12 +29,6 @@ new Vue({
         height: window.innerHeight
       })
     })
-    /* window.addEventListener('orientationchange', () => {
-      // Выводим числовое значение ориентации
-      if (!window.orientation) {
-        this.$store.dispatch('appResize', { width: window.innerWidth })
-      }
-    }, false) */
   },
   render: h => h(App)
 }).$mount('#app')
