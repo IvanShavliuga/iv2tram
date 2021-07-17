@@ -303,7 +303,7 @@
       y="4"
       fill="#EDede6"
       font-size="4"
-      font-family="'Leckerli One', cursive"
+      font-family="Courier new"
       font-weight="bold"
     >
       {{ lineNumber }}
