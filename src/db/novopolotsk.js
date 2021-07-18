@@ -265,5 +265,6 @@ export default {
       price: 0.3
     }]
   },
-  name: 'Novopolotsk'
+  sity: 'Novopolotsk',
+  country: 'Belarus'
 }

@@ -52,12 +52,10 @@
 
 <script>
 import appline from '../components/line.vue'
-import appway from '../components/way.vue'
 import applistlinetram from '../components/listlinetram.vue'
 export default {
   components: {
     appline,
-    appway,
     applistlinetram
   },
   data () {
@@ -121,14 +119,6 @@ button {
   height: 250px;
   margin: 0;
   margin-top: -30px;
-}
-.map {
-  position: relative;
-  width: 100%;
-  height: 300px;
-  margin: 0;
-  background: rgba(255, 255, 255, 0.5);
-  box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.5);
 }
 .box {
   display: none;
