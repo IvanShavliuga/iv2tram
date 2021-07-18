@@ -32,9 +32,15 @@ new Vue({
     fetch('/api/models.json').then((response) => {
       return response.json()
     })
-    .then((data) => {
-      console.log(data)
+      .then((data) => {
+        console.log(data)
+      })
+    fetch('/api/lines.json').then((response) => {
+      return response.json()
     })
+      .then((data) => {
+        console.log(data)
+      })
   },
   render: h => h(App)
 }).$mount('#app')
