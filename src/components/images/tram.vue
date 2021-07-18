@@ -5,20 +5,6 @@
     viewBox="0 0 100 50"
     width="250"
     height="150">
-    <!-- <linearGradient id="bodycolor2">
-      <stop
-        stop-color="red"
-        stop-opacity="0.3"
-        offset="0%"/>
-      <stop
-        stop-color="#ed2450"
-        stop-opacity="0.8"
-        offset="50%"/>
-      <stop
-        stop-color="red"
-        stop-opacity="0.3"
-        offset="100%"/>
-    </linearGradient> -->
     <linearGradient
       id="windowcolor"
       x1="0"
@@ -211,10 +197,10 @@
       />
       <text
         x="45"
-        y="28.55"
+        y="28.95"
         fill="#EDede6"
-        font-size="5"
-        font-family="'Leckerli One', cursive"
+        font-size="6"
+        font-family="Courier new"
         font-weight="bold"
       >
         {{ tramid }}
