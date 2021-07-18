@@ -1,10 +1,12 @@
 <template>
-  <div class="list">
-    <applistlinetram/>
+  <div class="info">
+    <h3>Разработчик</h3>
+    <h4><a href="https://ivanshavliuga.github.io/">Иван Шавлюга</a></h4>
+    <p>Версия сборки 0.2.0</p>
   </div>
 </template>
 <style>
-.list {
+.info {
   position: relative;
   width: 750px;
   height: 300px;
@@ -13,11 +15,3 @@
   box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.5);
 }
 </style>
-<script>
-import applistlinetram from '../components/listlinetram.vue'
-export default {
-  components: {
-    applistlinetram
-  }
-}
-</script>
