@@ -66,6 +66,12 @@ body{
     width: 95%;
   }
 }
+@media (max-width: 736px) {
+  #app {
+    margin: 0;
+    width: 100%;
+  }
+}
 @media (max-width: 774px) {
   .menu {
     justify-content: center;
