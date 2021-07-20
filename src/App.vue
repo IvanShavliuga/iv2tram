@@ -59,9 +59,43 @@ body{
   text-transform: uppercase;
   text-decoration: none;
 }
-@media (max-width: 800px) {
+
+@media (max-width: 1074px) {
   #app {
-    margin: 0;
+    margin: 0 auto;
+    width: 95%;
+  }
+}
+@media (max-width: 774px) {
+  .menu {
+    justify-content: center;
+  }
+  .item {
+    margin-left: 20px;
+  }
+}
+@media (max-width: 520px) {
+  .menu {
+    width: 500px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+@media (max-width: 640px) {
+  .menu {
+    justify-content: flex-start;
+  }
+  .item {
+    margin-left: 20px;
+  }
+}
+@media (max-width: 300px) {
+  .menu {
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+  .item {
+    margin: 5px;
   }
 }
 </style>
