@@ -15,6 +15,22 @@
       </p>
     </nav>
     <router-view/>
+    <div class="control">
+      <div class="control__panel">
+        <div class="control__panel-group">
+          trams:
+          <button @click="newtramcl">
+            new
+          </button>
+          <button @click="prevtramcl">
+            prev
+          </button>
+          <button @click="nexttramcl">
+            next
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -27,6 +43,25 @@ export default {
     this.$store.dispatch('addTram', {
       idline: 1
     })
+  },
+  methods: {
+    newtramcl () {
+      console.log('new')
+      this.$store.dispatch('addTram', {
+        idline: 1
+      })
+      this.$store.dispatch('storageSet')
+    },
+    prevtramcl () {
+      this.$store.dispatch('selTram', {
+        mode: 'prev'
+      })
+    },
+    nexttramcl () {
+      this.$store.dispatch('selTram', {
+        mode: 'next'
+      })
+    }
   }
 }
 </script>
