@@ -28,6 +28,7 @@ new Vue({
         height: window.innerHeight
       })
     })
+    this.$store.dispatch('storageGet')
   },
   render: h => h(App)
 }).$mount('#app')

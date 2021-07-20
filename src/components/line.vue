@@ -174,6 +174,7 @@ export default {
         lineid: this.lnnumber,
         id: this.currtram.id
       })
+      this.$store.dispatch('storageSet')
     },
     nexttram () {
       this.tramid = 2

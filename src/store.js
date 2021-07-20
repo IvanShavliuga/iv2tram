@@ -129,11 +129,41 @@ export default new Vuex.Store({
     'APP_RESIZE' (state, obj) {
       state.clientWidth = obj.width
       state.clientHeight = obj.height
+    },
+    'STORAGE_SET' (state) {
+      console.log('set')
+      const obj = {
+        currstop: state.currstop,
+        counttrams: state.counttrams,
+        money: state.money,
+        models: state.models,
+        line: state.line,
+        appVersion: '0.2.0',
+        datewrite: new Date().toString()
+      }
+      localStorage.iv2tramdata = JSON.stringify(obj)
+    },
+    STORAGE_GET (state) {
+      console.log('get')
+      if (localStorage.iv2tramdata) {
+        const wd = JSON.parse(localStorage.iv2tramdata)
+        state.currstop = wd.currstop
+        state.counttrams = wd.counttrams
+        state.money = wd.money
+        state.models = wd.models
+        state.line = wd.line
+      }
     }
   },
   actions: {
     moveTram ({ commit }, obj) {
       commit('MOVE_TRAM', obj)
+    },
+    storageSet ({ commit }) {
+      commit('STORAGE_SET')
+    },
+    storageGet ({ commit }) {
+      commit('STORAGE_GET')
     },
     enterTram ({ commit }, obj) {
       commit('ENTER_TRAM', obj)
