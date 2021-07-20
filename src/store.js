@@ -92,14 +92,12 @@ export default new Vuex.Store({
           state.line.trams[trmid].count -= outps
           state.line.trams[trmid].count += inps
           if (state.line.trams[trmid].count >= state.line.trams[trmid].max) state.trams[trmid].count = state.trams[trmid].max
-          state.line.trams[trmid].money += inps * 0.1
           state.money += inps * 0.1
         }
         if (state.line.trams[trmid].mode === 'from') {
           state.line.trams[trmid].count += outps
           state.line.trams[trmid].count -= inps
           if (state.line.trams[trmid].count >= state.line.trams[trmid].max) state.trams[trmid].count = state.trams[trmid].max
-          state.line.trams[trmid].money += outps * 0.1
           state.money += outps * 0.1
         }
         state.line.trams[trmid].enter = true

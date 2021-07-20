@@ -20,7 +20,7 @@
         :linenumber="currtram.idline"
         :idstop="currtram.idstop"
         :count="currtram.count"
-        :money="currtram.money"
+        :money="currmoney"
         :max="currtram.max"
         :mode="currtram.mode"
         @enter="getpass"

@@ -28,6 +28,7 @@
           <button @click="nexttramcl">
             next
           </button>
+          {{ filterprice }}$
         </div>
       </div>
     </div>
@@ -35,9 +36,19 @@
 </template>
 <script>
 import appHome from '@/views/Home.vue'
+import { mapGetters } from 'vuex'
 export default {
   components: {
     appHome
+  },
+  computed: {
+    ...mapGetters(['money']),
+    filterprice () {
+      if (!this.money) return '0.0'
+      const el = ('' + this.money).split('.')
+      const dr = (el[1] !== undefined) ? (el[1].slice(0, 2)) : (this.money)
+      return el[0] + '.' + dr
+    }
   },
   created () {
     this.$store.dispatch('addTram', {
