@@ -196,7 +196,7 @@
         stroke-width="0.15"
       />
       <text
-        x="45"
+        :x="(directtram === 20.5)?(22):(48)"
         y="28.95"
         fill="#EDede6"
         font-size="6"
@@ -664,7 +664,7 @@
         <rect
           id="lnnumber"
           ref="lnnumber"
-          x="50"
+          :x="directtram - 2.5"
           y="15"
           width="8"
           height="5.20"
@@ -673,7 +673,7 @@
           stroke-width="0.15"
         />
         <text
-          x="51"
+          :x="directtram - 2.5"
           y="19.85"
           fill="#EDeE36"
           font-size="6.5"
@@ -691,16 +691,6 @@
           font-weight="bold"
         >
           {{ count }}
-        </text>
-        <text
-          x="10"
-          y="10"
-          fill="#EDede6"
-          font-size="5"
-          font-family="digital"
-          font-weight="bold"
-        >
-          {{ filterprice }}$
         </text>
       </g>
       <g id="door">
@@ -807,12 +797,6 @@ export default {
       } else if (this.mode === 'from') {
         return 20.5
       }
-    },
-    filterprice () {
-      if (!this.money) return '0.0'
-      const el = ('' + this.money).split('.')
-      const dr = (el[1] !== undefined) ? (el[1].slice(0, 2)) : (this.money)
-      return el[0] + '.' + dr
     },
     tramid () {
       if (this.id < 10) return '00' + this.id
