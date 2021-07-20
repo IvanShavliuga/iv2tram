@@ -87,6 +87,7 @@ body{
   }
   .item {
     margin-left: 20px;
+    font-size: 0.8em;
   }
 }
 @media (max-width: 300px) {
