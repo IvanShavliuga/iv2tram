@@ -37,7 +37,7 @@
       >
         <stop
           :name="s.name"
-          :active="s.name === stop"
+          :active="s.id === currtram.idstop"
           :count-in="getinpass"
           :count-out="getoutpass"
           :line-number="lnnumber"
@@ -208,7 +208,7 @@ export default {
 .line {
   position: relative;
   width: 750px;
-  height: 300px;
+  height: 250px;
   margin: auto;
 }
 .contactnet {
