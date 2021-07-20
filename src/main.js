@@ -23,7 +23,6 @@ new Vue({
       height: window.innerHeight
     })
     window.addEventListener('resize', () => {
-      console.log('win resize')
       this.$store.dispatch('appResize', {
         width: window.innerWidth,
         height: window.innerHeight

@@ -802,7 +802,6 @@ export default {
   },
   computed: {
     directtram () {
-      console.log('mode')
       if (this.mode === 'to') {
         return 52.5
       } else if (this.mode === 'from') {

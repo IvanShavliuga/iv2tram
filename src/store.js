@@ -50,13 +50,10 @@ export default new Vuex.Store({
       }
     },
     MOVE_TRAM (state, obj) {
-      console.log('MVT')
-      console.log(obj)
       const trmid = state.line.trams.findIndex((el) => {
         return el.id === obj.id
       })
       if (state.line.trams[trmid].mode === 'to' && state.line.trams[trmid].moved && state.line.trams[trmid].idstop < state.line.way.length - 1) {
-        console.log('move tram')
         state.line.trams[trmid].idstop++
         state.currstop = state.line.way[state.line.trams[trmid].idstop].name
         state.line.trams[trmid].enter = false
@@ -64,7 +61,6 @@ export default new Vuex.Store({
         state.line.trams[trmid].mode = 'from'
         state.line.trams[trmid].enter = false
       } else if (state.line.trams[trmid].mode === 'from' && state.line.trams[trmid].moved && state.line.trams[trmid].idstop > 0) {
-        console.log('move tram')
         state.line.trams[trmid].idstop--
         state.currstop = state.line.way[state.line.trams[trmid].idstop].name
         state.line.trams[trmid].enter = false
@@ -133,8 +129,6 @@ export default new Vuex.Store({
     'APP_RESIZE' (state, obj) {
       state.clientWidth = obj.width
       state.clientHeight = obj.height
-      console.log('resize')
-      console.log(obj)
     }
   },
   actions: {
