@@ -11,6 +11,6 @@ export default {
     moved: true,
     enter: false,
     mode: 'to',
-    price: 100
+    price: 30
   }]
 }
