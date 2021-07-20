@@ -1,4 +1,8 @@
 import { register } from 'register-service-worker'
+/* import dbModule from './indexedDB'
+
+console.log(dbModule)
+console.log(dbModule.db) */
 
 if (process.env.NODE_ENV === 'production') {
   register('https://ivanshavliuga.github.io/iv2tram/service-worker.js', {

@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
-// import router from './router'
+import router from './router'
 import store from './store'
 import './registerServiceWorker'
 Vue.config.productionTip = true
 
 new Vue({
-  // router,
+  router,
   store,
   mounted () {
     if (window.screen.lockOrientation) {
@@ -23,12 +23,12 @@ new Vue({
       height: window.innerHeight
     })
     window.addEventListener('resize', () => {
-      console.log('win resize')
       this.$store.dispatch('appResize', {
         width: window.innerWidth,
         height: window.innerHeight
       })
     })
+    this.$store.dispatch('storageGet')
   },
   render: h => h(App)
 }).$mount('#app')

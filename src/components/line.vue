@@ -20,7 +20,7 @@
         :linenumber="currtram.idline"
         :idstop="currtram.idstop"
         :count="currtram.count"
-        :money="currtram.money"
+        :money="currmoney"
         :max="currtram.max"
         :mode="currtram.mode"
         @enter="getpass"
@@ -37,7 +37,7 @@
       >
         <stop
           :name="s.name"
-          :active="s.name === stop"
+          :active="s.id === currtram.idstop"
           :count-in="getinpass"
           :count-out="getoutpass"
           :line-number="lnnumber"
@@ -174,6 +174,7 @@ export default {
         lineid: this.lnnumber,
         id: this.currtram.id
       })
+      this.$store.dispatch('storageSet')
     },
     nexttram () {
       this.tramid = 2
@@ -207,7 +208,7 @@ export default {
 .line {
   position: relative;
   width: 750px;
-  height: 300px;
+  height: 250px;
   margin: auto;
 }
 .contactnet {

@@ -50,13 +50,10 @@ export default new Vuex.Store({
       }
     },
     MOVE_TRAM (state, obj) {
-      console.log('MVT')
-      console.log(obj)
       const trmid = state.line.trams.findIndex((el) => {
         return el.id === obj.id
       })
       if (state.line.trams[trmid].mode === 'to' && state.line.trams[trmid].moved && state.line.trams[trmid].idstop < state.line.way.length - 1) {
-        console.log('move tram')
         state.line.trams[trmid].idstop++
         state.currstop = state.line.way[state.line.trams[trmid].idstop].name
         state.line.trams[trmid].enter = false
@@ -64,7 +61,6 @@ export default new Vuex.Store({
         state.line.trams[trmid].mode = 'from'
         state.line.trams[trmid].enter = false
       } else if (state.line.trams[trmid].mode === 'from' && state.line.trams[trmid].moved && state.line.trams[trmid].idstop > 0) {
-        console.log('move tram')
         state.line.trams[trmid].idstop--
         state.currstop = state.line.way[state.line.trams[trmid].idstop].name
         state.line.trams[trmid].enter = false
@@ -96,14 +92,12 @@ export default new Vuex.Store({
           state.line.trams[trmid].count -= outps
           state.line.trams[trmid].count += inps
           if (state.line.trams[trmid].count >= state.line.trams[trmid].max) state.trams[trmid].count = state.trams[trmid].max
-          state.line.trams[trmid].money += inps * 0.1
           state.money += inps * 0.1
         }
         if (state.line.trams[trmid].mode === 'from') {
           state.line.trams[trmid].count += outps
           state.line.trams[trmid].count -= inps
           if (state.line.trams[trmid].count >= state.line.trams[trmid].max) state.trams[trmid].count = state.trams[trmid].max
-          state.line.trams[trmid].money += outps * 0.1
           state.money += outps * 0.1
         }
         state.line.trams[trmid].enter = true
@@ -133,13 +127,41 @@ export default new Vuex.Store({
     'APP_RESIZE' (state, obj) {
       state.clientWidth = obj.width
       state.clientHeight = obj.height
-      console.log('resize')
-      console.log(obj)
+    },
+    'STORAGE_SET' (state) {
+      console.log('set')
+      const obj = {
+        currstop: state.currstop,
+        counttrams: state.counttrams,
+        money: state.money,
+        models: state.models,
+        line: state.line,
+        appVersion: '0.2.0',
+        datewrite: new Date().toString()
+      }
+      localStorage.iv2tramdata = JSON.stringify(obj)
+    },
+    STORAGE_GET (state) {
+      console.log('get')
+      if (localStorage.iv2tramdata) {
+        const wd = JSON.parse(localStorage.iv2tramdata)
+        state.currstop = wd.currstop
+        state.counttrams = wd.counttrams
+        state.money = wd.money
+        state.models = wd.models
+        state.line = wd.line
+      }
     }
   },
   actions: {
     moveTram ({ commit }, obj) {
       commit('MOVE_TRAM', obj)
+    },
+    storageSet ({ commit }) {
+      commit('STORAGE_SET')
+    },
+    storageGet ({ commit }) {
+      commit('STORAGE_GET')
     },
     enterTram ({ commit }, obj) {
       commit('ENTER_TRAM', obj)
