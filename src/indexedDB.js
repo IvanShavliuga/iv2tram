@@ -1,6 +1,6 @@
 var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB
 var transaction = window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction || { READ_WRITE: 'readwrite' }
-window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange
+var IDBKeyRange = window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange
 if (!window.indexedDB) {
   console.log("Your browser doesn't support a stable version of IndexedDB. Such and such feature will not be available.")
 }
@@ -11,8 +11,9 @@ const customerData = [
 const dbName = 'the_name'
 
 var request = indexedDB.open(dbName, 2)
+var db = {}
 request.onupgradeneeded = function (event) {
-  var db = event.target.result
+  db = event.target.result
   var objectStore = db.createObjectStore('customers', { keyPath: 'ssn' })
   objectStore.createIndex('name', 'name', { unique: false })
   objectStore.createIndex('email', 'email', { unique: true })
@@ -23,9 +24,14 @@ request.onupgradeneeded = function (event) {
     })
   }
 }
-console.log(transaction)
-const db = {
-  transaction,
-  indexedDB
+const createTest = () => {
+
 }
-export default db
+console.log(transaction)
+const dbModule = {
+  transaction,
+  indexedDB,
+  IDBKeyRange,
+  db
+}
+export default dbModule
