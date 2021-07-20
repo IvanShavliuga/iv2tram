@@ -1,104 +1,17 @@
 <!-- Use preprocessors via the lang attribute! e.g. <template lang="pug"> -->
 <template>
   <div class="page">
-    <div
-      v-if="lineflag"
-      class="tramline"
-    >
+    <div class="tramline">
       <appline/>
     </div>
-    <div
-      v-if="wayflag"
-      class="map"
-    >
-      <appway/>
-    </div>
-    <div
-      v-if="depotflag"
-      class="list"
-    >
-      <applistlinetram/>
-    </div>
-    <!-- <div class="control">
-      <div class="control__panel">
-        <div class="control__panel-group">
-          trams:
-          <button @click="newtramcl">
-            new
-          </button>
-          <button @click="prevtramcl">
-            prev
-          </button>
-          <button @click="nexttramcl">
-            next
-          </button>
-        </div>
-        <div class="control__panel-group">
-          window:
-          <button @click="wayview">
-            map
-          </button>
-          <button @click="depotview">
-            depot
-          </button>
-          <button @click="lineview">
-            line
-          </button>
-        </div>
-      </div>
-    </div> -->
   </div>
 </template>
 
 <script>
 import appline from '../components/line.vue'
-import applistlinetram from '../components/listlinetram.vue'
 export default {
   components: {
-    appline,
-    applistlinetram
-  },
-  data () {
-    return {
-      lineflag: true,
-      wayflag: false,
-      depotflag: false
-    }
-  },
-  methods: {
-    newtramcl () {
-      this.$store.dispatch('addTram', {
-        idline: 1
-      })
-    },
-    prevtramcl () {
-      this.$store.dispatch('selTram', {
-        mode: 'prev'
-      })
-    },
-    nexttramcl () {
-      this.$store.dispatch('selTram', {
-        mode: 'next'
-      })
-    },
-    lineview () {
-      console.log('line')
-      this.lineflag = true
-      this.wayflag = false
-      this.depotflag = false
-    },
-    wayview () {
-      console.log('way')
-      this.lineflag = false
-      this.wayflag = true
-      this.depotflag = false
-    },
-    depotview () {
-      console.log('depot')
-      this.lineflag = false
-      this.wayflag = false
-      this.depotflag = true
-    }
+    appline
   }
 }
 </script>
