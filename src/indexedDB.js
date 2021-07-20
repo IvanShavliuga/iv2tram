@@ -24,9 +24,9 @@ request.onupgradeneeded = function (event) {
     })
   }
 }
-const createTest = () => {
+/* const createTest = () => {
 
-}
+} */
 console.log(transaction)
 const dbModule = {
   transaction,
