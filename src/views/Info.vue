@@ -13,5 +13,13 @@
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.5);
   box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.5);
+  color: white;
+}
+a {
+  color: blueviolet;
+  text-decoration: none;
+}
+.info > * {
+  margin: 10px;
 }
 </style>
