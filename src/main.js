@@ -29,6 +29,7 @@ new Vue({
       })
     })
     this.$store.dispatch('storageGet')
+    this.$router.push('/')
   },
   render: h => h(App)
 }).$mount('#app')
