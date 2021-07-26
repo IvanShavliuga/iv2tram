@@ -34,6 +34,16 @@
         r="2.5"
         stroke-width="0.5"
       />
+      <text
+        v-if="findactive(p.id)"
+        :x="p.x*1.5+20"
+        :y="p.y*1.5+16"
+        stroke="#df42df"
+        fill="#df42df"
+        font-size="20"
+      >
+        {{ tramnum(p.id) }}
+      </text>
     </g>
   </svg>
 </template>
@@ -57,7 +67,16 @@ export default {
   },
   methods: {
     findactive (id) {
-      return id === this.currtram.idstop
+      let active = false
+      for (const t of this.line.trams) {
+        if (t.idstop === id) active = true
+      }
+      return active
+    },
+    tramnum (id) {
+      for (const t of this.line.trams) {
+        if (t.idstop === id) return t.id
+      }
     }
   }
 }
