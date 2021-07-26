@@ -157,7 +157,6 @@ export default {
       return 250
     },
     cwidth () {
-      console.log('RSZ: ' + this.clientWidth)
       if (this.clientWidth <= 750) return this.clientWidth - 50
       return 250
     }
@@ -183,9 +182,9 @@ export default {
       this.pass = []
       const len = this.line.way.length
       for (let el of this.line.way) {
-        const outst = Math.floor(Math.random() * el.id) + (len - el.id)
+        const outst = ~~(Math.random() * el.id) + (len - el.id)
         const inst = el.id
-        const count = Math.floor(Math.random() * 30)
+        const count = ~~(Math.random() * 30)
         const pass = {
           instop: inst,
           outstop: outst,
