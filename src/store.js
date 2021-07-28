@@ -11,7 +11,10 @@ export default new Vuex.Store({
     money: 0,
     clientWidth: 1200,
     models: models.list,
-    line: novopolotsk.line
+    line: novopolotsk.line,
+    appVersion: '0.2.1',
+    datewrite: '',
+    dateclear: ''
   },
   mutations: {
     CHANGE_DIR (state, obj) {
@@ -31,6 +34,8 @@ export default new Vuex.Store({
     },
     ADD_TRAM (state, obj) {
       const tr = state.models[0]
+      const flp = state.line.position.filter((el) => el.idstop === 0)
+      if (flp.length > 0) return
       if (state.money >= tr.price || !state.counttrams) {
         if (state.counttrams) state.money -= tr.price
         tr.idline = obj.idline
@@ -40,9 +45,10 @@ export default new Vuex.Store({
           id: state.counttrams + 1
         })
         state.line.position.push({
-          idtram: tr.id,
+          idtram: state.counttrams + 1,
           idstop: 0,
-          count: 0
+          count: 0,
+          mode: 'to'
         })
         state.counttrams++
         state.line.currtram++
@@ -53,6 +59,26 @@ export default new Vuex.Store({
       const trmid = state.line.trams.findIndex((el) => {
         return el.id === obj.id
       })
+      if (state.line.trams[trmid].blocked) {
+        const poscurrtram = state.line.position.filter((el) => {
+          return el.idstop === state.line.trams[trmid].idstop && el.mode === state.line.trams[trmid].mode
+        })
+        const bll = state.line.trams.filter((el) => {
+          return (el.blocked === true && el.idstop === state.line.trams[trmid].idstop)
+        })
+        console.log('blocked: ' + bll.length)
+        console.log('poscurrtram: ' + poscurrtram.length)
+        console.log(bll)
+        if (poscurrtram.length > 1 && poscurrtram.length !== bll.length) return
+        let minidbl = obj.id
+        for (let i = 0; i < bll.length; i++) {
+          if (minidbl > bll[i].id) minidbl = bll[i].id
+        }
+        if (minidbl === obj.id) {
+          console.log('yes')
+          state.line.trams[trmid].blocked = false
+        } else return
+      }
       if (state.line.trams[trmid].mode === 'to' && state.line.trams[trmid].moved && state.line.trams[trmid].idstop < state.line.way.length - 1) {
         state.line.trams[trmid].idstop++
         state.currstop = state.line.way[state.line.trams[trmid].idstop].name
@@ -60,6 +86,10 @@ export default new Vuex.Store({
       } else if (state.line.trams[trmid].mode === 'to' && state.line.trams[trmid].idstop >= state.line.way.length - 1) {
         state.line.trams[trmid].mode = 'from'
         state.line.trams[trmid].enter = false
+        const endtr = state.line.trams.filter((el) => {
+          return el.idstop === state.line.trams[trmid].idstop && state.line.trams[trmid].mode === 'from'
+        })
+        if (endtr.length > 0) state.line.trams[trmid].blocked = true
       } else if (state.line.trams[trmid].mode === 'from' && state.line.trams[trmid].moved && state.line.trams[trmid].idstop > 0) {
         state.line.trams[trmid].idstop--
         state.currstop = state.line.way[state.line.trams[trmid].idstop].name
@@ -67,7 +97,36 @@ export default new Vuex.Store({
       } else if (state.line.trams[trmid].mode === 'from' && state.line.trams[trmid].idstop <= 0) {
         state.line.trams[trmid].mode = 'to'
         state.line.trams[trmid].enter = false
+        const starttr = state.line.trams.filter((el) => {
+          return el.idstop === state.line.trams[trmid].idstop && state.line.trams[trmid].mode === 'to'
+        })
+        if (starttr.length > 0) state.line.trams[trmid].blocked = true
       }
+      const posid = state.line.position.findIndex((el) => {
+        return el.idtram === state.line.trams[trmid].id
+      })
+      state.line.position[posid] = {
+        idtram: state.line.trams[trmid].id,
+        idstop: state.line.trams[trmid].idstop,
+        count: state.line.trams[trmid].count,
+        mode: state.line.trams[trmid].mode
+      }
+      const poscurrtram = state.line.position.filter((el) => {
+        return el.idstop === state.line.trams[trmid].idstop && el.mode === state.line.trams[trmid].mode
+      })
+      console.log(poscurrtram)
+      if (poscurrtram.length > 1) {
+        let minid = state.line.trams[trmid].id
+        for (let tr of poscurrtram) {
+          if (tr.idtram <= minid) {
+            minid = tr.idtram
+          }
+        }
+        for (let i = 0; i < state.line.trams.length; i++) {
+          if (state.line.trams[i].id !== minid) state.line.trams[i].blocked = true
+        }
+      }
+      console.log(state.line.position)
     },
     ENTER_TRAM (state, obj) {
       const trmid = state.line.trams.findIndex((el) => {
@@ -101,27 +160,6 @@ export default new Vuex.Store({
           state.money += outps * 0.1
         }
         state.line.trams[trmid].enter = true
-        if (!state.line.position.length) {
-          state.line.position.push({
-            idtram: state.line.trams[trmid].id,
-            idstop: state.line.trams[trmid].idstop,
-            count: state.line.trams[trmid].count
-          })
-        } else {
-          const id = state.line.position.findIndex((el) => {
-            return el.idtram === state.line.trams[trmid].id
-          })
-          if (id >= 0) {
-            state.line.position[id].idstop = state.line.trams[trmid].idstop
-            state.line.position[id].count = state.line.trams[trmid].count
-          } else {
-            state.line.position.push({
-              idtram: state.line.trams[trmid].id,
-              idstop: state.line.trams[trmid].idstop,
-              count: state.line.trams[trmid].count
-            })
-          }
-        }
       }
     },
     'APP_RESIZE' (state, obj) {
@@ -136,20 +174,45 @@ export default new Vuex.Store({
         money: state.money,
         models: state.models,
         line: state.line,
-        appVersion: '0.2.0',
-        datewrite: new Date().toString()
+        appVersion: state.appVersion,
+        datewrite: new Date().toString(),
+        dateclear: ''
       }
+      localStorage.iv2tramdata = JSON.stringify(obj)
+    },
+    'STORAGE_CLS' (state) {
+      console.log('clear')
+      const obj = {
+        currstop: null,
+        counttrams: 0,
+        money: state.money,
+        models: state.models,
+        line: state.line,
+        appVersion: state.appVersion,
+        datewrite: new Date().toString(),
+        dateclear: new Date().toString()
+      }
+      obj.line.trams = []
+      obj.line.currtram = 0
+      obj.line.position = []
+      state.currstop = null
+      state.counttrams = 0
+      state.appVersion = state.appVersion
+      state.datewrite = new Date().toString()
+      state.dateclear = new Date().toString()
       localStorage.iv2tramdata = JSON.stringify(obj)
     },
     STORAGE_GET (state) {
       console.log('get')
       if (localStorage.iv2tramdata) {
         const wd = JSON.parse(localStorage.iv2tramdata)
+        if (wd.appVersion === state.appVersion) state.models = wd.models
         state.currstop = wd.currstop
         state.counttrams = wd.counttrams
         state.money = wd.money
-        state.models = wd.models
         state.line = wd.line
+        state.datewrite = wd.datewrite
+        state.dateclear = wd.dateclear
       }
     }
   },
@@ -162,6 +225,13 @@ export default new Vuex.Store({
     },
     storageGet ({ commit }) {
       commit('STORAGE_GET')
+    },
+    storageCls ({ commit }) {
+      commit('STORAGE_CLS')
+      commit('ADD_TRAM', {
+        idline: 1
+      })
+      commit('STORAGE_SET')
     },
     enterTram ({ commit }, obj) {
       commit('ENTER_TRAM', obj)
@@ -187,8 +257,16 @@ export default new Vuex.Store({
       })[0]
     },
     tramsline: state => {
-      console.log(state.line.currtram)
       return state.line.trams
+    },
+    infogame: state => {
+      return {
+        counttrams: state.counttrams,
+        money: state.money,
+        appVersion: state.appVersion,
+        datewrite: state.datewrite,
+        dateclear: state.dateclear
+      }
     }
   }
 })

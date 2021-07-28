@@ -23,6 +23,7 @@
         :money="currmoney"
         :max="currtram.max"
         :mode="currtram.mode"
+        :blocked="currtram.blocked"
         @enter="getpass"
         @move="move"
       />
