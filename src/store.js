@@ -162,6 +162,11 @@ export default new Vuex.Store({
       }
       obj.line.trams = []
       obj.line.currtram = 0
+      state.currstop = null
+      state.counttrams = 0
+      state.appVersion = state.appVersion
+      state.datewrite = new Date().toString()
+      state.dateclear = new Date().toString()
       localStorage.iv2tramdata = JSON.stringify(obj)
     },
     STORAGE_GET (state) {
