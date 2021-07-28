@@ -690,7 +690,7 @@
           font-family="'Leckerli One', cursive"
           font-weight="bold"
         >
-          {{ count }}
+          {{ (!blocked)?(count):('blocked') }}
         </text>
       </g>
       <g id="door">
@@ -783,6 +783,10 @@ export default {
     mode: {
       type: String,
       default: 'to'
+    },
+    blocked: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
