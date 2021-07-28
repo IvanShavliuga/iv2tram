@@ -11,6 +11,7 @@ export default {
     moved: true,
     enter: false,
     mode: 'to',
-    price: 30
+    price: 30,
+    blocked: false
   }]
 }
