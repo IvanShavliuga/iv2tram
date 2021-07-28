@@ -151,7 +151,7 @@ export default new Vuex.Store({
     'STORAGE_CLS' (state) {
       console.log('clear')
       const obj = {
-        currstop: 0,
+        currstop: null,
         counttrams: 0,
         money: state.money,
         models: state.models,
@@ -161,6 +161,7 @@ export default new Vuex.Store({
         dateclear: new Date().toString()
       }
       obj.line.trams = []
+      obj.line.currtram = 0
       localStorage.iv2tramdata = JSON.stringify(obj)
     },
     STORAGE_GET (state) {
@@ -187,6 +188,13 @@ export default new Vuex.Store({
     storageGet ({ commit }) {
       commit('STORAGE_GET')
     },
+    storageCls ({ commit }) {
+      commit('STORAGE_CLS')
+      commit('ADD_TRAM', {
+        idline: 1
+      })
+      commit('STORAGE_SET')
+    },
     enterTram ({ commit }, obj) {
       commit('ENTER_TRAM', obj)
     },
@@ -211,7 +219,6 @@ export default new Vuex.Store({
       })[0]
     },
     tramsline: state => {
-      console.log(state.line.currtram)
       return state.line.trams
     },
     infogame: state => {

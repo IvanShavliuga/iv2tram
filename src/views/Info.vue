@@ -7,6 +7,7 @@
     <p>Сумма денег: {{ infogame.money }}</p>
     <p>Дата записи результатов: {{ infogame.datewrite }}</p>
     <p>Дата очистики результатов: {{ infogame.dateclear }}</p>
+    <button @click="clsCash">Очистить кеш</button>
   </div>
 </template>
 <script>
@@ -15,6 +16,11 @@ import { mapGetters } from 'vuex'
 export default {
   computed: {
     ...mapGetters(['infogame'])
+  },
+  methods: {
+    clsCash () {
+      this.$store.dispatch('storageCls')
+    }
   }
 }
 </script>
