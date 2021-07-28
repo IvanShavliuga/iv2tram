@@ -11,7 +11,10 @@ export default new Vuex.Store({
     money: 0,
     clientWidth: 1200,
     models: models.list,
-    line: novopolotsk.line
+    line: novopolotsk.line,
+    appVersion: '0.2.1',
+    datewrite: '',
+    dateclear: ''
   },
   mutations: {
     CHANGE_DIR (state, obj) {
@@ -53,6 +56,9 @@ export default new Vuex.Store({
       const trmid = state.line.trams.findIndex((el) => {
         return el.id === obj.id
       })
+      for (const t of state.line.trams) {
+        if (t.id > obj.id && state.line.trams[trmid].mode === t.mode) return
+      }
       if (state.line.trams[trmid].mode === 'to' && state.line.trams[trmid].moved && state.line.trams[trmid].idstop < state.line.way.length - 1) {
         state.line.trams[trmid].idstop++
         state.currstop = state.line.way[state.line.trams[trmid].idstop].name
@@ -136,9 +142,25 @@ export default new Vuex.Store({
         money: state.money,
         models: state.models,
         line: state.line,
-        appVersion: '0.2.0',
-        datewrite: new Date().toString()
+        appVersion: state.appVersion,
+        datewrite: new Date().toString(),
+        dateclear: ''
       }
+      localStorage.iv2tramdata = JSON.stringify(obj)
+    },
+    'STORAGE_CLS' (state) {
+      console.log('clear')
+      const obj = {
+        currstop: 0,
+        counttrams: 0,
+        money: state.money,
+        models: state.models,
+        line: state.line,
+        appVersion: state.appVersion,
+        datewrite: new Date().toString(),
+        dateclear: new Date().toString()
+      }
+      obj.line.trams = []
       localStorage.iv2tramdata = JSON.stringify(obj)
     },
     STORAGE_GET (state) {
@@ -150,6 +172,8 @@ export default new Vuex.Store({
         state.money = wd.money
         state.models = wd.models
         state.line = wd.line
+        state.datewrite = wd.datewrite
+        state.dateclear = wd.dateclear
       }
     }
   },
@@ -189,6 +213,15 @@ export default new Vuex.Store({
     tramsline: state => {
       console.log(state.line.currtram)
       return state.line.trams
+    },
+    infogame: state => {
+      return {
+        counttrams: state.counttrams,
+        money: state.money,
+        appVersion: state.appVersion,
+        datewrite: state.datewrite,
+        dateclear: state.dateclear
+      }
     }
   }
 })
