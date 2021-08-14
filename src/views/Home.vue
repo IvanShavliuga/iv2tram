@@ -36,21 +36,6 @@ button {
 .box {
   display: none;
 }
-.control__panel {
-  display: flex;
-  width: 100%;
-  margin: 15px;
-  padding: 0 15px;
-  background: rgba(60, 255, 255, 0.2);
-}
-.control__panel-group {
-  color: white;
-}
-.control {
-  display: block;
-  width: 100%;
-  height: 60px;
-}
 .list {
   width: 100%;
   height: 300px;

@@ -75,7 +75,7 @@ export default {
     },
     tramnum (id) {
       for (const t of this.line.trams) {
-        if (t.idstop === id) return t.id
+        if (t.idstop === id) return t.id + '' + t.mode[0].toUpperCase()
       }
     }
   }
