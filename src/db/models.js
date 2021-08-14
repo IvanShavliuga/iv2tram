@@ -14,6 +14,7 @@ export default {
     price: 30,
     blocked: false,
     color: 'red',
+    loops: 0,
     types: [
       'red',
       'yellow',
