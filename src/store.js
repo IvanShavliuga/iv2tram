@@ -12,7 +12,7 @@ export default new Vuex.Store({
     clientWidth: 1200,
     models: models.list,
     line: novopolotsk.line,
-    appVersion: '0.2.1',
+    appVersion: '0.3.0',
     datewrite: '',
     dateclear: ''
   },

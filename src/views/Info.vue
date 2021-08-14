@@ -5,8 +5,6 @@
     <p>Версия сборки: {{ infogame.appVersion }}</p>
     <p>Количество трамваев: {{ infogame.counttrams }}</p>
     <p>Сумма денег: {{ infogame.money }}</p>
-    <p>Дата записи результатов: {{ infogame.datewrite }}</p>
-    <p>Дата очистики результатов: {{ infogame.dateclear }}</p>
     <button @click="clsCash">Очистить кеш</button>
   </div>
 </template>

@@ -10,6 +10,9 @@
       <span> {{ t.model }} </span>
       <span> {{ t.count }} / </span>
       <span> {{ t.max }} </span>
+      <span> {{ t.color }} </span>
+      <span> {{ t.mode }} </span>
+      <span> {{ t.price }} </span>
     </li>
   </ul>
 </template>

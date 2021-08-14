@@ -67,66 +67,7 @@
         stop-opacity="1"
         offset="90%"/>
     </radialGradient>
-    <linearGradient
-      id="doorcolor"
-      x1="0"
-      x2="0"
-      y1="0"
-      y2="1"
-    >
-      <stop
-        stop-color="#2294e0"
-        stop-opacity="0.5"
-        offset="0%"/>
-      <stop
-        stop-color="#5de4e0"
-        stop-opacity="0.3"
-        offset="20%"/>
-      <stop
-        stop-color="blue"
-        stop-opacity="0.6"
-        offset="40%"/>
-      <stop
-        stop-color="#ed5450"
-        stop-opacity="1"
-        offset="45%"/>
-      <stop
-        stop-color="#ed1410"
-        stop-opacity="1"
-        offset="100%"/>
-    </linearGradient>
-    <linearGradient
-      id="bodycolor"
-      x1="0"
-      x2="0"
-      y1="0"
-      y2="1"
-    >
-      <stop
-        stop-color="#ed2420"
-        stop-opacity="0.6"
-        offset="0%"/>
-      <stop
-        stop-color="red"
-        stop-opacity="0.8"
-        offset="20%"/>
-      <stop
-        stop-color="#ed2420"
-        stop-opacity="0.6"
-        offset="40%"/>
-      <stop
-        stop-color="red"
-        stop-opacity="0.8"
-        offset="60%"/>
-      <stop
-        stop-color="#ed2420"
-        stop-opacity="0.6"
-        offset="80%"/>
-      <stop
-        stop-color="red"
-        stop-opacity="0.8"
-        offset="100%"/>
-    </linearGradient>
+    <ktm5 :color="color"/>
     <g id="mustache">
       <line
         :x1="directtram"
@@ -726,38 +667,16 @@
           stroke-width="0.15"/>
       </g>
     </g>
-    <!-- <animate
-      xlink:href="#lastdoor"
-      attributeName="x"
-      from="8.15"
-      to="16.15"
-      dur="0.5s"
-      repeatCount="1"
-      begin="click"/>
-    <animate
-      xlink:href="#middledoor"
-      attributeName="x"
-      from="33"
-      to="41"
-      dur="0.5s"
-      repeatCount="1"
-      begin="click"/>
-    <animate
-      xlink:href="#firstdoor"
-      attributeName="x"
-      from="58"
-      to="50"
-      dur="1s"
-      repeatCount="1"
-      begin="click"/> -->
   </svg>
 </template>
 <script>
 // import { TimelineMax, Back } from 'gsap'
 import passunit from './passunit.vue'
+import ktm5 from './ktm/ktm5.vue'
 export default {
   components: {
-    passunit
+    passunit,
+    ktm5
   },
   props: {
     id: {
@@ -787,6 +706,10 @@ export default {
     blocked: {
       type: Boolean,
       default: false
+    },
+    color: {
+      type: String,
+      default: 'red'
     }
   },
   data () {
