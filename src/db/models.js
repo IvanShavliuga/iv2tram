@@ -13,6 +13,8 @@ export default {
     mode: 'to',
     price: 30,
     blocked: false,
+    reverse: false,
+    depot: true,
     color: 'red',
     loops: 0,
     types: [
