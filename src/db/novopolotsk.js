@@ -13,8 +13,8 @@ export default {
         y: 0
       }],
       name: 'Олимпийская',
-      start: true,
-      end: false,
+      start: false,
+      loop: true,
       id: 0,
       instop: 0,
       outstop: 0
@@ -27,7 +27,7 @@ export default {
       }],
       name: '7-я школа',
       start: false,
-      end: false,
+      loop: false,
       id: 1,
       instop: 0,
       outstop: 0
@@ -40,7 +40,7 @@ export default {
       }],
       name: 'Комсомольская',
       start: false,
-      end: false,
+      loop: false,
       id: 2,
       instop: 0,
       outstop: 0
@@ -53,7 +53,7 @@ export default {
       }],
       name: 'Университет',
       start: false,
-      end: false,
+      loop: false,
       id: 3,
       instop: 0,
       outstop: 0
@@ -66,7 +66,7 @@ export default {
       }],
       name: 'Автовокзал',
       start: false,
-      end: false,
+      loop: false,
       id: 4,
       instop: 0,
       outstop: 0
@@ -79,7 +79,7 @@ export default {
       }],
       name: 'Техникум',
       start: false,
-      end: false,
+      loop: false,
       id: 5,
       instop: 0,
       outstop: 0
@@ -91,8 +91,8 @@ export default {
         y: 10
       }],
       name: 'Депо',
-      start: false,
-      end: false,
+      start: true,
+      loop: false,
       id: 6,
       instop: 0,
       outstop: 0
@@ -105,7 +105,7 @@ export default {
       }],
       name: 'Подстанция',
       start: false,
-      end: false,
+      loop: false,
       id: 7,
       instop: 0,
       outstop: 0
@@ -118,7 +118,7 @@ export default {
       }],
       name: 'Автопарк',
       start: false,
-      end: false,
+      loop: false,
       id: 8,
       instop: 0,
       outstop: 0
@@ -131,7 +131,7 @@ export default {
       }],
       name: 'ЖБИ',
       start: false,
-      end: false,
+      loop: false,
       id: 9,
       instop: 0,
       outstop: 0
@@ -144,7 +144,7 @@ export default {
       }],
       name: 'КПД',
       start: false,
-      end: false,
+      loop: false,
       id: 10,
       instop: 0,
       outstop: 0
@@ -157,7 +157,7 @@ export default {
       }],
       name: 'Заводуправление',
       start: false,
-      end: false,
+      loop: false,
       id: 11,
       instop: 0,
       outstop: 0
@@ -170,7 +170,7 @@ export default {
       }],
       name: 'Полимир',
       start: false,
-      end: false,
+      loop: false,
       id: 12,
       instop: 0,
       outstop: 0
@@ -183,7 +183,7 @@ export default {
       }],
       name: 'Нейтрон',
       start: false,
-      end: true,
+      loop: true,
       id: 13,
       instop: 0,
       outstop: 0
