@@ -11,6 +11,7 @@
       <span style="color: plum">count:</span><span title="count"> {{ t.count }} /  {{ t.max }} </span>
       <span style="color: plum">dir:</span><span title="mode"> {{ t.mode.toUpperCase() }} </span>
       <span style="color: plum">price:</span><span title="price"> {{ t.price }}$ </span>
+      <span title="status"> {{ (t.depot)?('depot'):('') }} {{ (t.blocked)?('blocked'):('drive') }} </span>
       <span style="color: plum">loops:</span><span title="loops"> {{ t.loops }} </span>
     </li>
   </ul>
@@ -58,13 +59,23 @@ span:first-child {
 span:nth-child(2) {
   width: 25px;
 }
+span:nth-child(3),
+span:nth-child(4) {
+  width: 45px;
+}
 span:nth-child(5) {
   width: 45px;
 }
-span:nth-child(7) {
+span:nth-child(7),
+span:nth-child(8) {
   width: 25px;
 }
-span:nth-child(9) {
+span:nth-child(10),
+span:nth-child(11) {
+  width: 55px;
+}
+span:nth-child(9),
+span:nth-child(12) {
   width: 35px;
 }
 </style>
