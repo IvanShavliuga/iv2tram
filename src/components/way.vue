@@ -26,24 +26,46 @@
         fill="#222222"
         stroke-width="0.5"
       />
-      <circle
-        :cx="p.x*1.5+20"
-        :cy="p.y*1.5+20"
-        :stroke="(findactive(p.id))?'#df42df':'#222222'"
-        :fill="(findactive(p.id))?'#df42df':'#222222'"
-        r="2.5"
-        stroke-width="0.5"
-      />
-      <text
-        v-if="findactive(p.id)"
-        :x="p.x*1.5+20"
-        :y="p.y*1.5+16"
-        stroke="#df42df"
-        fill="#df42df"
-        font-size="20"
-      >
-        {{ tramnum(p.id) }}
-      </text>
+      <g v-if="p.start">
+        <circle
+          :cx="p.x*1.5+20"
+          :cy="p.y*1.5+20"
+          stroke="#de4567"
+          fill="#de4567"
+          r="2.5"
+          stroke-width="0.5"
+        />
+        <text
+          :x="p.x*1.5+25"
+          :y="p.y*1.5+25"
+          stroke="#de4567"
+          fill="#de4567"
+          font-size="20"
+        >
+          S
+        </text>
+      </g>
+      <g v-else>
+        <circle
+
+          :cx="p.x*1.5+20"
+          :cy="p.y*1.5+20"
+          :stroke="(findactive(p.id))?'#df42df':'#222222'"
+          :fill="(findactive(p.id))?'#df42df':'#222222'"
+          r="2"
+          stroke-width="0.5"
+        />
+        <text
+          v-if="findactive(p.id)"
+          :x="p.x*1.5+20"
+          :y="p.y*1.5+16"
+          stroke="#df42df"
+          fill="#df42df"
+          font-size="20"
+        >
+          {{ tramnum(p.id) }}
+        </text>
+      </g>
     </g>
   </svg>
 </template>
