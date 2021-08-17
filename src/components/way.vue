@@ -26,7 +26,7 @@
         fill="#222222"
         stroke-width="0.5"
       />
-      <g v-if="p.start">
+      <g v-if="p.start || p.loop">
         <circle
           :cx="p.x*1.5+20"
           :cy="p.y*1.5+20"
@@ -35,15 +35,6 @@
           r="2.5"
           stroke-width="0.5"
         />
-        <text
-          :x="p.x*1.5+25"
-          :y="p.y*1.5+25"
-          stroke="#de4567"
-          fill="#de4567"
-          font-size="20"
-        >
-          S
-        </text>
       </g>
       <g v-else>
         <circle
