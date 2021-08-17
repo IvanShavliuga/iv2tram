@@ -97,7 +97,7 @@ body{
   display: flex;
   justify-content: space-around;
   width: 750px;
-  margin: 15px auto;
+  margin: 10px auto;
   background-color: blueviolet;
 }
 .item a {
@@ -105,7 +105,23 @@ body{
   text-transform: uppercase;
   text-decoration: none;
 }
-
+.control__panel {
+  display: flex;
+  justify-content: center;
+  width: 750px;
+  margin: 0;
+  padding: 0;
+  background: rgba(60, 255, 255, 0.2);
+}
+.control__panel-group {
+  color: white;
+}
+.control {
+  display: block;
+  height: 60px;
+  width: 750px;
+  margin: 15px auto;
+}
 @media (max-width: 1074px) {
   #app {
     margin: 0 auto;

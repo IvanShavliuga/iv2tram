@@ -12,6 +12,15 @@ export default {
     enter: false,
     mode: 'to',
     price: 30,
-    blocked: false
+    blocked: false,
+    reverse: false,
+    depot: true,
+    color: 'red',
+    loops: 0,
+    types: [
+      'red',
+      'yellow',
+      'blue'
+    ]
   }]
 }

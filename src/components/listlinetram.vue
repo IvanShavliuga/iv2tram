@@ -6,10 +6,13 @@
       :style="(t.id === line.currtram)?('color: white'):('color: #aaa')"
       class="listlinetram__item"
     >
-      <span> {{ t.id }} </span>
-      <span> {{ t.model }} </span>
-      <span> {{ t.count }} / </span>
-      <span> {{ t.max }} </span>
+      <span style="color: plum">id:</span><span title="id"> {{ t.id }} </span>
+      <span style="color: plum">model:</span><span title="model"> {{ t.model }} </span>
+      <span style="color: plum">count:</span><span title="count"> {{ t.count }} /  {{ t.max }} </span>
+      <span style="color: plum">dir:</span><span title="mode"> {{ t.mode.toUpperCase() }} </span>
+      <span style="color: plum">price:</span><span title="price"> {{ t.price }}$ </span>
+      <span title="status"> {{ (t.depot)?('depot'):('') }} {{ (t.blocked)?('blocked'):('drive') }} </span>
+      <span style="color: plum">loops:</span><span title="loops"> {{ t.loops }} </span>
     </li>
   </ul>
 </template>
@@ -43,5 +46,37 @@ export default {
   list-style: none;
   font-size: 15px;
   font-weight: bold;
+}
+span {
+  display: inline-block;
+  width: 75px;
+  padding-left: 5px;
+  text-align: left;
+}
+span:first-child {
+  width: 15px;
+}
+span:nth-child(2) {
+  width: 25px;
+}
+span:nth-child(3),
+span:nth-child(4) {
+  width: 45px;
+}
+span:nth-child(5) {
+  width: 45px;
+}
+,
+span:nth-child(8) {
+  width: 45px;
+}
+span:nth-child(10),
+span:nth-child(11) {
+  width: 55px;
+}
+span:nth-child(7),
+span:nth-child(9),
+span:nth-child(12) {
+  width: 35px;
 }
 </style>

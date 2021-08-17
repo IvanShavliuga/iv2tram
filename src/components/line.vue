@@ -24,6 +24,7 @@
         :max="currtram.max"
         :mode="currtram.mode"
         :blocked="currtram.blocked"
+        :color="currtram.color"
         @enter="getpass"
         @move="move"
       />

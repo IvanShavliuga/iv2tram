@@ -26,24 +26,37 @@
         fill="#222222"
         stroke-width="0.5"
       />
-      <circle
-        :cx="p.x*1.5+20"
-        :cy="p.y*1.5+20"
-        :stroke="(findactive(p.id))?'#df42df':'#222222'"
-        :fill="(findactive(p.id))?'#df42df':'#222222'"
-        r="2.5"
-        stroke-width="0.5"
-      />
-      <text
-        v-if="findactive(p.id)"
-        :x="p.x*1.5+20"
-        :y="p.y*1.5+16"
-        stroke="#df42df"
-        fill="#df42df"
-        font-size="20"
-      >
-        {{ tramnum(p.id) }}
-      </text>
+      <g v-if="p.start || p.loop">
+        <circle
+          :cx="p.x*1.5+20"
+          :cy="p.y*1.5+20"
+          stroke="#de4567"
+          fill="#de4567"
+          r="2.5"
+          stroke-width="0.5"
+        />
+      </g>
+      <g v-else>
+        <circle
+
+          :cx="p.x*1.5+20"
+          :cy="p.y*1.5+20"
+          :stroke="(findactive(p.id))?'#df42df':'#222222'"
+          :fill="(findactive(p.id))?'#df42df':'#222222'"
+          r="2"
+          stroke-width="0.5"
+        />
+        <text
+          v-if="findactive(p.id)"
+          :x="p.x*1.5+20"
+          :y="p.y*1.5+16"
+          stroke="#df42df"
+          fill="#df42df"
+          font-size="20"
+        >
+          {{ tramnum(p.id) }}
+        </text>
+      </g>
     </g>
   </svg>
 </template>
@@ -75,7 +88,7 @@ export default {
     },
     tramnum (id) {
       for (const t of this.line.trams) {
-        if (t.idstop === id) return t.id
+        if (t.idstop === id) return t.id + '' + t.mode[0].toUpperCase()
       }
     }
   }
