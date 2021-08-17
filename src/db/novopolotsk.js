@@ -3,7 +3,6 @@ export default {
     moved: true,
     number: 1,
     trams: [],
-    position: [],
     currtram: 0,
     way: [{
       x: 60,
