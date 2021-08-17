@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import models from './db/models.js'
 import novopolotsk from './db/novopolotsk.js'
 Vue.use(Vuex)
-console.log(models)
+
 export default new Vuex.Store({
   state: {
     currstop: null,
@@ -34,21 +34,17 @@ export default new Vuex.Store({
     },
     ADD_TRAM (state, obj) {
       const tr = state.models[0]
-      const flp = state.line.position.filter((el) => el.idstop === 0)
-      if (flp.length > 0) return
+      const startpos = state.line.way.findIndex((el) => el.start === true)
       if (state.money >= tr.price || !state.counttrams) {
         if (state.counttrams) state.money -= tr.price
         tr.idline = obj.idline
+        tr.mode = 'from'
+        tr.depot = false
+        tr.color = tr.types[state.counttrams % tr.types.length]
         state.line.trams.push({
           ...tr,
-          idstop: 0,
+          idstop: (startpos >= 0) ? (state.line.way[startpos].id) : (0),
           id: state.counttrams + 1
-        })
-        state.line.position.push({
-          idtram: state.counttrams + 1,
-          idstop: 0,
-          count: 0,
-          mode: 'to'
         })
         state.counttrams++
         state.line.currtram++
@@ -59,106 +55,79 @@ export default new Vuex.Store({
       const trmid = state.line.trams.findIndex((el) => {
         return el.id === obj.id
       })
-      if (state.line.trams[trmid].blocked) {
-        const poscurrtram = state.line.position.filter((el) => {
-          return el.idstop === state.line.trams[trmid].idstop && el.mode === state.line.trams[trmid].mode
-        })
-        const bll = state.line.trams.filter((el) => {
-          return (el.blocked === true && el.idstop === state.line.trams[trmid].idstop)
-        })
-        console.log('blocked: ' + bll.length)
-        console.log('poscurrtram: ' + poscurrtram.length)
-        console.log(bll)
-        if (poscurrtram.length > 1 && poscurrtram.length !== bll.length) return
-        let minidbl = obj.id
-        for (let i = 0; i < bll.length; i++) {
-          if (minidbl > bll[i].id) minidbl = bll[i].id
-        }
-        if (minidbl === obj.id) {
-          console.log('yes')
-          state.line.trams[trmid].blocked = false
-        } else return
-      }
-      if (state.line.trams[trmid].mode === 'to' && state.line.trams[trmid].moved && state.line.trams[trmid].idstop < state.line.way.length - 1) {
-        state.line.trams[trmid].idstop++
-        state.currstop = state.line.way[state.line.trams[trmid].idstop].name
-        state.line.trams[trmid].enter = false
-      } else if (state.line.trams[trmid].mode === 'to' && state.line.trams[trmid].idstop >= state.line.way.length - 1) {
-        state.line.trams[trmid].mode = 'from'
-        state.line.trams[trmid].enter = false
-        const endtr = state.line.trams.filter((el) => {
-          return el.idstop === state.line.trams[trmid].idstop && state.line.trams[trmid].mode === 'from'
-        })
-        if (endtr.length > 0) state.line.trams[trmid].blocked = true
-      } else if (state.line.trams[trmid].mode === 'from' && state.line.trams[trmid].moved && state.line.trams[trmid].idstop > 0) {
-        state.line.trams[trmid].idstop--
-        state.currstop = state.line.way[state.line.trams[trmid].idstop].name
-        state.line.trams[trmid].enter = false
-      } else if (state.line.trams[trmid].mode === 'from' && state.line.trams[trmid].idstop <= 0) {
-        state.line.trams[trmid].mode = 'to'
-        state.line.trams[trmid].enter = false
-        const starttr = state.line.trams.filter((el) => {
-          return el.idstop === state.line.trams[trmid].idstop && state.line.trams[trmid].mode === 'to'
-        })
-        if (starttr.length > 0) state.line.trams[trmid].blocked = true
-      }
-      const posid = state.line.position.findIndex((el) => {
-        return el.idtram === state.line.trams[trmid].id
-      })
-      state.line.position[posid] = {
-        idtram: state.line.trams[trmid].id,
-        idstop: state.line.trams[trmid].idstop,
-        count: state.line.trams[trmid].count,
-        mode: state.line.trams[trmid].mode
-      }
-      const poscurrtram = state.line.position.filter((el) => {
-        return el.idstop === state.line.trams[trmid].idstop && el.mode === state.line.trams[trmid].mode
-      })
-      console.log(poscurrtram)
-      if (poscurrtram.length > 1) {
-        let minid = state.line.trams[trmid].id
-        for (let tr of poscurrtram) {
-          if (tr.idtram <= minid) {
-            minid = tr.idtram
+      console.log('move')
+      if (trmid < 0) return
+      const trmcurr = state.line.trams[trmid]
+      const stop = state.line.way.filter((el) => el.id === trmcurr.idstop)[0]
+      if (!trmcurr.blocked) {
+        if (stop.loop && trmcurr.moved && !trmcurr.reverse) {
+          if (trmcurr.mode === 'from') {
+            trmcurr.mode = 'to'
+            trmcurr.loops++
+            // trmcurr.enter = false
+            // trmcurr.moved = false
+          } else if (trmcurr.mode === 'to') {
+            trmcurr.mode = 'from'
+            // trmcurr.moved = false
+          }
+          trmcurr.enter = false
+          trmcurr.reverse = true
+        } else if ((!stop.loop && trmcurr.moved) || (stop.loop && trmcurr.reverse)) {
+          trmcurr.reverse = false
+          if (trmcurr.mode === 'from') {
+            if (trmcurr.idstop > 0) trmcurr.idstop--
+            state.currstop = stop
+            trmcurr.enter = false
+          } else if (trmcurr.mode === 'to') {
+            if (trmcurr.idstop < state.line.way.length - 1) trmcurr.idstop++
+            state.currstop = stop
+            trmcurr.enter = false
           }
         }
-        for (let i = 0; i < state.line.trams.length; i++) {
-          if (state.line.trams[i].id !== minid) state.line.trams[i].blocked = true
-        }
       }
-      console.log(state.line.position)
+      const nexttrams = state.line.trams.filter((el) => {
+        if (trmcurr.mode === 'to' && el.mode === 'to') return trmcurr.idstop === (el.idstop - 1)
+        if (trmcurr.mode === 'from' && el.mode === 'from') return trmcurr.idstop === (el.idstop + 1)
+      })
+      if (nexttrams.length) {
+        trmcurr.blocked = true
+      } else if (!nexttrams.length && trmcurr.blocked) {
+        trmcurr.blocked = false
+      }
+      state.line.trams[trmid] = trmcurr
     },
     ENTER_TRAM (state, obj) {
       const trmid = state.line.trams.findIndex((el) => {
         return el.id === obj.id
       })
+      // генерация пассажиропотока
       if (!state.line.trams[trmid].enter) {
         let inps = 0
-        const inpfl = state.line.pass.filter((el) => {
-          return el.instop === state.line.trams[trmid].idstop
-        })
-        for (let el of inpfl) {
-          inps += el.count
-        }
         let outps = 0
-        const outpfl = state.line.pass.filter((el) => {
-          return el.outstop === state.line.trams[trmid].idstop
+        state.line.pass.reduce((acc, curr) => {
+          if (state.line.trams[trmid].mode === 'from') {
+            if (curr.outstop === state.line.trams[trmid].idstop) {
+              inps += curr.count
+            }
+            if (curr.instop === state.line.trams[trmid].idstop) {
+              outps += curr.count
+            }
+          }
+          if (state.line.trams[trmid].mode === 'to') {
+            if (curr.instop === state.line.trams[trmid].idstop) {
+              inps += curr.count
+            }
+            if (curr.outstop === state.line.trams[trmid].idstop) {
+              outps += curr.count
+            }
+          }
         })
-        for (let el of outpfl) {
-          outps += el.count
-        }
-        if (state.line.trams[trmid].mode === 'to') {
-          state.line.trams[trmid].count -= outps
-          state.line.trams[trmid].count += inps
-          if (state.line.trams[trmid].count >= state.line.trams[trmid].max) state.trams[trmid].count = state.trams[trmid].max
-          state.money += inps * 0.1
-        }
-        if (state.line.trams[trmid].mode === 'from') {
-          state.line.trams[trmid].count += outps
-          state.line.trams[trmid].count -= inps
-          if (state.line.trams[trmid].count >= state.line.trams[trmid].max) state.trams[trmid].count = state.trams[trmid].max
-          state.money += outps * 0.1
-        }
+        console.log('pass test: ')
+        console.log(inps)
+        console.log(outps)
+        state.line.trams[trmid].count += inps
+        if (state.line.trams[trmid].count > outps) state.line.trams[trmid].count -= outps
+        state.money += inps * 0.1
         state.line.trams[trmid].enter = true
       }
     },
@@ -185,7 +154,7 @@ export default new Vuex.Store({
       const obj = {
         currstop: null,
         counttrams: 0,
-        money: state.money,
+        money: 0,
         models: state.models,
         line: state.line,
         appVersion: state.appVersion,
