@@ -3,7 +3,7 @@
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 100 50"
     width="250"
-    height="150">
+    height="140">
     <linearGradient
       id="fieldbottom"
       x1="0"
