@@ -1,6 +1,6 @@
 @font-face {
  font-family: digital; /* Гарнитура шрифта */
- src: url('./dgital.ttf'); /* Для IE5-8 */
+ src: url('./digital.ttf'); /* Для IE5-8 */
  src: local(digital), url(digital.ttf); /* Для остальных браузеров */
 }
 .digital {

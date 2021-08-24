@@ -38,7 +38,6 @@
       </g>
       <g v-else>
         <circle
-
           :cx="p.x*1.5+20"
           :cy="p.y*1.5+20"
           :stroke="(findactive(p.id))?'#df42df':'#222222'"
@@ -52,7 +51,8 @@
           :y="p.y*1.5+16"
           stroke="#df42df"
           fill="#df42df"
-          font-size="20"
+          class="digital"
+          font-size="18"
         >
           {{ tramnum(p.id) }}
         </text>
