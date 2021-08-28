@@ -8,16 +8,16 @@
       y2="1"
     >
       <stop
-        stop-color="blue"
-        stop-opacity="0.9"
+        stop-color="#1243a0"
+        stop-opacity="0.7"
         offset="0%"/>
       <stop
         stop-color="#1243a0"
-        stop-opacity="0.7"
+        stop-opacity="0.9"
         offset="40%"/>
       <stop
-        stop-color="#1243a0"
-        stop-opacity="0.9"
+        stop-color="blue"
+        stop-opacity="0.7"
         offset="60%"/>
     </linearGradient>
     <linearGradient
@@ -73,7 +73,7 @@
         y2="1"
       >
         <stop
-          stop-color="#2294e0"
+          stop-color="navy"
           stop-opacity="0.5"
           offset="0%"/>
         <stop
@@ -81,7 +81,7 @@
           stop-opacity="0.3"
           offset="20%"/>
         <stop
-          stop-color="blue"
+          stop-color="navy"
           stop-opacity="0.6"
           offset="40%"/>
         <stop
@@ -137,7 +137,7 @@
         y2="1"
       >
         <stop
-          stop-color="#2294e0"
+          stop-color="navy"
           stop-opacity="0.5"
           offset="0%"/>
         <stop
@@ -145,7 +145,7 @@
           stop-opacity="0.3"
           offset="20%"/>
         <stop
-          stop-color="blue"
+          stop-color="navy"
           stop-opacity="0.6"
           offset="40%"/>
         <stop
@@ -201,7 +201,7 @@
         y2="1"
       >
         <stop
-          stop-color="#2294e0"
+          stop-color="navy"
           stop-opacity="0.5"
           offset="0%"/>
         <stop
@@ -209,16 +209,16 @@
           stop-opacity="0.3"
           offset="20%"/>
         <stop
-          stop-color="blue"
+          stop-color="navy"
           stop-opacity="0.6"
           offset="40%"/>
         <stop
-          stop-color="#5d54c0"
+          stop-color="#3d74d0"
           stop-opacity="1"
           offset="45%"/>
         <stop
-          stop-color="#3d34a0"
-          stop-opacity="1"
+          stop-color="#3d64c0"
+          stop-opacity="0.9"
           offset="100%"/>
       </linearGradient>
       <linearGradient
@@ -229,27 +229,27 @@
         y2="1"
       >
         <stop
-          stop-color="#2d24c0"
-          stop-opacity="0.6"
+          stop-color="blue"
+          stop-opacity="0.7"
           offset="0%"/>
         <stop
-          stop-color="#2227a0"
-          stop-opacity="0.8"
+          stop-color="#2257e0"
+          stop-opacity="0.6"
           offset="20%"/>
         <stop
-          stop-color="#3d34a0"
-          stop-opacity="0.6"
+          stop-color="blue"
+          stop-opacity="0.7"
           offset="40%"/>
         <stop
-          stop-color="#2227a0"
-          stop-opacity="0.8"
+          stop-color="#2257e0"
+          stop-opacity="0.6"
           offset="60%"/>
         <stop
-          stop-color="#3d34a0"
-          stop-opacity="0.6"
+          stop-color="blue"
+          stop-opacity="0.7"
           offset="80%"/>
         <stop
-          stop-color="#2227a0"
+          stop-color="#2257e0"
           stop-opacity="0.8"
           offset="100%"/>
       </linearGradient>
