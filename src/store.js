@@ -12,6 +12,7 @@ export default new Vuex.Store({
     clientWidth: 1200,
     models: models.list,
     line: novopolotsk.line[0],
+    levels: [novopolotsk],
     appVersion: '0.3.0',
     datewrite: '',
     dateclear: ''
@@ -183,6 +184,8 @@ export default new Vuex.Store({
         state.datewrite = wd.datewrite
         state.dateclear = wd.dateclear
       }
+      console.log('levels')
+      console.log(state.levels)
     }
   },
   actions: {

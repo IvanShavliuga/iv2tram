@@ -1,5 +1,5 @@
 export default {
-  line: [{
+  line: {
     moved: true,
     number: 1,
     trams: [],
@@ -263,8 +263,7 @@ export default {
       count: 10,
       price: 0.3
     }]
-  }],
+  },
   sity: 'Novopolotsk',
-  country: 'Belarus',
-  level: 1
+  country: 'Belarus'
 }
