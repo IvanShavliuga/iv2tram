@@ -6,11 +6,13 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    currstop: null,
+    currstop: novopolotsk.depot,
+    depot: novopolotsk.depot,
     counttrams: 0,
     money: 0,
     clientWidth: 1200,
     models: models.list,
+    map: novopolotsk.mapcity,
     line: novopolotsk.line[0],
     levels: [novopolotsk],
     appVersion: '0.3.0',
@@ -35,7 +37,6 @@ export default new Vuex.Store({
     },
     ADD_TRAM (state, obj) {
       const tr = state.models[0]
-      const startpos = state.line.way.findIndex((el) => el.start === true)
       if (state.money >= tr.price || !state.counttrams) {
         if (state.counttrams) state.money -= tr.price
         tr.idline = obj.idline
@@ -44,12 +45,12 @@ export default new Vuex.Store({
         tr.color = tr.types[state.counttrams % tr.types.length]
         state.line.trams.push({
           ...tr,
-          idstop: (startpos >= 0) ? (state.line.way[startpos].id) : (0),
+          idstop: state.depot.id,
           id: state.counttrams + 1
         })
         state.counttrams++
         state.line.currtram++
-        state.currstop = state.line.way[0].name
+        state.currstop = state.depot
       }
     },
     MOVE_TRAM (state, obj) {
@@ -59,7 +60,8 @@ export default new Vuex.Store({
       console.log('move')
       if (trmid < 0) return
       const trmcurr = state.line.trams[trmid]
-      const stop = state.line.way.filter((el) => el.id === trmcurr.idstop)[0]
+      const idposmap = state.line.map.filter((el) => el === trmcurr.idstop)[0]
+      const stop = state.levels[0].stopslist.filter((el) => el.id === idposmap)[0]
       if (!trmcurr.blocked) {
         if (stop.loop && trmcurr.moved && !trmcurr.reverse) {
           if (trmcurr.mode === 'from') {
@@ -150,22 +152,22 @@ export default new Vuex.Store({
       }
       localStorage.iv2tramdata = JSON.stringify(obj)
     },
-    'STORAGE_CLS' (state) {
+    'STORAGE_CLS' (state, dispatch) {
       console.log('clear')
       const obj = {
-        currstop: null,
+        currstop: novopolotsk.depot,
         counttrams: 0,
         money: 0,
-        models: state.models,
-        line: state.line,
+        models: models.list,
+        line: novopolotsk.line[0],
         appVersion: state.appVersion,
         datewrite: new Date().toString(),
         dateclear: new Date().toString()
       }
+      console.log('models')
+      console.log(models.list)
       obj.line.trams = []
       obj.line.currtram = 0
-      obj.line.position = []
-      state.currstop = null
       state.counttrams = 0
       state.appVersion = state.appVersion
       state.datewrite = new Date().toString()
@@ -176,7 +178,8 @@ export default new Vuex.Store({
       console.log('get')
       if (localStorage.iv2tramdata) {
         const wd = JSON.parse(localStorage.iv2tramdata)
-        if (wd.appVersion === state.appVersion) state.models = wd.models
+        if (wd.appVersion !== state.appVersion) return
+        state.models = wd.models
         state.currstop = wd.currstop
         state.counttrams = wd.counttrams
         state.money = wd.money
