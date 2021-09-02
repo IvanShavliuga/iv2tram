@@ -1,208 +1,10 @@
 export default {
-  stopslist: [{
-    x: 60,
-    y: 10,
-    vectors: [{
-      x: -10,
-      y: 0
-    }],
-    name: 'Олимпийская',
-    start: false,
-    loop: true,
-    id: 0,
-    instop: 0,
-    outstop: 0
-  }, {
-    x: 50,
-    y: 10,
-    vectors: [{
-      x: -10,
-      y: 0
-    }],
-    name: '7-я школа',
-    start: false,
-    loop: false,
-    id: 1,
-    instop: 0,
-    outstop: 0
-  }, {
-    x: 40,
-    y: 10,
-    vectors: [{
-      x: -10,
-      y: 0
-    }],
-    name: 'Комсомольская',
-    start: false,
-    loop: false,
-    id: 2,
-    instop: 0,
-    outstop: 0
-  }, {
-    x: 30,
-    y: 10,
-    vectors: [{
-      x: -10,
-      y: 0
-    }],
-    name: 'Университет',
-    start: false,
-    loop: false,
-    id: 3,
-    instop: 0,
-    outstop: 0
-  }, {
-    x: 20,
-    y: 10,
-    vectors: [{
-      x: -10,
-      y: 0
-    }],
-    name: 'Автовокзал',
-    start: false,
-    loop: false,
-    id: 4,
-    instop: 0,
-    outstop: 0
-  }, {
-    x: 10,
-    y: 10,
-    vectors: [{
-      x: 0,
-      y: 10
-    }],
-    name: 'Техникум',
-    start: false,
-    loop: false,
-    id: 5,
-    instop: 0,
-    outstop: 0
-  }, {
-    x: 10,
-    y: 20,
-    vectors: [{
-      x: 0,
-      y: 10
-    }],
-    name: 'Депо',
-    start: true,
-    loop: false,
-    id: 6,
-    instop: 0,
-    outstop: 0
-  }, {
-    x: 10,
-    y: 30,
-    vectors: [{
-      x: 0,
-      y: 10
-    }],
-    name: 'Подстанция',
-    start: false,
-    loop: false,
-    id: 7,
-    instop: 0,
-    outstop: 0
-  }, {
-    x: 10,
-    y: 40,
-    vectors: [{
-      x: 10,
-      y: 0
-    }],
-    name: 'Автопарк',
-    start: false,
-    loop: false,
-    id: 8,
-    instop: 0,
-    outstop: 0
-  }, {
-    x: 20,
-    y: 40,
-    vectors: [{
-      x: 0,
-      y: 10
-    }],
-    name: 'ЖБИ',
-    start: false,
-    loop: false,
-    id: 9,
-    instop: 0,
-    outstop: 0
-  }, {
-    x: 20,
-    y: 50,
-    vectors: [{
-      x: 0,
-      y: 10
-    }],
-    name: 'КПД',
-    start: false,
-    loop: false,
-    id: 10,
-    instop: 0,
-    outstop: 0
-  }, {
-    x: 20,
-    y: 60,
-    vectors: [{
-      x: 10,
-      y: 0
-    }],
-    name: 'Заводуправление',
-    start: false,
-    loop: false,
-    id: 11,
-    instop: 0,
-    outstop: 0
-  }, {
-    x: 30,
-    y: 60,
-    vectors: [{
-      x: 10,
-      y: 0
-    }],
-    name: 'Полимир',
-    start: false,
-    loop: false,
-    id: 12,
-    instop: 0,
-    outstop: 0
-  }, {
-    x: 40,
-    y: 60,
-    vectors: [{
-      x: 0,
-      y: 0
-    }],
-    name: 'Нейтрон',
-    start: false,
-    loop: true,
-    id: 13,
-    instop: 0,
-    outstop: 0
-  }],
-  depot: {
-    x: 10,
-    y: 20,
-    vectors: [{
-      x: 0,
-      y: 10
-    }],
-    name: 'Депо',
-    start: true,
-    loop: false,
-    id: 6,
-    instop: 0,
-    outstop: 0
-  },
-  line: [{
+  line: {
     moved: true,
     number: 1,
     trams: [],
     currtram: 0,
-    map: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-    way: [ /* {
+    way: [{
       x: 60,
       y: 10,
       vectors: [{
@@ -384,7 +186,7 @@ export default {
       id: 13,
       instop: 0,
       outstop: 0
-    } */ ],
+    }],
     pass: [{
       instop: 0,
       outstop: 3,
@@ -461,8 +263,7 @@ export default {
       count: 10,
       price: 0.3
     }]
-  }],
+  },
   sity: 'Novopolotsk',
-  country: 'Belarus',
-  level: 1
+  country: 'Belarus'
 }

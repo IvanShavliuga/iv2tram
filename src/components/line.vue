@@ -76,12 +76,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['line', 'clientWidth', 'stop', 'tramsline', 'currtram']),
+    ...mapGetters(['stopslist', 'line', 'clientWidth', 'stop', 'tramsline', 'currtram']),
     trams () {
       return this.tramsline
     },
     gettrampos () {
-      const l = this.line.way.length - 1
+      const l = this.line.map.length - 1
       const p = this.currtram.idstop
       if (this.clientWidth <= 432) {
         return 0
@@ -94,19 +94,19 @@ export default {
       return (!p) ? (0) : ((p < l) ? 1 : 2)
     },
     getcurrstop () {
-      const l = this.line.way.length - 1
+      const l = this.line.map.length - 1
       const p = this.currtram.idstop
-      const prev = this.line.way[(!p) ? 0 : ((p <= l - 1) ? (p - 1) : l - 2)]
-      const curr = this.line.way[(!p) ? 1 : ((p <= l - 1) ? (p) : l - 1)]
-      const next = this.line.way[(!p) ? (2) : ((p < l - 1) ? (p + 1) : l)]
+      const prev = this.line.map[(!p) ? 0 : ((p <= l - 1) ? (p - 1) : l - 2)]
+      const curr = this.line.map[(!p) ? 1 : ((p <= l - 1) ? (p) : l - 1)]
+      const next = this.line.map[(!p) ? (2) : ((p < l - 1) ? (p + 1) : l)]
       if (this.clientWidth <= 432) {
         return [this.line.way[p]]
       }
       if (this.clientWidth <= 645) {
-        if (!p) return [prev, curr]
-        else return [curr, next]
+        if (!p) return [this.stopslist[prev], this.stopslist[curr]]
+        else return [this.stopslist[curr], this.stopslist[next]]
       }
-      return [prev, curr, next]
+      return [this.stopslist[prev], this.stopslist[curr], this.stopslist[next]]
     },
     getinpass () {
       let countps = 0
