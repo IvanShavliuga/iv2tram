@@ -11,7 +11,7 @@
       {{ filterprice }} $
     </text>
     <g
-      v-for="(p, k) in line.way"
+      v-for="(p, k) in stopslist"
       :key="k"
     >
       <line
@@ -70,7 +70,7 @@ svg {
 import { mapGetters } from 'vuex'
 export default {
   computed: {
-    ...mapGetters(['line', 'currtram', 'money', 'clientWidth']),
+    ...mapGetters(['line', 'stopslist', 'currtram', 'money', 'clientWidth']),
     filterprice () {
       if (!this.money) return '0.0'
       const el = ('' + this.money).split('.')
