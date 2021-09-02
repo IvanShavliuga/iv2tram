@@ -202,7 +202,7 @@ export default {
     trams: [],
     currtram: 0,
     map: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-    way: [{
+    way: [ /* {
       x: 60,
       y: 10,
       vectors: [{
@@ -384,7 +384,7 @@ export default {
       id: 13,
       instop: 0,
       outstop: 0
-    }],
+    } */ ],
     pass: [{
       instop: 0,
       outstop: 3,
@@ -464,8 +464,5 @@ export default {
   }],
   sity: 'Novopolotsk',
   country: 'Belarus',
-  level: 1,
-  generateWays () {
-
-  }
+  level: 1
 }
