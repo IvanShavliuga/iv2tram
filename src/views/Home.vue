@@ -16,7 +16,6 @@ export default {
 }
 </script>
 
-<!-- Use preprocessors via the lang attribute! e.g. <style lang="scss"> -->
 <style>
 button {
   border: 1px solid #238923;

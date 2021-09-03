@@ -30,7 +30,6 @@ export default {
       })
     },
     newtramcl () {
-      console.log('new tram')
       this.$store.dispatch('addTram', {
         idline: this.line.number
       })
@@ -47,50 +46,4 @@ export default {
   font-size: 15px;
   font-weight: bold;
 }
-/* span {
-  display: inline-block;
-  width: 75px;
-  padding-left: 5px;
-  text-align: left;
-}
-@media (max-width: 590px) {
-  span {
-    font-size: 15px;
-  }
-}
-span[title="id"] {
-  width: 25px;
-}
-span[title="mode"] {
-  width: 45px;
-}
-span[title="count"] {
-  width: 65px;
-}
-span:first-child {
-  width: 15px;
-}
-span:nth-child(2) {
-  width: 25px;
-}
-span:nth-child(3),
-span:nth-child(4) {
-  width: 45px;
-}
-span:nth-child(5) {
-  width: 45px;
-}
-,
-span:nth-child(8) {
-  width: 45px;
-}
-span:nth-child(10),
-span:nth-child(11) {
-  width: 55px;
-}
-span:nth-child(7),
-span:nth-child(9),
-span:nth-child(12) {
-  width: 35px;
-} */
 </style>
