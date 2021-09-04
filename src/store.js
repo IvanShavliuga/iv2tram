@@ -39,6 +39,10 @@ export default new Vuex.Store({
     ADD_TRAM (state, obj) {
       const tr = state.models[0]
       if (state.money >= tr.price || !state.counttrams) {
+        const prev = state.stopslist.filter(el => el.id === state.depot.id - 1)[0]
+        const next = state.stopslist.filter(el => el.id === state.depot.id + 1)[0]
+        const tramstop = state.line.trams.filter(el => el.idstop === prev.id || el.idstop === next.id || el.idstop === state.depot.id)
+        if (tramstop.length) return
         if (state.counttrams) state.money -= tr.price
         tr.idline = obj.idline
         tr.mode = 'from'
