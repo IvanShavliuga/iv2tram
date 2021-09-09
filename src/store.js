@@ -39,6 +39,10 @@ export default new Vuex.Store({
     ADD_TRAM (state, obj) {
       const tr = state.models[0]
       if (state.money >= tr.price || !state.counttrams) {
+        const prev = state.stopslist.filter(el => el.id === state.depot.id - 1)[0]
+        const next = state.stopslist.filter(el => el.id === state.depot.id + 1)[0]
+        const tramstop = state.line.trams.filter(el => el.idstop === prev.id || el.idstop === next.id || el.idstop === state.depot.id)
+        if (tramstop.length) return
         if (state.counttrams) state.money -= tr.price
         tr.idline = obj.idline
         tr.mode = 'from'
@@ -59,9 +63,7 @@ export default new Vuex.Store({
       const trmid = state.line.trams.findIndex((el) => {
         return el.id === obj.id
       })
-      console.log('move')
       if (trmid < 0) return
-      console.log('trmid ' + trmid)
       const trmcurr = state.line.trams[trmid]
       /* получение текущей остановки */
       const idposmap = state.line.map.filter((el) => el === trmcurr.idstop)[0]
@@ -69,7 +71,6 @@ export default new Vuex.Store({
       if (!trmcurr.blocked) {
         /* Разворотное кольцо */
         if (stop.loop && trmcurr.moved && !trmcurr.reverse) {
-          console.log('loop')
           if (trmcurr.mode === 'from') {
             trmcurr.mode = 'to'
             trmcurr.loops++
@@ -85,21 +86,14 @@ export default new Vuex.Store({
           console.log('reverse return')
           return
         } else if (!stop.loop && trmcurr.moved) {
-          console.log('not loop')
           if (trmcurr.mode === 'from') {
-            console.log('from not loop')
             if (trmcurr.idstop >= 0) trmcurr.idstop--
-            console.log(trmcurr.idstop)
           } else if (trmcurr.mode === 'to') {
-            console.log('to not loop')
             if (trmcurr.idstop <= state.line.map.length - 1) trmcurr.idstop++
-            console.log(trmcurr.idstop)
           }
           const nextposmap = state.line.map.filter((el) => el === trmcurr.idstop)[0]
           state.currstop = state.stopslist.filter((el) => el.id === nextposmap)[0]
           trmcurr.enter = false
-          console.log(nextposmap)
-          console.log(state.currstop)
         }
       }
       const nexttrams = state.line.trams.filter((el) => {
@@ -139,9 +133,6 @@ export default new Vuex.Store({
             }
           }
         })
-        console.log('pass test: ')
-        console.log(inps)
-        console.log(outps)
         state.line.trams[trmid].count += inps
         if (state.line.trams[trmid].count > outps) state.line.trams[trmid].count -= outps
         state.money += inps * 0.1
@@ -192,8 +183,6 @@ export default new Vuex.Store({
         datewrite: new Date().toString(),
         dateclear: new Date().toString()
       }
-      console.log('models')
-      console.log(models.list)
       obj.line.trams = []
       obj.line.currtram = 0
       state.counttrams = 0
@@ -203,7 +192,6 @@ export default new Vuex.Store({
       localStorage.iv2tramdata = JSON.stringify(obj)
     },
     STORAGE_GET (state) {
-      console.log('get')
       if (localStorage.iv2tramdata) {
         const wd = JSON.parse(localStorage.iv2tramdata)
         if (wd.appVersion !== state.appVersion) return
@@ -215,8 +203,6 @@ export default new Vuex.Store({
         state.datewrite = wd.datewrite
         state.dateclear = wd.dateclear
       }
-      console.log('levels')
-      console.log(state.levels)
     }
   },
   actions: {

@@ -37,7 +37,7 @@ export default {
       default: 0
     },
     linenumber: {
-      type: Number,
+      type: [Number, String],
       default: 0
     },
     idstop: {
